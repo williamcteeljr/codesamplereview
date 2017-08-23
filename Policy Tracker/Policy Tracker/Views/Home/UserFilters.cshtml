@@ -1,0 +1,41 @@
+﻿<script type="text/javascript">
+    $(document).ready(function () {
+        $("#WLMyFilter").change(function () {
+            var filter = $("#WLMyFilter").val();
+            grid = ASPxClientControl.GetControlCollection().GetByName('WorkingListGrid');
+            grid.ApplyFilter(filter);
+        });
+
+        $("#DeleteMyFilter").click(function () {
+            var userId = $("#CurrUserId").val();
+            var filterName = $("#WLMyFilter option:selected").text();
+            ora.Dialog.Confirm({
+                id: "ConfirmFilterDelete",
+                message: "Are you sure you want to delete filter'" + filterName + "'",
+                AcceptCallback: function () {
+                    ora.Ajax.Ajax({
+                        url: "policytracker/Home/DeleteFilterSetting?userId=" + userId + "&filterName=" + filterName,
+                        dataType: "HTML",
+                        type: "DELETE",
+                        successCallback: function (data) { $("#UserFilterPanel").html(data); }
+                    });
+                },
+            })
+
+        });
+    });
+</script>
+
+<div class="form-group">
+    <label class="col-lg-2 col-sm-2 control-label">Filters:</label>
+    <div class="col-lg-10 col-sm-10">
+        <div class="input-group input-group-sm">
+            @Html.DropDownList("WLMyFilter", new SelectList(ViewBag.MyFilters, "Expression", "Name"), "", new { @class = "form-control input-sm", @title = "Apply previously saved filters you have created" })
+            <span class="input-group-btn">
+                <button id="DeleteMyFilter" type="button" class="btn btn-danger" title="Delete Selected Filter"><i class="fa fa-trash-o"></i></button>
+            </span>
+        </div>
+    </div>
+</div>
+
+

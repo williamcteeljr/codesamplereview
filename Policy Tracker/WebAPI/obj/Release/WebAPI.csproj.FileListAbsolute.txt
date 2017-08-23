@@ -1,0 +1,440 @@
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\WebAPI.dll.config
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\WebAPI.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\WebAPI.pdb
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\Antlr3.Runtime.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\BusinessServices.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DataAccess.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DomainModel.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\Microsoft.Data.Edm.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\Microsoft.Data.OData.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\Microsoft.Web.Infrastructure.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\Newtonsoft.Json.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\Platform.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\System.Net.Http.Formatting.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\System.Web.Helpers.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\System.Web.Http.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\System.Web.Http.OData.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\System.Web.Http.Tracing.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\System.Web.Http.WebHost.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\System.Web.Mvc.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\System.Web.Optimization.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\System.Web.Providers.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\System.Web.Razor.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\System.Web.WebPages.Deployment.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\System.Web.WebPages.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\System.Web.WebPages.Razor.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\WebGrease.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.Web.Mvc.v16.2.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.Web.v16.2.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.Data.v16.2.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DynaFormWrapper.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\itextsharp.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\log4net.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.XtraCharts.v16.2.Web.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.XtraCharts.v16.2.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.Web.ASPxHtmlEditor.v16.2.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.Web.ASPxPivotGrid.v16.2.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.PivotGrid.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.XtraReports.v16.2.Web.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.Printing.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.Web.ASPxRichEdit.v16.2.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.Web.ASPxScheduler.v16.2.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.XtraScheduler.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.Web.ASPxSpellChecker.v16.2.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.Web.ASPxSpreadsheet.v16.2.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.Web.ASPxTreeList.v16.2.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.XtraReports.v16.2.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.RichEdit.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.SpellChecker.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.Spreadsheet.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\Microsoft.Web.Services2.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.Charts.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.Web.Resources.v16.2.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.Utils.v16.2.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.Office.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.DataAccess.v16.2.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.Sparkline.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.XtraGauges.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.Pdf.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.Xpo.v16.2.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.CodeParser.v16.2.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\BusinessServices.pdb
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DataAccess.pdb
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DomainModel.pdb
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\Platform.pdb
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\Newtonsoft.Json.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\System.Net.Http.Formatting.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\System.Web.Helpers.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\System.Web.Http.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\System.Web.Http.OData.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\System.Web.Http.Tracing.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\System.Web.Http.WebHost.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\System.Web.Mvc.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\System.Web.Razor.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\System.Web.WebPages.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\System.Web.WebPages.Deployment.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\System.Web.WebPages.Razor.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\Microsoft.Data.Edm.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\Microsoft.Data.OData.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.Web.Mvc.v16.2.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.Web.v16.2.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.Data.v16.2.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\itextsharp.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\log4net.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.XtraCharts.v16.2.Web.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.XtraCharts.v16.2.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.Web.ASPxHtmlEditor.v16.2.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.Web.ASPxPivotGrid.v16.2.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.PivotGrid.v16.2.Core.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.XtraReports.v16.2.Web.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.Printing.v16.2.Core.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.Web.ASPxRichEdit.v16.2.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.Web.ASPxScheduler.v16.2.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.XtraScheduler.v16.2.Core.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.Web.ASPxSpellChecker.v16.2.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.Web.ASPxSpreadsheet.v16.2.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.Web.ASPxTreeList.v16.2.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.XtraReports.v16.2.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.RichEdit.v16.2.Core.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.Spreadsheet.v16.2.Core.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.Utils.v16.2.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.Office.v16.2.Core.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.DataAccess.v16.2.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.Sparkline.v16.2.Core.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.XtraGauges.v16.2.Core.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.Pdf.v16.2.Core.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\DevExpress.Xpo.v16.2.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\de\Microsoft.Data.Edm.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\es\Microsoft.Data.Edm.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\fr\Microsoft.Data.Edm.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\it\Microsoft.Data.Edm.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ja\Microsoft.Data.Edm.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ko\Microsoft.Data.Edm.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ru\Microsoft.Data.Edm.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\de\Microsoft.Data.OData.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\es\Microsoft.Data.OData.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\fr\Microsoft.Data.OData.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\it\Microsoft.Data.OData.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ja\Microsoft.Data.OData.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ko\Microsoft.Data.OData.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ru\Microsoft.Data.OData.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\de\DevExpress.Web.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\es\DevExpress.Web.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ja\DevExpress.Web.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ru\DevExpress.Web.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\de\DevExpress.Data.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\es\DevExpress.Data.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ja\DevExpress.Data.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ru\DevExpress.Data.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\de\DevExpress.XtraCharts.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\es\DevExpress.XtraCharts.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ja\DevExpress.XtraCharts.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ru\DevExpress.XtraCharts.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\de\DevExpress.Web.ASPxHtmlEditor.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\es\DevExpress.Web.ASPxHtmlEditor.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ja\DevExpress.Web.ASPxHtmlEditor.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ru\DevExpress.Web.ASPxHtmlEditor.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\de\DevExpress.PivotGrid.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\es\DevExpress.PivotGrid.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ja\DevExpress.PivotGrid.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ru\DevExpress.PivotGrid.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\de\DevExpress.XtraReports.v16.2.Web.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\es\DevExpress.XtraReports.v16.2.Web.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ja\DevExpress.XtraReports.v16.2.Web.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ru\DevExpress.XtraReports.v16.2.Web.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\de\DevExpress.Printing.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\es\DevExpress.Printing.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ja\DevExpress.Printing.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ru\DevExpress.Printing.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\de\DevExpress.Web.ASPxRichEdit.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\es\DevExpress.Web.ASPxRichEdit.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ja\DevExpress.Web.ASPxRichEdit.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ru\DevExpress.Web.ASPxRichEdit.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\de\DevExpress.Web.ASPxScheduler.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\es\DevExpress.Web.ASPxScheduler.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ja\DevExpress.Web.ASPxScheduler.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ru\DevExpress.Web.ASPxScheduler.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\de\DevExpress.XtraScheduler.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\es\DevExpress.XtraScheduler.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ja\DevExpress.XtraScheduler.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ru\DevExpress.XtraScheduler.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\de\DevExpress.Web.ASPxSpellChecker.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\es\DevExpress.Web.ASPxSpellChecker.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ja\DevExpress.Web.ASPxSpellChecker.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ru\DevExpress.Web.ASPxSpellChecker.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\de\DevExpress.Web.ASPxSpreadsheet.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\es\DevExpress.Web.ASPxSpreadsheet.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ja\DevExpress.Web.ASPxSpreadsheet.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ru\DevExpress.Web.ASPxSpreadsheet.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\de\DevExpress.Web.ASPxTreeList.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\es\DevExpress.Web.ASPxTreeList.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ja\DevExpress.Web.ASPxTreeList.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ru\DevExpress.Web.ASPxTreeList.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\de\DevExpress.XtraReports.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\es\DevExpress.XtraReports.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ja\DevExpress.XtraReports.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ru\DevExpress.XtraReports.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\de\DevExpress.RichEdit.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\es\DevExpress.RichEdit.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ja\DevExpress.RichEdit.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ru\DevExpress.RichEdit.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\de\DevExpress.Spreadsheet.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\es\DevExpress.Spreadsheet.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ja\DevExpress.Spreadsheet.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ru\DevExpress.Spreadsheet.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\de\DevExpress.Utils.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\es\DevExpress.Utils.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ja\DevExpress.Utils.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ru\DevExpress.Utils.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\de\DevExpress.Office.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\es\DevExpress.Office.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ja\DevExpress.Office.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ru\DevExpress.Office.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\de\DevExpress.DataAccess.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\es\DevExpress.DataAccess.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ja\DevExpress.DataAccess.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ru\DevExpress.DataAccess.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\de\DevExpress.Sparkline.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\es\DevExpress.Sparkline.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ja\DevExpress.Sparkline.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ru\DevExpress.Sparkline.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\de\DevExpress.XtraGauges.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\es\DevExpress.XtraGauges.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ja\DevExpress.XtraGauges.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ru\DevExpress.XtraGauges.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\de\DevExpress.Pdf.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\es\DevExpress.Pdf.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ja\DevExpress.Pdf.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ru\DevExpress.Pdf.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\de\DevExpress.Xpo.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\es\DevExpress.Xpo.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ja\DevExpress.Xpo.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\bin\ru\DevExpress.Xpo.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\obj\Release\WebAPI.csprojResolveAssemblyReference.cache
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\obj\Release\WebAPI.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\WebAPI\obj\Release\WebAPI.pdb
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\WebAPI.dll.config
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\WebAPI.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\WebAPI.pdb
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\Antlr3.Runtime.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\BusinessServices.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DataAccess.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DomainModel.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\Microsoft.Data.Edm.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\Microsoft.Data.OData.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\Microsoft.Web.Infrastructure.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\Newtonsoft.Json.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\Platform.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\System.Net.Http.Formatting.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\System.Web.Helpers.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\System.Web.Http.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\System.Web.Http.OData.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\System.Web.Http.Tracing.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\System.Web.Http.WebHost.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\System.Web.Mvc.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\System.Web.Optimization.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\System.Web.Providers.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\System.Web.Razor.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\System.Web.WebPages.Deployment.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\System.Web.WebPages.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\System.Web.WebPages.Razor.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\WebGrease.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.Web.Mvc.v16.2.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.Web.v16.2.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.Data.v16.2.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DynaFormWrapper.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\itextsharp.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\log4net.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.XtraCharts.v16.2.Web.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.XtraCharts.v16.2.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.Web.ASPxHtmlEditor.v16.2.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.Web.ASPxPivotGrid.v16.2.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.PivotGrid.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.XtraReports.v16.2.Web.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.Printing.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.Web.ASPxRichEdit.v16.2.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.Web.ASPxScheduler.v16.2.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.XtraScheduler.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.Web.ASPxSpellChecker.v16.2.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.Web.ASPxSpreadsheet.v16.2.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.Web.ASPxTreeList.v16.2.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.XtraReports.v16.2.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.RichEdit.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.SpellChecker.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.Spreadsheet.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\Microsoft.Web.Services2.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.Charts.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.Web.Resources.v16.2.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.Utils.v16.2.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.Office.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.DataAccess.v16.2.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.Sparkline.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.XtraGauges.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.Pdf.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.Xpo.v16.2.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.CodeParser.v16.2.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\BusinessServices.pdb
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DataAccess.pdb
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DomainModel.pdb
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\Platform.pdb
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\Newtonsoft.Json.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\System.Net.Http.Formatting.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\System.Web.Helpers.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\System.Web.Http.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\System.Web.Http.OData.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\System.Web.Http.Tracing.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\System.Web.Http.WebHost.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\System.Web.Mvc.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\System.Web.Razor.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\System.Web.WebPages.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\System.Web.WebPages.Deployment.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\System.Web.WebPages.Razor.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\Microsoft.Data.Edm.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\Microsoft.Data.OData.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.Web.Mvc.v16.2.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.Web.v16.2.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.Data.v16.2.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\itextsharp.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\log4net.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.XtraCharts.v16.2.Web.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.XtraCharts.v16.2.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.Web.ASPxHtmlEditor.v16.2.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.Web.ASPxPivotGrid.v16.2.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.PivotGrid.v16.2.Core.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.XtraReports.v16.2.Web.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.Printing.v16.2.Core.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.Web.ASPxRichEdit.v16.2.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.Web.ASPxScheduler.v16.2.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.XtraScheduler.v16.2.Core.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.Web.ASPxSpellChecker.v16.2.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.Web.ASPxSpreadsheet.v16.2.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.Web.ASPxTreeList.v16.2.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.XtraReports.v16.2.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.RichEdit.v16.2.Core.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.Spreadsheet.v16.2.Core.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.Utils.v16.2.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.Office.v16.2.Core.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.DataAccess.v16.2.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.Sparkline.v16.2.Core.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.XtraGauges.v16.2.Core.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.Pdf.v16.2.Core.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\DevExpress.Xpo.v16.2.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\de\Microsoft.Data.Edm.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\es\Microsoft.Data.Edm.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\fr\Microsoft.Data.Edm.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\it\Microsoft.Data.Edm.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ja\Microsoft.Data.Edm.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ko\Microsoft.Data.Edm.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ru\Microsoft.Data.Edm.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\de\Microsoft.Data.OData.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\es\Microsoft.Data.OData.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\fr\Microsoft.Data.OData.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\it\Microsoft.Data.OData.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ja\Microsoft.Data.OData.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ko\Microsoft.Data.OData.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ru\Microsoft.Data.OData.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\de\DevExpress.Web.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\es\DevExpress.Web.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ja\DevExpress.Web.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ru\DevExpress.Web.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\de\DevExpress.Data.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\es\DevExpress.Data.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ja\DevExpress.Data.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ru\DevExpress.Data.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\de\DevExpress.XtraCharts.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\es\DevExpress.XtraCharts.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ja\DevExpress.XtraCharts.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ru\DevExpress.XtraCharts.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\de\DevExpress.Web.ASPxHtmlEditor.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\es\DevExpress.Web.ASPxHtmlEditor.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ja\DevExpress.Web.ASPxHtmlEditor.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ru\DevExpress.Web.ASPxHtmlEditor.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\de\DevExpress.PivotGrid.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\es\DevExpress.PivotGrid.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ja\DevExpress.PivotGrid.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ru\DevExpress.PivotGrid.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\de\DevExpress.XtraReports.v16.2.Web.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\es\DevExpress.XtraReports.v16.2.Web.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ja\DevExpress.XtraReports.v16.2.Web.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ru\DevExpress.XtraReports.v16.2.Web.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\de\DevExpress.Printing.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\es\DevExpress.Printing.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ja\DevExpress.Printing.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ru\DevExpress.Printing.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\de\DevExpress.Web.ASPxRichEdit.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\es\DevExpress.Web.ASPxRichEdit.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ja\DevExpress.Web.ASPxRichEdit.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ru\DevExpress.Web.ASPxRichEdit.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\de\DevExpress.Web.ASPxScheduler.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\es\DevExpress.Web.ASPxScheduler.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ja\DevExpress.Web.ASPxScheduler.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ru\DevExpress.Web.ASPxScheduler.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\de\DevExpress.XtraScheduler.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\es\DevExpress.XtraScheduler.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ja\DevExpress.XtraScheduler.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ru\DevExpress.XtraScheduler.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\de\DevExpress.Web.ASPxSpellChecker.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\es\DevExpress.Web.ASPxSpellChecker.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ja\DevExpress.Web.ASPxSpellChecker.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ru\DevExpress.Web.ASPxSpellChecker.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\de\DevExpress.Web.ASPxSpreadsheet.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\es\DevExpress.Web.ASPxSpreadsheet.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ja\DevExpress.Web.ASPxSpreadsheet.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ru\DevExpress.Web.ASPxSpreadsheet.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\de\DevExpress.Web.ASPxTreeList.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\es\DevExpress.Web.ASPxTreeList.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ja\DevExpress.Web.ASPxTreeList.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ru\DevExpress.Web.ASPxTreeList.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\de\DevExpress.XtraReports.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\es\DevExpress.XtraReports.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ja\DevExpress.XtraReports.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ru\DevExpress.XtraReports.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\de\DevExpress.RichEdit.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\es\DevExpress.RichEdit.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ja\DevExpress.RichEdit.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ru\DevExpress.RichEdit.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\de\DevExpress.Spreadsheet.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\es\DevExpress.Spreadsheet.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ja\DevExpress.Spreadsheet.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ru\DevExpress.Spreadsheet.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\de\DevExpress.Utils.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\es\DevExpress.Utils.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ja\DevExpress.Utils.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ru\DevExpress.Utils.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\de\DevExpress.Office.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\es\DevExpress.Office.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ja\DevExpress.Office.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ru\DevExpress.Office.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\de\DevExpress.DataAccess.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\es\DevExpress.DataAccess.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ja\DevExpress.DataAccess.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ru\DevExpress.DataAccess.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\de\DevExpress.Sparkline.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\es\DevExpress.Sparkline.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ja\DevExpress.Sparkline.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ru\DevExpress.Sparkline.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\de\DevExpress.XtraGauges.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\es\DevExpress.XtraGauges.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ja\DevExpress.XtraGauges.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ru\DevExpress.XtraGauges.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\de\DevExpress.Pdf.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\es\DevExpress.Pdf.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ja\DevExpress.Pdf.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ru\DevExpress.Pdf.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\de\DevExpress.Xpo.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\es\DevExpress.Xpo.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ja\DevExpress.Xpo.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\bin\ru\DevExpress.Xpo.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\obj\Release\WebAPI.csprojResolveAssemblyReference.cache
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\obj\Release\WebAPI.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\WebAPI\obj\Release\WebAPI.pdb

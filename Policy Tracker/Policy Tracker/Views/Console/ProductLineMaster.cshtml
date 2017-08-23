@@ -1,0 +1,463 @@
+﻿@{
+    ViewBag.Title = "Product Line Detail";
+    Layout = "~/Views/Shared/_DevExtremeLayout.cshtml";
+}
+
+@Scripts.Render("~/angular/filters")
+@Scripts.Render("~/angular/factories")
+@Scripts.Render("~/angular/controllers")
+@Scripts.Render("~/plugins/ui-bootstrap")
+@Scripts.Render("~/plugins/fcsaNumber")
+
+<script type="text/javascript">
+    $(document).ready(function () { $('#openConsoleSettings').click(function () { $('#consoleSettingsModal').modal('show') }) })
+</script>
+
+<style>
+    .btn-app-mod {
+        padding: 12px 16px !important;
+        margin: initial !important;
+        min-width: initial !important;
+        height: inherit !important;
+    }
+
+    .dx-dropdowneditor-icon {
+        background-image: none;
+        width: 100%;
+    }
+
+    .dx-datagrid .dx-column-lines > td {
+        border-right: 1px solid #0a0a0a;
+    }
+
+    .tableBorder {
+        border: 1px solid black !important;
+        border-left: 2px solid black !important;
+        border-right: 2px solid black !important;
+    }
+
+    .forecasting {
+        background-color: white;
+    }
+
+    .consoleToolbar {
+        position: absolute;
+        left: 0px;
+        right: 0px;
+    }
+
+    .console {
+        position: absolute;
+        top: 60px;
+        bottom: 0px;
+        overflow: auto;
+        right: 0px;
+        left: 0px;
+    }
+
+    .dx-tabs-nav-button {
+        position: absolute !important;
+        height: 100% !important;
+    }
+
+    .dx-tabs .dx-tabs-nav-button-right {
+        margin-top: 0px !important;
+    }
+
+    .dx-button-has-icon:not(.dx-button-has-text) {
+        padding: 0px !important;
+    }
+    /*.dx-tab { padding:0px !important;}*/
+
+    .dx-tab-selected {
+        background-color: #3c8dbc !important;
+        opacity: .65;
+    }
+
+        .dx-tab-selected .dx-item-content .dx-tab-text {
+            color: white !important;
+        }
+
+    .header {
+        font-weight: bold;
+        font-size: 16px;
+    }
+</style>
+
+<div ng-app="ProductLineMaster" ng-controller="consoleController" ng-cloak>
+
+    <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Product Line Console Help</h3>
+        </div>
+        <div class="modal-body">
+            <p>* When looking at a future year only a full year summary is possible.</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+        </div>
+    </script>
+
+    <!-- #region Console Toolbar -->
+    <div class="consoleToolbar">
+        <div class="col-lg-12 fillContainer">
+            <div class="panel panel-primary borderless stacked">
+                <div class="panel-body bg-navy fillContainer" style="color:white;padding:5px 5px!important">
+                    <div class="col-lg-4 col-md-5 col-sm-6 col-xs-6 noPadding">
+                        <p class="lead" style="margin-bottom:0px;line-height: 45px;">
+                            <button type="button" class="btn btn-default dropdown-toggle btn-lg" id="openConsoleSettings" title="Edit Console Settings"><i class="fa fa-wrench"></i> &nbsp;&nbsp;{{productLine.Name}} {{month.Name}} {{year}}</button>
+                            <a class="btn btn-app btn-app-mod" ng-click="reloadPage()">
+                                <i class="fa fa-refresh"></i>
+                            </a>
+                            <a class="btn btn-app btn-app-mod" ng-show="impactNotes.length > 0" ng-click="showNotes = !showNotes">
+                                <span class="badge bg-red">{{impactNotes.length}}</span>
+                                <i class="fa fa-bullhorn"></i>
+                            </a>
+                        </p>
+                    </div>
+                    <div class="col-lg-8 col-md-7 col-sm-6 col-xs-6 noPadding">
+                        <div id="scrolledtabs">
+                            <div dx-tabs="scrolledTabsOptions"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="consoleSettingsModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="exampleModalLabel">Console Settings</h4>
+                </div>
+
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label style="float:none;font-size:15px">Product Line</label>
+                        <select ng-model="consoleSettings.productLine" ng-options="pl as pl.Name for pl in ProductLines track by pl.ProductLineId" ng-change="resetForecast = true" class="form-control"></select>
+                    </div>
+
+                    <div class="form-group">
+                        <label style="float:none;font-size:15px">Underwriter</label>
+                        <select ng-model="consoleSettings.underwriter" ng-options="uw as uw.Name for uw in Underwriters track by uw.UserId" ng-change="resetForecast = true" class="form-control"></select>
+                    </div>
+
+                    <div class="form-group">
+                        <label style="float:none;font-size:15px">Year</label>
+                        <select ng-model="consoleSettings.year" ng-options="y for y in Years" ng-change="resetForecast = true" class="form-control"></select>
+                    </div>
+
+                    <div class="form-group">
+                        <label style="float:none;font-size:15px">Branch</label>
+                        <select ng-model="consoleSettings.branch" ng-options="b as b.displayText for b in branches track by b.branch" ng-change="resetForecast = true" class="form-control"></select>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="updateConsoleSettings()">Update Console</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- #endregion -->
+    <div class="console" ng-show="viewing == views[0]">
+        <section class="content">
+            <div class="error-page">
+                <h1 class="text-yellow" style="font-size:40px; font-weight:300">Loading Product Line Summary...</h1>
+            </div>
+        </section>
+    </div>
+
+    <div class="console" ng-show="viewing == views[1]">
+        <section class="content">
+            <div class="error-page">
+                <h2 class="text-red" style="font-size:40px; font-weight:300">01000010 01110010 01101111</h2>
+                <div class="error-content" style="margin-left:0px">
+                    <h3><i class="fa fa-warning text-red"></i> Oops! Something went wrong.</h3>
+                    <p>
+                        Refresh the page or select a different month to try again...
+                    </p>
+                </div>
+            </div><!-- /.error-page -->
+        </section>
+    </div>
+
+
+
+    <div class="row console" style="margin-right:0px!important" ng-show="viewing == views[2]">
+        <div class="col-lg-12" ng-show="showNotes">
+            <div class="box box-solid">
+                <div class="box-header with-border text-red">
+                    <h3 class="box-title">Important Notes</h3>
+                </div>
+                <div class="box-body">
+                    <div class="post" ng-repeat="note in impactNotes">
+                        <div class="user-block">
+                            <h4 class="pull-left"><i class="fa fa-user"></i></h4>
+                            <span class="username">
+                                <a href="#">{{note.Name}} (Created By)</a>
+                            </span>
+                            <span class="description">{{note.ImpactDate | date:"shortDate"}} (Impact Date)</span>
+                        </div><!-- /.user-block -->
+                        <p>
+                            {{note.Comment}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- #region New Business/Renewal Chart & Month Summary -->
+        <div class="consoleSummaries">
+            <div class="col-lg-4 col-md-6">
+                <div class="box box-solid">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">{{month.Name}} Renewals & New Business Summary</h3>
+                    </div><!-- /.box-header -->
+                    <div class="box-body">
+                        <div class="table-responsive" style="font-size:16px">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th class="success">Renewals</th>
+                                        <th class="primary">New Business</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="header">Renewals/Submissions</td>
+                                        <td class="success">{{data.RETotal}}</td>
+                                        <td class="primary">{{data.NBTotal}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="header">Policy Count Bound</td>
+                                        <td class="success">{{data.REBoundTotal}}</td>
+                                        <td class="primary">{{data.NBBoundTotal}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="header">Total Booked Premium</td>
+                                        <td class="success">{{data.RETotalBookedPremium | currency:"$":0}}</td>
+                                        <td class="primary">{{data.NBTotalBookedPremium | currency:"$":0}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="header">Total Written Premium</td>
+                                        <td class="success">{{data.RETotalWrittenPremium | currency:"$":0}}</td>
+                                        <td class="primary">{{data.NBTotalWrittenPremium | currency:"$":0}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="header">Non-renewed/Unsuccesful Policy Count</td>
+                                        <td class="success">{{data.RETotalUnsuccessful}}</td>
+                                        <td class="primary">{{data.NBTotalUnsuccessful}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="header">Non-renewed/Unsuccesful Premium</td>
+                                        <td class="success">{{data.RETotalUnsuccessfulPremium | currency:"$":0}}</td>
+                                        <td class="primary">{{data.NBTotalUnsuccessfulPremium | currency:"$":0}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="header">Quoted Policy Count</td>
+                                        <td class="success">{{data.REQuotedTotal}}</td>
+                                        <td class="primary">{{data.NBQuotedTotal}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="header">Outstanding Quoted & Un-Quoted Premium</td>
+                                        <td class="success">{{data.REOutstandingPremium | currency:"$":0}}</td>
+                                        <td class="primary">{{data.NBOutstandingPremium | currency:"$":0}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="header">Declined Policy Count</td>
+                                        <td class="success">{{data.REDeclinedTotal}}</td>
+                                        <td class="primary">{{data.NBDeclinedTotal}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="header">Declined Premium</td>
+                                        <td class="success">{{data.REDeclinedPremium | currency:"$":0}}</td>
+                                        <td class="primary">{{data.NBDeclinedPremium | currency:"$":0}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="header">Expiring Booked Premium</td>
+                                        <td class="success">{{data.REExpiringBookedPremium | currency:"$":0}}</td>
+                                        <td class="primary"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="header">Expiring Written Premium</td>
+                                        <td class="success">{{data.REExpiringWrittenPremium | currency:"$":0}}</td>
+                                        <td class="primary"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="header">Expiring Premium lost</td>
+                                        <td class="success">{{data.REExpiringPremiumLost | currency:"$":0}}</td>
+                                        <td class="primary"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="header">Policy Retention Ratio</td>
+                                        <td class="success">{{data.REPolicyRetentionRatio | number : 2}} %</td>
+                                        <td class="primary"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="header">Premium Retention Ratio</td>
+                                        <td class="success">{{data.REPremiumRetentionRatio}} %</td>
+                                        <td class="primary"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="header">Hit Ratio Count</td>
+                                        <td class="success"></td>
+                                        <td class="primary">{{data.NBHitRatio}} %</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="header">Hit Ratio Premium</td>
+                                        <td class="success"></td>
+                                        <td class="primary">{{data.NBHitRatioPremium}} %</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="header">N/R Change</td>
+                                        <td class="success">{{data.RenewalNetRateChange | number : 4}} %</td>
+                                        <td class="primary"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div><!-- /.box-body -->
+                </div>
+            </div>
+
+            <div class="col-lg-8 col-md-6">
+                <div class="box box-solid">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">{{month.Name}} Summary</h3>
+                    </div><!-- /.box-header -->
+                    <div class="box-body">
+                        <table class="table table-hover" style="font-size:16px">
+                            <tbody>
+                                <tr>
+                                    <td class="header"><strong>Total Booked Production (Not including Installments)</strong></td>
+                                    <td>{{data.TotalBooked | currency:"$":0}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="header">Installments</td>
+                                    <td>{{data.TotalInstallments | currency:"$":0}} <span title="Prior Years Installment Amount" ng-show="data.PriorInstallments != 0">/ {{data.PriorInstallments | currency:"$":0}}</span></td>
+                                    <td class="primary tableBorder" style="border-top:2px solid black;max-width:200px"><p class="lead" style="margin-bottom:0px"><strong>Forecasting</strong></p></td>
+                                </tr>
+                                <tr>
+                                    <td class="header">Endorsement/Audit Premium</td>
+                                    <td>{{data.TotalAuditAndEndorsementAmount | currency:"$":0}}</td>
+                                    <td class="tableBorder forecasting">
+                                        <input title="Outstanding Quoted & Un-Quoted Premium" type="text" class="form-control" ng-model="forecastAmount" fcsa-number="{ prepend: '$' }" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="header bg-yellow">Total Booked Renewal & New Business Plus Installments</td>
+                                    <td class="bg-yellow">{{data.TotalBookedPlusInstallments | currency:"$":0}}</td>
+                                    <td class="tableBorder forecasting bg-yellow">{{formatNumeric(forecastAmount) + parseFloat(data.TotalBookedPlusInstallments) | currency:"$":0}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="header bg-red-active">Budget</td>
+                                    <td class="bg-red-active">{{data.Budget | currency:"$":0}}</td>
+                                    <td class="tableBorder forecasting bg-red-active">{{data.Budget | currency:"$":0}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="header">Over/Under Budget Percentage</td>
+                                    <td>{{data.OverUnderPercent}} %</td>
+                                    <td class="tableBorder">{{(((formatNumeric(forecastAmount) + parseFloat(data.TotalBookedPlusInstallments)) / parseFloat(data.Budget)) - 1) * 100 | number:2}} %</td>
+                                </tr>
+                                <tr>
+                                    <td class="header warning">{{year}} YTD Actual</td>
+                                    <td class="warning">{{data.YTDActual | currency:"$":0}}</td>
+                                    <td class="tableBorder forecasting warning">{{formatNumeric(forecastAmount) + parseFloat(data.YTDActual) + parseFloat(totalForecastAmount) | currency:"$":0}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="header bg-red-active">{{year}} YTD Budget</td>
+                                    <td class="bg-red-active">{{data.YTDBudget | currency:"$":0}}</td>
+                                    <td class="tableBorder forecasting bg-red-active">{{data.YTDBudget | currency:"$":0}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="header">{{year}} YTD Over/Under Budget</td>
+                                    <td>{{data.YTDOverUnderBudgetPercent}} %</td>
+                                    <td class="tableBorder">{{(((formatNumeric(forecastAmount) + parseFloat(data.YTDActual) + parseFloat(totalForecastAmount))/parseFloat(data.YTDBudget)) - 1) * 100 | number:2}} %</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div><!-- /.box-body -->
+                </div>
+            </div>
+
+            <div class="col-lg-8 col-md-6">
+                <div class="box box-solid">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">{{month.Name}} Branch Summary</h3>
+                    </div><!-- /.box-header -->
+                    <div class="box-body">
+                        <div class="table-responsive" style="font-size:16px">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Branch</th>
+                                        <th>Renewals</th>
+                                        <th>Expiring Booked</th>
+                                        <th>NB Written</th>
+                                        <th>NB Booked</th>
+                                        <th>Audits</th>
+                                        <th>Endorsements</th>
+                                        <th>Installments</th>
+                                        <th>Totals</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="branchSum in branchSummary">
+                                        <td class="header">{{branchSum.Territory}}</td>
+                                        <td>{{branchSum.RenewalWrittenPremium | currency:"$":0}}</td>
+                                        <td>{{branchSum.ExpiringBookedPremium | currency:"$":0}}</td>
+                                        <td>{{branchSum.NewBusinessWritten | currency:"$":0}}</td>
+                                        <td>{{branchSum.NewBusinessBookedPremium | currency:"$":0}}</td>
+                                        <td>{{branchSum.AuditPremium | currency:"$":0}}</td>
+                                        <td>{{branchSum.EndorsementPremium | currency:"$":0}}</td>
+                                        <td>{{branchSum.Installments | currency:"$":0}}</td>
+                                        <td>{{branchSum.Total | currency:"$":0}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div><!-- /.box-body -->
+                </div>
+            </div>
+        </div>
+        <!-- #endregion -->
+        <!-- #region Risk Grid -->
+        <div class="consoleRiskGrids">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="box box-solid" ng-show="month.Month && showDetail">
+                    <div class="box-header with-border" style="background-color: #001F3F;color: white;">
+                        <h3 class="box-title"><strong> --- {{month.Name}} RENEWALS ---</strong></h3>
+                        <div class="box-tools pull-right">
+                            <button class="btn btn-box-tool text-white dx-font-l" ng-click="exportRenewals()"><i class="fa fa-file"></i></button>
+                            <button class="btn btn-box-tool" data-widget="collapse" title="Collapse"><i class="fa fa-minus"></i></button>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <div id="plc_renewalRisks" dx-data-grid="renewalGridSettings"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="box box-solid" ng-show="month.Month && showDetail">
+                    <div class="box-header with-border" style="background-color: #001F3F;color: white;">
+                        <h3 class="box-title"><strong> --- {{month.Name}} NEW BUSINESS --- </strong></h3>
+                        <div class="box-tools pull-right">
+                            <button class="btn btn-box-tool text-white dx-font-l" ng-click="exportNewBusiness()"><i class="fa fa-file"></i></button>
+                            <button class="btn btn-box-tool" data-widget="collapse" title="Collapse"><i class="fa fa-minus"></i></button>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <div id="plc_newBusinessRisks" dx-data-grid="newBusinessGridSettings"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- #endregion -->
+    </div>
+</div>

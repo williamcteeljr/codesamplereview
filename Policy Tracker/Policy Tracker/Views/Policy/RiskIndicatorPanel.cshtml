@@ -1,0 +1,82 @@
+﻿@model PolicyTracker.DomainModel.Policy.Risk
+@using PolicyTracker.DomainModel.Policy
+
+@{
+    string panelClass = "";
+    string icon = "";
+    if (Model.Status == RiskStatus.SUBMISSION.DisplayText)
+    {
+        panelClass = "callout-info";
+        icon = "fa-inbox";
+    }
+    else if (Model.Status == RiskStatus.INVOLVED.DisplayText)
+    {
+        panelClass = "callout-info";
+        icon = "fa-ban";
+    }
+    else if (Model.Status == RiskStatus.QUOTE.DisplayText)
+    {
+        panelClass = "callout-warning";
+        icon = "fa-clipboard";
+    }
+    else if (Model.Status == RiskStatus.DECLINED.DisplayText)
+    {
+        panelClass = "callout-danger";
+        icon = "fa-ban";
+    }
+    else if (Model.Status == RiskStatus.LOST.DisplayText || Model.Status == RiskStatus.CANCELED.Value)
+    {
+        panelClass = "callout-danger";
+        icon = "fa-frown-o";
+    }
+    else if (Model.Status == RiskStatus.BOUND.DisplayText || Model.Status == RiskStatus.ISSUED.DisplayText)
+    {
+        panelClass = "callout-success";
+        icon = "fa-money";
+    }
+}
+
+
+<div class="callout @panelClass">
+    <h4>@Model.Status.ToUpper()</h4>
+</div>
+
+@if (Model.QuoteType == "AP" || Model.QuoteType == "AVC")
+{
+    <div class="box">
+        <div class="box-body">
+            <button id="CommercialQuote" type="button" class="btn btn-block btn-default"><i class="fa fa-tasks"></i> Commercial Rating App <i class="fa fa-external-link"></i></button>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $("#CommercialQuote").click(function () {
+                        @*var userId = $("#UserId").val();
+                var ctrlNumber = $("#RiskEditForm #ControlNumber").val();
+                var URL = '/quoteengine/pages/RiskQuoteWizard.aspx?UID=' + userId + '&PID=1&STRID=3&WIZID=3&CTN=' + ctrlNumber + '&QOT=@Model.QuoteType&WKS=@(Convert.ToInt32(Model.PolicySuffix) > 1 ? "Renewal" : "Quote")&QID=@Model.Id';
+                newwindow = window.open(URL, "Preview Amendment", 'height=' + '800' + ',width=' + '800' + ', scrollbars=yes , location=no, resizable=no, status=yes');
+                if (window.focus) { newwindow.focus() }*@
+
+                        ora.Dialog.SimpleAjax({
+                            Id: "CommercialRatingApp", Title: "Commercial Rating App",
+                            MinWidth: function () { return $(window).width(); },
+                            MaxWidth: function () { return $(window).width(); },
+                            Width: function () { return $(window).width(); },
+                            MaxHeight: function () { return $(window).height(); },
+                            MinHeight: function () { return $(window).height(); },
+                            Height: function () { return $(window).height(); },
+                            Url: "/policytracker/policy/CommercialRatingApp/@Model.Id",
+                            buttons: [{
+                                text: "Close Commercial Application", id: "Cancel", name: "CloseCommercialApp",
+                                click: function () {
+                                    $(this).dialog('destroy').remove();
+                                    ora.Risk.RiskEdit(@Model.Id);
+                                }
+                            }]
+                        })
+                    });
+                });
+            </script>
+        </div>
+    </div>
+}
+
+

@@ -1,0 +1,48 @@
+﻿@model PolicyTracker.DomainModel.Security.SecurityAccess
+
+<form id="SecurityAccessForm" class="oraForm form-horizontal">
+    @Html.ValidationSummary()
+
+    <div class="box">
+        <div class="box-body">
+            @Html.HiddenFor(m => Model.Id)
+
+            <div class="form-group">
+                <label class="col-lg-2 col-sm-3 control-label">Role:</label>
+                <div class="col-lg-10 col-sm-9">
+                    @Html.DropDownListFor(m => @Model.RoleId, new SelectList(ViewBag.Roles, "RoleId", "RoleName"), "", new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-lg-2 col-sm-3 control-label">Resource:</label>
+                <div class="col-lg-10 col-sm-9">
+                    @Html.DropDownListFor(m => @Model.ResourceId, new SelectList(ViewBag.Resources, "Id", "Name"), "", new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="col-lg-offset-2">
+                <div class="checkbox">
+                    <label>
+                        @Html.CheckBoxFor(m => Model.Read)
+                        Can Read
+                    </label>
+                </div>
+
+                <div class="checkbox">
+                    <label>
+                        @Html.CheckBoxFor(m => Model.Write)
+                        Can Write
+                    </label>
+                </div>
+
+                <div class="checkbox">
+                    <label>
+                        @Html.CheckBoxFor(m => Model.Delete)
+                        Can Delete
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

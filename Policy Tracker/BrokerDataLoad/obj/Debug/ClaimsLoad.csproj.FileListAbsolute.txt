@@ -1,0 +1,16 @@
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\BrokerDataLoad\bin\Debug\ClaimsLoad.exe.config
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\BrokerDataLoad\bin\Debug\ClaimsLoad.exe
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\BrokerDataLoad\bin\Debug\ClaimsLoad.pdb
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\BrokerDataLoad\bin\Debug\EntityFramework.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\BrokerDataLoad\bin\Debug\EntityFramework.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\BrokerDataLoad\obj\Debug\ClaimsLoad.exe
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\BrokerDataLoad\obj\Debug\ClaimsLoad.pdb
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\BrokerDataLoad\obj\Debug\ClaimsLoad.csprojResolveAssemblyReference.cache
+C:\TFSProjects\Policy_Tracker\Policy Tracker\BrokerDataLoad\bin\Debug\ClaimsLoad.exe.config
+C:\TFSProjects\Policy_Tracker\Policy Tracker\BrokerDataLoad\bin\Debug\ClaimsLoad.exe
+C:\TFSProjects\Policy_Tracker\Policy Tracker\BrokerDataLoad\bin\Debug\ClaimsLoad.pdb
+C:\TFSProjects\Policy_Tracker\Policy Tracker\BrokerDataLoad\bin\Debug\EntityFramework.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\BrokerDataLoad\bin\Debug\EntityFramework.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\BrokerDataLoad\obj\Debug\ClaimsLoad.csprojResolveAssemblyReference.cache
+C:\TFSProjects\Policy_Tracker\Policy Tracker\BrokerDataLoad\obj\Debug\ClaimsLoad.exe
+C:\TFSProjects\Policy_Tracker\Policy Tracker\BrokerDataLoad\obj\Debug\ClaimsLoad.pdb

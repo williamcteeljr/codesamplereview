@@ -1,0 +1,394 @@
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\UnitTesting.dll.config
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\UnitTesting.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\UnitTesting.pdb
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\BusinessServices.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\CsvHelper.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DataAccess.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DomainModel.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\Platform.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ServiceGateway.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\WebAPI.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.Web.Mvc.v16.2.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.Web.v16.2.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.Data.v16.2.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DynaFormWrapper.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\Newtonsoft.Json.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\System.Web.Mvc.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\itextsharp.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\log4net.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\System.Web.Http.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\System.Net.Http.Formatting.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\System.Web.Optimization.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\System.Web.Http.WebHost.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.XtraCharts.v16.2.Web.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.XtraCharts.v16.2.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.Web.ASPxHtmlEditor.v16.2.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.Web.ASPxPivotGrid.v16.2.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.PivotGrid.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.XtraReports.v16.2.Web.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.Printing.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.Web.ASPxRichEdit.v16.2.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.Web.ASPxScheduler.v16.2.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.XtraScheduler.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.Web.ASPxSpellChecker.v16.2.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.Web.ASPxSpreadsheet.v16.2.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.Web.ASPxTreeList.v16.2.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.XtraReports.v16.2.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.RichEdit.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.SpellChecker.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.Spreadsheet.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\Microsoft.Web.Services2.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\System.Web.Razor.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\System.Web.WebPages.Razor.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\System.Web.WebPages.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.Charts.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.Web.Resources.v16.2.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.Utils.v16.2.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.Office.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.DataAccess.v16.2.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.Sparkline.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.XtraGauges.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.Pdf.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.Xpo.v16.2.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.CodeParser.v16.2.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\BusinessServices.pdb
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DataAccess.pdb
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DomainModel.pdb
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\Platform.pdb
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ServiceGateway.pdb
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\WebAPI.pdb
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\CsvHelper.pdb
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\CsvHelper.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.Web.Mvc.v16.2.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.Web.v16.2.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.Data.v16.2.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\Newtonsoft.Json.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\System.Web.Mvc.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\itextsharp.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\log4net.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\System.Web.Http.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\System.Net.Http.Formatting.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\System.Web.Http.WebHost.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.XtraCharts.v16.2.Web.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.XtraCharts.v16.2.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.Web.ASPxHtmlEditor.v16.2.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.Web.ASPxPivotGrid.v16.2.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.PivotGrid.v16.2.Core.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.XtraReports.v16.2.Web.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.Printing.v16.2.Core.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.Web.ASPxRichEdit.v16.2.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.Web.ASPxScheduler.v16.2.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.XtraScheduler.v16.2.Core.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.Web.ASPxSpellChecker.v16.2.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.Web.ASPxSpreadsheet.v16.2.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.Web.ASPxTreeList.v16.2.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.XtraReports.v16.2.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.RichEdit.v16.2.Core.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.Spreadsheet.v16.2.Core.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\System.Web.Razor.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\System.Web.WebPages.Razor.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\System.Web.WebPages.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.Utils.v16.2.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.Office.v16.2.Core.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.DataAccess.v16.2.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.Sparkline.v16.2.Core.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.XtraGauges.v16.2.Core.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.Pdf.v16.2.Core.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\DevExpress.Xpo.v16.2.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\de\DevExpress.Web.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\es\DevExpress.Web.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ja\DevExpress.Web.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ru\DevExpress.Web.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\de\DevExpress.Data.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\es\DevExpress.Data.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ja\DevExpress.Data.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ru\DevExpress.Data.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\de\DevExpress.XtraCharts.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\es\DevExpress.XtraCharts.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ja\DevExpress.XtraCharts.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ru\DevExpress.XtraCharts.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\de\DevExpress.Web.ASPxHtmlEditor.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\es\DevExpress.Web.ASPxHtmlEditor.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ja\DevExpress.Web.ASPxHtmlEditor.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ru\DevExpress.Web.ASPxHtmlEditor.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\de\DevExpress.PivotGrid.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\es\DevExpress.PivotGrid.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ja\DevExpress.PivotGrid.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ru\DevExpress.PivotGrid.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\de\DevExpress.XtraReports.v16.2.Web.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\es\DevExpress.XtraReports.v16.2.Web.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ja\DevExpress.XtraReports.v16.2.Web.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ru\DevExpress.XtraReports.v16.2.Web.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\de\DevExpress.Printing.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\es\DevExpress.Printing.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ja\DevExpress.Printing.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ru\DevExpress.Printing.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\de\DevExpress.Web.ASPxRichEdit.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\es\DevExpress.Web.ASPxRichEdit.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ja\DevExpress.Web.ASPxRichEdit.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ru\DevExpress.Web.ASPxRichEdit.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\de\DevExpress.Web.ASPxScheduler.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\es\DevExpress.Web.ASPxScheduler.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ja\DevExpress.Web.ASPxScheduler.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ru\DevExpress.Web.ASPxScheduler.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\de\DevExpress.XtraScheduler.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\es\DevExpress.XtraScheduler.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ja\DevExpress.XtraScheduler.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ru\DevExpress.XtraScheduler.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\de\DevExpress.Web.ASPxSpellChecker.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\es\DevExpress.Web.ASPxSpellChecker.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ja\DevExpress.Web.ASPxSpellChecker.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ru\DevExpress.Web.ASPxSpellChecker.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\de\DevExpress.Web.ASPxSpreadsheet.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\es\DevExpress.Web.ASPxSpreadsheet.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ja\DevExpress.Web.ASPxSpreadsheet.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ru\DevExpress.Web.ASPxSpreadsheet.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\de\DevExpress.Web.ASPxTreeList.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\es\DevExpress.Web.ASPxTreeList.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ja\DevExpress.Web.ASPxTreeList.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ru\DevExpress.Web.ASPxTreeList.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\de\DevExpress.XtraReports.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\es\DevExpress.XtraReports.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ja\DevExpress.XtraReports.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ru\DevExpress.XtraReports.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\de\DevExpress.RichEdit.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\es\DevExpress.RichEdit.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ja\DevExpress.RichEdit.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ru\DevExpress.RichEdit.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\de\DevExpress.Spreadsheet.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\es\DevExpress.Spreadsheet.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ja\DevExpress.Spreadsheet.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ru\DevExpress.Spreadsheet.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\de\DevExpress.Utils.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\es\DevExpress.Utils.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ja\DevExpress.Utils.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ru\DevExpress.Utils.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\de\DevExpress.Office.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\es\DevExpress.Office.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ja\DevExpress.Office.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ru\DevExpress.Office.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\de\DevExpress.DataAccess.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\es\DevExpress.DataAccess.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ja\DevExpress.DataAccess.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ru\DevExpress.DataAccess.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\de\DevExpress.Sparkline.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\es\DevExpress.Sparkline.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ja\DevExpress.Sparkline.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ru\DevExpress.Sparkline.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\de\DevExpress.XtraGauges.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\es\DevExpress.XtraGauges.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ja\DevExpress.XtraGauges.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ru\DevExpress.XtraGauges.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\de\DevExpress.Pdf.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\es\DevExpress.Pdf.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ja\DevExpress.Pdf.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ru\DevExpress.Pdf.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\de\DevExpress.Xpo.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\es\DevExpress.Xpo.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ja\DevExpress.Xpo.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\bin\Debug\ru\DevExpress.Xpo.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\obj\Debug\UnitTesting.csprojResolveAssemblyReference.cache
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\obj\Debug\UnitTesting.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\UnitTesting\obj\Debug\UnitTesting.pdb
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\UnitTesting.dll.config
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\UnitTesting.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\UnitTesting.pdb
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\BusinessServices.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\CsvHelper.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DataAccess.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DomainModel.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\Platform.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ServiceGateway.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\WebAPI.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.Web.Mvc.v16.2.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.Web.v16.2.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.Data.v16.2.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DynaFormWrapper.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\Newtonsoft.Json.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\System.Web.Mvc.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\itextsharp.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\log4net.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\System.Web.Http.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\System.Net.Http.Formatting.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\System.Web.Optimization.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\System.Web.Http.WebHost.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.XtraCharts.v16.2.Web.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.XtraCharts.v16.2.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.Web.ASPxHtmlEditor.v16.2.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.Web.ASPxPivotGrid.v16.2.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.PivotGrid.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.XtraReports.v16.2.Web.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.Printing.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.Web.ASPxRichEdit.v16.2.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.Web.ASPxScheduler.v16.2.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.XtraScheduler.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.Web.ASPxSpellChecker.v16.2.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.Web.ASPxSpreadsheet.v16.2.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.Web.ASPxTreeList.v16.2.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.XtraReports.v16.2.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.RichEdit.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.SpellChecker.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.Spreadsheet.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\Microsoft.Web.Services2.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\System.Web.Razor.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\System.Web.WebPages.Razor.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\System.Web.WebPages.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.Charts.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.Web.Resources.v16.2.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.Utils.v16.2.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.Office.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.DataAccess.v16.2.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.Sparkline.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.XtraGauges.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.Pdf.v16.2.Core.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.Xpo.v16.2.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.CodeParser.v16.2.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\BusinessServices.pdb
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DataAccess.pdb
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DomainModel.pdb
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\Platform.pdb
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ServiceGateway.pdb
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\WebAPI.pdb
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\CsvHelper.pdb
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\CsvHelper.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.Web.Mvc.v16.2.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.Web.v16.2.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.Data.v16.2.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\Newtonsoft.Json.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\System.Web.Mvc.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\itextsharp.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\log4net.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\System.Web.Http.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\System.Net.Http.Formatting.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\System.Web.Http.WebHost.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.XtraCharts.v16.2.Web.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.XtraCharts.v16.2.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.Web.ASPxHtmlEditor.v16.2.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.Web.ASPxPivotGrid.v16.2.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.PivotGrid.v16.2.Core.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.XtraReports.v16.2.Web.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.Printing.v16.2.Core.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.Web.ASPxRichEdit.v16.2.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.Web.ASPxScheduler.v16.2.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.XtraScheduler.v16.2.Core.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.Web.ASPxSpellChecker.v16.2.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.Web.ASPxSpreadsheet.v16.2.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.Web.ASPxTreeList.v16.2.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.XtraReports.v16.2.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.RichEdit.v16.2.Core.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.Spreadsheet.v16.2.Core.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\System.Web.Razor.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\System.Web.WebPages.Razor.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\System.Web.WebPages.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.Utils.v16.2.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.Office.v16.2.Core.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.DataAccess.v16.2.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.Sparkline.v16.2.Core.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.XtraGauges.v16.2.Core.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.Pdf.v16.2.Core.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\DevExpress.Xpo.v16.2.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\de\DevExpress.Web.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\es\DevExpress.Web.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ja\DevExpress.Web.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ru\DevExpress.Web.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\de\DevExpress.Data.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\es\DevExpress.Data.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ja\DevExpress.Data.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ru\DevExpress.Data.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\de\DevExpress.XtraCharts.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\es\DevExpress.XtraCharts.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ja\DevExpress.XtraCharts.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ru\DevExpress.XtraCharts.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\de\DevExpress.Web.ASPxHtmlEditor.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\es\DevExpress.Web.ASPxHtmlEditor.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ja\DevExpress.Web.ASPxHtmlEditor.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ru\DevExpress.Web.ASPxHtmlEditor.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\de\DevExpress.PivotGrid.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\es\DevExpress.PivotGrid.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ja\DevExpress.PivotGrid.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ru\DevExpress.PivotGrid.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\de\DevExpress.XtraReports.v16.2.Web.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\es\DevExpress.XtraReports.v16.2.Web.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ja\DevExpress.XtraReports.v16.2.Web.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ru\DevExpress.XtraReports.v16.2.Web.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\de\DevExpress.Printing.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\es\DevExpress.Printing.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ja\DevExpress.Printing.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ru\DevExpress.Printing.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\de\DevExpress.Web.ASPxRichEdit.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\es\DevExpress.Web.ASPxRichEdit.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ja\DevExpress.Web.ASPxRichEdit.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ru\DevExpress.Web.ASPxRichEdit.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\de\DevExpress.Web.ASPxScheduler.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\es\DevExpress.Web.ASPxScheduler.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ja\DevExpress.Web.ASPxScheduler.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ru\DevExpress.Web.ASPxScheduler.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\de\DevExpress.XtraScheduler.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\es\DevExpress.XtraScheduler.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ja\DevExpress.XtraScheduler.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ru\DevExpress.XtraScheduler.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\de\DevExpress.Web.ASPxSpellChecker.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\es\DevExpress.Web.ASPxSpellChecker.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ja\DevExpress.Web.ASPxSpellChecker.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ru\DevExpress.Web.ASPxSpellChecker.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\de\DevExpress.Web.ASPxSpreadsheet.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\es\DevExpress.Web.ASPxSpreadsheet.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ja\DevExpress.Web.ASPxSpreadsheet.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ru\DevExpress.Web.ASPxSpreadsheet.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\de\DevExpress.Web.ASPxTreeList.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\es\DevExpress.Web.ASPxTreeList.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ja\DevExpress.Web.ASPxTreeList.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ru\DevExpress.Web.ASPxTreeList.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\de\DevExpress.XtraReports.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\es\DevExpress.XtraReports.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ja\DevExpress.XtraReports.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ru\DevExpress.XtraReports.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\de\DevExpress.RichEdit.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\es\DevExpress.RichEdit.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ja\DevExpress.RichEdit.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ru\DevExpress.RichEdit.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\de\DevExpress.Spreadsheet.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\es\DevExpress.Spreadsheet.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ja\DevExpress.Spreadsheet.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ru\DevExpress.Spreadsheet.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\de\DevExpress.Utils.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\es\DevExpress.Utils.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ja\DevExpress.Utils.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ru\DevExpress.Utils.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\de\DevExpress.Office.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\es\DevExpress.Office.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ja\DevExpress.Office.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ru\DevExpress.Office.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\de\DevExpress.DataAccess.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\es\DevExpress.DataAccess.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ja\DevExpress.DataAccess.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ru\DevExpress.DataAccess.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\de\DevExpress.Sparkline.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\es\DevExpress.Sparkline.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ja\DevExpress.Sparkline.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ru\DevExpress.Sparkline.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\de\DevExpress.XtraGauges.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\es\DevExpress.XtraGauges.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ja\DevExpress.XtraGauges.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ru\DevExpress.XtraGauges.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\de\DevExpress.Pdf.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\es\DevExpress.Pdf.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ja\DevExpress.Pdf.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ru\DevExpress.Pdf.v16.2.Core.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\de\DevExpress.Xpo.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\es\DevExpress.Xpo.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ja\DevExpress.Xpo.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\bin\Debug\ru\DevExpress.Xpo.v16.2.resources.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\obj\Debug\UnitTesting.csprojResolveAssemblyReference.cache
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\obj\Debug\UnitTesting.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\UnitTesting\obj\Debug\UnitTesting.pdb

@@ -1,0 +1,45 @@
+﻿@*@model PolicyTracker.DomainModel.Policy.Risk
+
+@Html.DevExpress().ComboBoxFor(m => Model.AirportId,
+    settings =>
+    {
+        //var isEnabled = true;
+        //if ((Model.QuoteType == "AP" || Model.QuoteType == "AVC") && Model.Status == "Issued") isEnabled = false;
+        settings.Name = "LocationAirportId";
+        //settings.Enabled = isEnabled;
+        settings.SelectedIndex = 0;
+        settings.Properties.DropDownWidth = 550;
+        settings.Properties.DropDownStyle = DropDownStyle.DropDownList;
+        settings.CallbackRouteValues = new { Controller = "Policy", Action = "LocationsEditAirportComboBox" };
+        settings.Properties.CallbackPageSize = 30;
+        settings.Properties.FilterMinLength = 1;
+        settings.Properties.IncrementalFilteringDelay = 30;
+        settings.Properties.ClearButton.Visibility = AutoBoolean.True;
+        settings.Properties.TextFormatString = "[{0}] {1} [State: {2}]";
+        settings.Properties.TextField = "AirportName";
+        settings.Properties.ValueField = "AirportID";
+        settings.Properties.ValueType = typeof(string);
+        settings.ControlStyle.CssClass = "form-control";
+
+        settings.Properties.Columns.Add("AirportID", "AirportID", 60);
+        settings.Properties.Columns.Add("AirportName", "AirportName", 130);
+        settings.Properties.Columns.Add("State", "State", 100);
+        settings.Properties.Columns.Add("City", "City", 100);
+        settings.Properties.Columns.Add("AirportUse", "AirportUse", 60);
+
+        settings.Properties.ClientSideEvents.SelectedIndexChanged = "ora.Risk.AirportIndexChange";
+
+        settings.ShowModelErrors = true;
+        //settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.None;
+
+        settings.PreRender = (s, e) =>
+        {
+            MVCxComboBox combo = s as MVCxComboBox;
+            if (!String.IsNullOrEmpty(Model.AirportId))
+            {
+                combo.Value = Model.AirportId;
+                combo.DataBind();
+            }
+        };
+    }
+).BindList(DXServiceLocator.AirportComboSvc.ItemRequestByFilter, DXServiceLocator.AirportComboSvc.ItemRequestByValue).Bind(Model.AirportId).GetHtml()*@

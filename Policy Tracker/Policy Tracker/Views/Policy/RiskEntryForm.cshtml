@@ -1,0 +1,347 @@
+﻿@model PolicyTracker.DomainModel.Policy.Risk
+
+@*<script src="@Url.Content("~/Scripts/ORA/ora.Risk.js")" type="text/javascript"></script>*@
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#NotifyCompliance').click(function () { ora.Risk.SendBrokerLicenseNotification('RiskEntryForm'); });
+        $('#FirstName, #LastName').blur(function () {
+            var name = $('#FirstName').val() + ' ' + $('#LastName').val();
+            ora.Risk.CheckOFACList(name);
+        });
+        $('#CompanyName').blur(function () {
+            var name = $('#CompanyName').val();
+            ora.Risk.CheckOFACList(name);
+        });
+
+        if ($("#IsCorp").is(":checked")) {
+            $("#IndividualInput").hide();
+            $("#CorpInput").show();
+        } else {
+            $("#IndividualInput").show();
+            $("#CorpInput").hide();
+        }
+
+        $("#RiskEntryForm").submit(function (event) {
+            event.preventDefault();
+            $("form#RiskEntryForm .selectList option").attr("selected", "selected");
+            ora.Ajax.FormPost({
+                url: "/PolicyTracker/Policy/RiskEntryForm",
+                container: "NewRiskEntry_dg",
+                grid: "RiskFindGrid",
+                form: "RiskEntryForm",
+                data: $("#RiskEntryForm").serializeArray(),
+                PreventDefault: true,
+                dialog: "NewRiskEntry_dg",
+                successCallback: function () {
+                    $("#WLRefresh").click();
+                }
+            })
+        });
+    });
+
+    
+    $("form#RiskEntryForm .listAdd").button({ icons: { primary: "ui-icon-plus" }, text: false });
+    $("form#RiskEntryForm .listRemove").button({ icons: { primary: "ui-icon-minus" }, text: false });
+    $("form#RiskEntryForm .listClear").button({ icons: { primary: "ui-icon-cancel" }, text: false });
+
+  
+    $("form#RiskEntryForm .listAdd").each(function () { $(this).SelectListAdd(); })
+    $("form#RiskEntryForm .listRemove").each(function () { $(this).SelectListRemove(); })
+    $("form#RiskEntryForm .listClear").each(function () { $(this).SelectListClear(); })
+
+    $("#FAA").keypress(function (event) {
+        if (event.which == 13) {
+            event.preventDefault();
+            $("#FAAAdd").click();
+            $("#FAA").val('');
+        }
+    });
+
+    $('#State').change(function () { ora.Risk.UpdateBrokerLicenseNotification(); });
+    $("#Status").change(function () { ora.Risk.StatusChange('RiskEntryForm'); });
+    $("#IsCorp").change(function () { ora.Risk.ClientTypeChange(); });
+    $("#PolicyType").change(function () { ora.Risk.ProductTypeChange(); });
+    $("#ProductLine").change(function () { ora.Risk.UnderwriterAutoassignment(); });
+    $("#uwDefaultToast").dxToast({ message: 'Underwriter Defaulted', type: 'info', displayTime: 3000 });
+</script>
+
+<form id="RiskEntryForm" class="oraForm">
+    <div id="uwDefaultToast"></div>
+
+    <div class="col-sm-12">
+        @Html.ValidationSummary()
+    </div>
+
+    <div id="Warnings" class="callout callout-warning @(Model.ParentID != 0 ? "" : "hidden")">
+        <h4><i class="icon fa fa-warning"></i> Alert!</h4>
+        <span>This risk was cloned from Risk: @Model.ParentID</span>
+    </div>
+
+    <div id="BrokerLicenseIssue" class="callout callout-warning hidden">
+        <h4><i class="icon fa fa-warning"></i> Alert!</h4>
+        <div class="pull-left clear" style="margin:5px 30px 0px 0px">The broker/agency assigned to this risk is not licensed in the risk state. Please contact agent licensing prior to quoting.</div>
+        <button id="NotifyCompliance" type="button" class="btn btn-default">Notify Compliance</button>
+    </div>
+
+    <div id="OFACWarning" class="callout callout-danger @(Model.HasFailedOFAC ? "" : "hidden")">
+        <h4><i class="icon fa fa-warning"></i> Alert!</h4>
+        <i class="fa fa-drupal fa-lg"></i> The Named Insured on this Risk was found on the OFAC SDN List. Please verify this person is not a Specially Designated National before doing anymore business with them.
+    </div>
+
+    @Html.HiddenFor(m => Model.Id)
+    @Html.HiddenFor(m => Model.CreatedDate)
+    @Html.HiddenFor(m => Model.ParentID)
+    @Html.HiddenFor(m => Model.CreatedById)
+    @Html.HiddenFor(m => Model.QuotedDate)
+    @Html.HiddenFor(m => Model.PolicySuffix)
+
+    <div class="col-md-6 col-sm-12">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title"><i class="fa fa-info"></i> Risk Info</h3>
+            </div><!-- /.box-header -->
+            <!-- form start -->
+            <div class="box-body">
+                <div class="form-group">
+                    <label>Status</label>
+                    @Html.DropDownListFor(m => Model.Status, new SelectList(ViewBag.Statuses, "DisplayText", "DisplayText"), new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    <label>IR #</label>
+                    @Html.TextBoxFor(m => Model.ImageRightId, new { @class = "form-control upper" })
+                </div>
+
+                <div class="form-group">
+                    <label>Branch</label>
+                    @Html.DropDownListFor(m => Model.Branch, new SelectList(ViewBag.Branches, "Value", "DisplayText"), new { @class = "form-control editable" })
+                    <script type="text/javascript">
+                    $("form#RiskEditForm #Branch").change(function () { console.log("test"); ASPxClientControl.GetControlCollection().GetByName('UnderwriterId').PerformCallback(); })
+                    </script>
+                </div>
+
+                <div class="form-group">
+                    <label>Product Line</label>
+                    <i class="btn btn-danger reqField RFD hidden" data-dec-field="PolicyType">D</i>
+                    @Html.DropDownListFor(m => @Model.ProductLine, new SelectList(ViewBag.ProductLines, "ProductLineId", "Name"), "", new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    <label>Policy</label>
+                    @Html.DropDownListFor(m => @Model.Prefix, new SelectList(ViewBag.Products, "Prefix", "DisplayText"), "", new { @class = "form-control" })
+                    <i class="btn btn-danger reqField RFD hidden" data-dec-field="PolicyType">D</i>
+                </div>
+
+                <div class="form-group">
+                    <label>Effective Date</label>
+                    @Html.TextBoxFor(m => Model.EffectiveDate, new { @class = "form-control datepicker", @Value = WebAppDisplay.GetDateDisplayValue(Model.EffectiveDate) })
+                    <i class="btn btn-danger reqField RFD hidden" data-dec-field="EffectiveDate">D</i>
+                </div>
+
+                <div class="form-group">
+                    @Html.TextBoxFor(m => Model.ExpirationDate, new { @class = "form-control datepicker hidden", @Value = WebAppDisplay.GetDateDisplayValue(Model.ExpirationDate) })
+                </div>
+            </div>
+        </div>
+
+        <div class="box box-danger">
+            <div class="box-header with-border">
+                <h3 class="box-title"><i class="fa fa-user"></i> Named Insured</h3>
+            </div><!-- /.box-header -->
+            <!-- form start -->
+            <div class="box-body">
+                @Html.HiddenFor(m => Model.NamedInsured.ControlNumber)
+                @Html.HiddenFor(m => Model.NamedInsured.IssuingCompany)
+
+                <div class="checkbox">
+                    <label>
+                        @Html.CheckBox("IsCorp", !String.IsNullOrEmpty(Model.CompanyName))
+                        Corporation
+                    </label>
+                </div>
+
+                <i class="btn btn-danger reqField RFD hidden" data-dec-field="ClientName">D</i>
+                <div id="IndividualInput">
+                    <div class="form-group">
+                        <label class="col-lg-12 no-padding">First & Last Name</label>
+                        <div class="col-sm-5 clear noPadding">@Html.TextBoxFor(m => Model.FirstName, new { @class = "form-control", placeholder = "First Name" })</div>
+                        <div class="col-sm-2 noPadding">@Html.TextBoxFor(m => Model.MiddleInitial, new { @class = "form-control", placeholder = "Middle Initial", maxlength="1" })</div>
+                        <div class="col-sm-5 noPadding">@Html.TextBoxFor(m => Model.LastName, new { @class = "form-control", placeholder = "Last Name" })</div>
+                    </div>
+                </div>
+
+                <div id="CorpInput" class="form-group">
+                    <label>Company Name</label>
+                    @Html.TextBoxFor(m => Model.CompanyName, new { @class = "form-control", placeholder = "Company Name" })
+                </div>
+
+
+                <div class="form-group">
+                    <label>Doing Business As</label>
+                    @Html.TextBoxFor(m => Model.DoingBusinessAs, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    @*<label>Street Address</label>
+                    @Html.TextBoxFor(m => Model.NamedInsured.StreetAddress1, new { @class = "form-control" })*@
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-12 no-padding">City / State / Zip</label>
+                    <div class="col-sm-5 clear noPadding">@Html.TextBoxFor(m => Model.City, new { @class = "form-control" })</div>
+                    <div class="col-sm-2 noPadding">@Html.DropDownListFor(m => Model.State, new SelectList(ViewBag.States, "StateCode", "StateCode"), "", new { @class = "form-control" })</div>
+                    <div class="col-sm-5 noPadding">@Html.TextBoxFor(m => Model.Zip, new { @class = "form-control" })</div>
+                </div>
+
+                @*<div class="form-group">
+                    <label>Email</label>
+                    @Html.DevExpress().TextBoxFor(m => Model.NamedInsured.Email, settings => {
+                        settings.Name = "NamedInsured.Email";
+                        settings.ControlStyle.CssClass = "form-control";
+                    }).GetHtml()
+                </div>
+
+                <div class="form-group">
+                    <label>Phone #</label>
+                    @Html.DevExpress().TextBoxFor(m => Model.NamedInsured.PhoneNumber, settings => {
+                        settings.Name = "NamedInsured.PhoneNumber";
+                        settings.Properties.MaskSettings.Mask = "(999) 000-0000";
+                        settings.Properties.MaskSettings.IncludeLiterals = MaskIncludeLiteralsMode.None;
+                        settings.ControlStyle.CssClass = "form-control";
+                    }).GetHtml()
+                </div>*@
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-sm-12">
+        <div class="box box-danger">
+            <div class="box-header with-border">
+                <h3 class="box-title"><i class="fa fa-info"></i> Broker</h3>
+            </div><!-- /.box-header -->
+            <!-- form start -->
+            <div class="box-body">
+                <div class="form-group">
+                    <label>Broker</label>
+                    <i class="btn btn-danger reqField RFD hidden" data-dec-field="AgencyID">D</i>
+                    @Html.Partial("BrokerComboBox", Model)
+                    @Html.HiddenFor(m => Model.NamedInsured.AgencyID)
+                </div>
+
+                <div class="form-group">
+                    <label>Agent</label>
+                    @Html.DropDownListFor(m => Model.AgentId, new SelectList(ViewBag.Agents, "IndID", "Name"), "", new { @class = "form-control editable" })
+                    @Html.HiddenFor(m => Model.AgentName)
+                </div>
+
+                <div class="form-group">
+                    <label>Underwriter</label>
+                    @Html.DropDownListFor(m => Model.UnderwriterId, new SelectList(ViewBag.Underwriters, "UserId", "Name"), "", new { @class = "form-control editable" })
+                    <i class="btn btn-danger reqField RFD hidden" data-dec-field="UnderwriterId">D</i>
+                </div>
+
+                <div class="form-group">
+                    @Html.HiddenFor(m => Model.UnderwriterAssistantId)
+                </div>
+
+                <div class="form-group">
+                    @Html.HiddenFor(m => Model.RenewalUnderwriterId)
+                </div>
+
+                @Html.HiddenFor(m => Model.Commission)
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-sm-12">
+        <div class="box box-warning">
+            <div class="box-header with-border">
+                <h3 class="box-title"><i class="fa fa-plane"></i> Aircraft</h3>
+            </div><!-- /.box-header -->
+            <!-- form start -->
+            <div class="box-body">
+                <div class="form-group">
+                    <label>Purpose of Use</label>
+                    @Html.DropDownListFor(m => Model.PurposeOfUse, new SelectList(ViewBag.AircraftUses, "Code", "Name"), "", new { @class = "form-control" })
+                    <i class="btn btn-danger reqField RFD hidden" data-dec-field="PurposeOfUse">D</i>
+                </div>
+
+                <div class="form-group">
+                    <label>Airport</label>
+                    @Html.Partial("RiskEditAirportComboBox", Model)
+                    <i class="btn btn-danger reqField RFD hidden" data-dec-field="AirportId">D</i>
+                </div>
+
+                <div class="form-group">
+                    <label>FAA</label>
+                    @Html.TextBox("FAA", null, new { @class = "form-control upper" })
+                    <p class="help-block">Enter FAA # and Press [ENTER] to add N Number to List</p>
+                    @Html.Button("FAAAdd", "", new { @class = "pt-input listAdd hidden", target = "FAANumbers", origin = "FAA" })
+                    @Html.ListBox("FAANumbers", new SelectList((Model.FAANumbers == null) ? new string[] { } : Model.FAANumbers), new { @class = "form-control selectList" })
+                    @Html.Button("RemoveFAANumbers", "Remove Selected", new { @class = "pt-input listRemove", list = "FAANumbers" })
+                    @Html.Button("ClearFAANumbers", "Remove All", new { @class = "pt-input listClear", list = "FAANumbers" })
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-sm-12">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title"><i class="fa fa-comment"></i> Comments</h3>
+            </div><!-- /.box-header -->
+            <!-- form start -->
+            <div class="box-body">
+                @if (Model.Id == 0)
+            {
+                    @Html.TextAreaFor(m => Model.FirstNote.Comment, new { @class = "form-control" })
+                }
+                else
+                {
+                    <script type="text/javascript">
+                    ora.UI.Grid.Grid({
+                        id: "RiskNotesGrid",
+                        pager: "RiskNotesGridPager",
+                        height: 200,
+                        restUrl: '/policytracker/api/risk/GetNotes/@Model.Id',
+                        rowId: 'Id',
+                        caption: '',
+                        columnNames: ['Id', 'RiskId', 'User', 'Date', 'Comment'],
+                        columnModel: [
+                            { name: 'Id', width: 70, search: false, hidden: true },
+                            { name: 'RiskId', width: 70, search: false, hidden: true },
+                            { name: 'CreatedById', width: 70, search: false, align: 'center' },
+                            ora.UI.Grid.Column.ShortDate('CreatedDate', 70),
+                            { name: 'Comment', width: 400, search: false },
+                        ]
+                    });
+
+                    ora.UI.Grid.Pager(
+                        {
+                            id: "RiskNotesGrid", pager: "RiskNotesGridPager",
+                            deleteURL: "/policytracker/Policy/DeleteNote?riskId={1}&noteId={0}",
+                            editParams: { AliasId: "aliasId", RiskId: "riskId" },
+                            getURL: "/policytracker/Policy/NoteForm?riskId=@Model.Id",
+                            form: { id: 'RiskNoteForm', grid: "RiskNotesGrid", submitURL: "/policytracker/Policy/NoteForm", container: "RiskCommentEdit", dialog: "RiskCommentEdit" },
+                            type: ora.Dialog.ActionFormSizes.Medium
+                        },
+                        {
+                            hasWriteAccess: true,
+                            hasDeleteAccess: true
+                        }
+                    );
+                    </script>
+                    @Html.jqGrid("RiskNotesGrid", true)
+                }
+            </div>
+        </div>
+    </div>
+</form>
+
+<style>
+    #NamedInsured\.PhoneNumber_ET {
+        clear: left !important;
+        width: 100% !important;
+    }
+</style>

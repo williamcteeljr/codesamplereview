@@ -1,0 +1,205 @@
+﻿.dxeEditArea_MetropolisBlue.dxeDisabled_MetropolisBlue {
+    color: #060606 !important;
+}
+
+form.oraForm input[type="text"] {
+    width:150px;
+    padding-left: 4px;
+}
+
+.dxeMemoEditAreaSys, input[type="text"].dxeEditAreaSys, input[type="password"].dxeEditAreaSys {
+    width: 100% !important;
+}
+
+select.pt-input {
+    width:150px;
+}
+
+.DXE_dd_small input
+{    
+    width: 50px !important;
+}
+
+.DXE_dd_upper input {
+    text-transform: uppercase;
+}
+
+.dxeButtonEditSys.uppercase input {
+    text-transform: uppercase;
+}
+
+.upper {
+    text-transform: uppercase;
+}
+
+input[type="text"].dxeEditArea_MetropolisBlue, input[type="password"].dxeEditArea_MetropolisBlue {
+    padding-left: 5px !important;
+}
+
+.dxeValidStEditorTable {
+    float:left;
+    width:100%;
+}
+
+.dxeErrorCell_MetropolisBlue {
+    display:none;
+}
+
+td.dxic {
+    padding:0px !important;
+}
+
+.dxeInvalid_MetropolisBlue {
+    border: 1px solid #f00 !important;
+    background-color: #FBC1C1 !important;
+}
+
+    .dxeInvalid_MetropolisBlue input[type="text"] {
+        background-color: #FBC1C1 !important;
+    }
+
+.dxeButtonEditSys {
+    border-spacing: 0px !important;
+}
+
+    .dxeEditArea_MetropolisBlue.input-validation-error {
+        border: 1px solid #f00 !important;
+    }
+
+    .dxeRoot_MetropolisBlue {
+    float: left;
+    width:100%;
+}
+
+form.oraForm input.datepicker[type="text"]  {
+    /*width:100px;*/
+}
+
+.dxeErrorFrameWithoutError_MetropolisBlue {
+    border: 0px solid Red !important;
+}
+
+.dxeErrorFrameWithoutError_MetropolisBlue.dxeControlsCell_MetropolisBlue {
+    padding: 0px !important;
+}
+
+.iconLabel {
+    clear:left;
+    float:left;
+    min-width: 120px;
+    line-height:30px;
+}
+
+input[type="checkbox"].cbleft, input[type="radio"].cbleft {
+    clear:left;
+}
+
+select.format {
+        float:left;
+    }
+
+.pt-input {
+    height: 20px;
+    line-height:18px;
+    margin:2px;
+    float:left;
+}
+
+.divider {
+  height: 1px;
+  width:100%;
+  display:block; /* for use on default inline elements like span */
+  margin: 9px 0;
+  overflow: hidden;
+  background-color: black;
+}
+
+.reqField {
+    font-size: 11px;
+    line-height: 1.5;
+    padding: 4px 10px;
+}
+
+input[type="text"]:read-only {
+    background-color:  rgb(235, 235, 228);
+    box-shadow:rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset, rgba(103, 174, 234, 0.34902) 0px 0px 4.66793px 0px;
+}
+
+.input-group-addon {
+    margin-left: 2px;
+    padding: 6px 10px;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: .5;
+    color: #555;
+    text-align: center;
+    background-color: #eee;
+    border: 1px solid #ccc !important;
+    border-radius: 0px;
+    float: left;
+    margin-top: 2px;
+    width: 30px;
+}
+
+.cornerText {
+    line-height: 70px;
+    font-weight: bold;
+}
+
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+    padding-right: 10px;
+}
+
+.panel.nomargin {
+    margin-top: 0px !important;
+}
+
+/* Vertical Bootstrap Form Layout Mods*/
+table.dxeButtonEditSys.form-control {
+    clear:left;
+    padding:0px 0px;
+    width:100%;
+}
+
+table.dxeButtonEditSys.form-control > tbody > tr > td > input[type="text"] {
+    padding: 6px 5px;
+    font-size: 14px;
+    font-family: 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+}
+
+table.dxeTextBoxSys.form-control {
+    clear:left;
+    padding:0px 0px;
+    width:100%;
+}
+
+table.dxeTextBoxSys.form-control > tbody > tr > td > input[type="text"] {
+    padding: 3px 5px;
+}
+
+.form-horizontal .control-label {
+    padding-top: 7px;
+}
+
+.form-control {
+    height:34px;
+}
+
+.form-control-static {
+    padding-top:3px;
+}
+
+.form-group {
+    margin-bottom: 4px;
+}
+    .form-group.thin {
+        margin-bottom:0px;
+    }
+
+select.form-control {
+    padding: 3px 5px;
+}
+
+form.oraForm input[type="text"].form-control {
+    width: 100%;
+}

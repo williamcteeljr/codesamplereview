@@ -1,0 +1,37 @@
+﻿@model PolicyTracker.DomainModel.Policy.Risk
+
+@Html.DevExpress().ComboBox(
+    settings => {
+        settings.Name = "AgencyID";
+        settings.Properties.DropDownWidth = 750;
+        settings.Properties.DropDownStyle = DropDownStyle.DropDown;
+        settings.CallbackRouteValues = new { Controller = "Policy", Action = "BrokerComboBox" };
+        settings.Properties.CallbackPageSize = 30;
+        settings.Properties.TextField = "AgencyID";
+        settings.Properties.TextFormatString = "{0} {1}";
+        settings.Properties.ValueField = "AgencyID";
+        settings.Properties.ValueType = typeof(string);
+
+        settings.Properties.FilterMinLength = 2;
+        settings.Properties.IncrementalFilteringDelay = 30;
+        settings.Properties.ClearButton.DisplayMode = ClearButtonDisplayMode.Always;
+
+        settings.ControlStyle.CssClass = "form-control";
+        settings.Properties.Columns.Add("AgencyID", "AgencyID", 70);
+        settings.Properties.Columns.Add("AgencyName", "AgencyName", 150);
+        settings.Properties.Columns.Add("State", "State", 60);
+        settings.Properties.Columns.Add("PlatinumProducer", "PlatinumProducer", 60);
+
+        settings.Properties.ClientSideEvents.SelectedIndexChanged = "ora.Risk.BrokerIndexChange";
+
+        settings.PreRender = (s, e) =>
+        {
+            MVCxComboBox combo = s as MVCxComboBox;
+            if (!String.IsNullOrEmpty(Model.AgencyID))
+            {
+                combo.Value = Model.AgencyID;
+                combo.DataBind();
+            }
+        };
+    }
+).BindList(DXServiceLocator.BrokerComboService.ItemRequestByFilter, DXServiceLocator.BrokerComboService.ItemRequestByValue).Bind(Model.AgencyID).GetHtml()

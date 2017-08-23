@@ -1,0 +1,25 @@
+﻿@model PolicyTracker.DomainModel.Security.SecurityResource
+
+<form id="SecurityResourceForm" class="oraForm form-horizontal">
+    @Html.ValidationSummary()
+
+    <div class="box">
+        <div class="box-body">
+            @Html.HiddenFor(m => Model.Id)
+
+            <div class="form-group">
+                <label class="col-lg-2 col-sm-3 control-label">Path:</label>
+                <div class="col-lg-10 col-sm-9">
+                    @Html.TextBoxFor(m => Model.ResourcePath, new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-lg-2 col-sm-3 control-label">Name:</label>
+                <div class="col-lg-10 col-sm-9">
+                    @Html.TextBoxFor(m => Model.Name, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,45 @@
+﻿@model PolicyTracker.DomainModel.Brokers.BrokerAssignment
+
+<form id="BrokerAssignmentEditForm" class="oraForm form-horizontal">
+    @Html.ValidationSummary()
+
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">Broker Assignment</h3>
+        </div>
+        <div class="box-body">
+            @Html.HiddenFor(m => Model.AssignmentId)
+
+            <div class="form-group">
+                <label class="col-lg-2 col-sm-3 control-label">Broker Code:</label>
+                <div class="col-lg-10 col-sm-9">
+                    @Html.TextBoxFor(m => Model.BrokerCode, new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-lg-2 col-sm-3 control-label">Underwriter:</label>
+                <div class="col-lg-10 col-sm-9">
+                    @Html.DropDownListFor(m => Model.UserId, new SelectList(ViewBag.Users, "UserId", "Name"), "", new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-lg-2 col-sm-3 control-label">Product Line:</label>
+                <div class="col-lg-10 col-sm-9">
+                    @Html.DropDownListFor(m => Model.ProductLineId, new SelectList(ViewBag.ProductLines, "ProductLineId", "Name"), "", new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-lg-2 col-sm-3 control-label">Frequency:</label>
+                <div class="col-lg-10 col-sm-9">
+                    @Html.TextBoxFor(m => Model.Frequency, new { @class = "form-control" })
+                </div>
+                <div class="col-lg-10 col-lg-offset-2">
+                    <p class="help-block"># of submissions to receive before moving to next assignee</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

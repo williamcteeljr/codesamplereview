@@ -1,0 +1,44 @@
+﻿<script type="text/javascript">
+    ora.UI.Grid.Grid({
+        id: "ReasonsGrid",
+        pager: "ReasonsGridPager",
+        height: 500,
+        restUrl: '/policytracker/api/AppManagement/GetReasons/',
+        rowId: 'StatusReasonId',
+        caption: '',
+        columnNames: ['Id', 'Status', 'Reason', 'Description', 'Active'],
+        columnModel: [
+            { name: 'Id', width: 70, search: false, hidden: true },
+            { name: 'Status', width: 50, search: true },
+            { name: 'Reason', width: 150, search: true },
+            { name: 'ReasonDesc', width: 70 },
+            { name: 'IsActive', width: 70, }
+        ]
+    });
+
+    ora.UI.Grid.Pager(
+        {
+            id: "ReasonsGrid", pager: "ReasonsGridPager",
+            deleteURL: "/policytracker/api/AppManagement/DeleteReason/{0}",
+            editParams: { Id: "reasonId" },
+            getURL: "/policytracker/AppManagement/EditReason",
+            form: { id: 'ReasonEditForm', grid: "ReasonsGrid", submitURL: "/policytracker/AppManagement/EditReason", container: "Reason_dg", dialog: "Reason_dg" },
+            type: ora.Dialog.ActionFormSizes.Medium, modal: true, autoFocus: 'Status'
+        },
+        {
+            hasWriteAccess: true,
+            hasDeleteAccess: true
+        }
+    );
+
+    jQuery("#ReasonsGrid").filterToolbar({ searchOnEnter: true, enableClear: true });
+</script>
+
+<div class="box box-solid">
+    <div class="box-header with-border">
+        <h3 class="box-title">Status Reasons</h3>
+    </div>
+    <div class="box-body">
+        @Html.jqGrid("ReasonsGrid", true)
+    </div>
+</div>

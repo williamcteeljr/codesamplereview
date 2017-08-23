@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_DevExtremeLayout.cshtml";
+}
+
+@Scripts.Render("~/angular/controllers")
+@Scripts.Render("~/angular/factories")
+
+<div ng-app="ORA.Reporting">
+    <div ng-controller="reportsCtrl">
+        <div ng-view></div>
+    </div>
+</div>

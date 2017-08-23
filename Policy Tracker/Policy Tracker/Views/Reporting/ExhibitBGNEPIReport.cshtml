@@ -1,0 +1,7 @@
+﻿@Html.DevExpress().DocumentViewer(settings =>
+{   settings.Name = "ExhibitBGNEPIReport";
+    settings.Report = (Policy_Tracker.Reports.ExhibitBGNEPIReport)ViewData["Report"];
+    settings.CallbackRouteValues = new { Controller = "Reporting", Action = "ExhibitBGNEPIReport" };
+    settings.ExportRouteValues = new { Controller = "Reporting", Action = "ExportExhibitBGNEPIReport" };
+}).GetHtml()
+

@@ -1,0 +1,26 @@
+﻿@model PolicyTracker.DomainModel.Policy.Risk
+@using PolicyTracker.DomainModel.Policy
+
+@{
+    var URL = new System.Text.StringBuilder();
+    var finalDispositions = new[] { RiskStatus.ISSUED.Value, RiskStatus.DECLINED.Value, RiskStatus.CANCELED.Value, RiskStatus.BOUND.Value };
+    
+    if (!finalDispositions.Contains(Model.Status))
+    {
+        URL.Append("/quoteengine/pages/RiskQuoteWizard.aspx?");
+        URL.Append(String.Format("UID={0}&PID=1&STRID=3&WIZID=3", PolicyTracker.Platform.Security.SessionManager.GetCurrentSession().User.UserId));
+        URL.Append(String.Format("&CTN={0}&QOT={1}", Model.ControlNumber, Model.QuoteType));
+        URL.Append(String.Format("&WKS={0}", (Convert.ToInt32(Model.PolicySuffix) > 1 ? "Renewal" : "Quote")));
+        URL.Append(String.Format("&QID={0}", Model.Id));
+        URL.Append(String.Format("&Mode={0}", (String.IsNullOrEmpty(Model.CompletedWizardId) ? "Edit" : "View")));
+    }
+    else
+    {
+        URL.Append("/quoteengine/pages/AccountCoverageInfo.aspx?");
+        URL.Append(String.Format("UID={0}", PolicyTracker.Platform.Security.SessionManager.GetCurrentSession().User.UserId));
+        URL.Append("&PID=1&STRID=3");
+        URL.Append(String.Format("&CTN={0}&QOT={1}&QID={2}", Model.ControlNumber, Model.QuoteType, Model.Id));
+    }
+}
+
+<iframe src="@URL" style="position: absolute; height: 100%; width: 100%; border: none"></iframe>

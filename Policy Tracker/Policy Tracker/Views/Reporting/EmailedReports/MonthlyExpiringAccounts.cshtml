@@ -1,0 +1,52 @@
+﻿@{ 
+    Layout = "~/Views/Shared/_EmailLayout.cshtml";
+}
+
+<h2>MonthlyExpiringAccounts</h2>
+
+<p class="lead">Summary</p>
+
+<table class="table table-bordered">
+    <tbody>
+        <tr>
+            <td style="width:250px">Issued</td>
+            <td>@ViewBag.Summary.Issued.ToString("C0")</td>
+        </tr>
+        <tr>
+            <td>Installment/Reporter Deposits</td>
+            <td>@ViewBag.Summary.InstallmentReporterDeposits.ToString("C0")</td>
+        </tr>
+        <tr>
+            <td>Pending</td>
+            <td>@ViewBag.Summary.Pending.ToString("C0")</td>
+        </tr>
+        <tr>
+            <td>Pending Installment/Reporter Deposits</td>
+            <td>@ViewBag.Summary.PendingDeposits.ToString("C0")</td>
+        </tr>
+    </tbody>
+</table>
+
+<p class="lead">Report Details</p>
+
+<table class="table table-bordered">
+    <tbody>
+        <tr style="border-bottom:1px solid black">
+            <td>Effective Date</td>
+            <td>Policy #</td>
+            <td>Underwriter</td>
+            <td>Named Insured</td>
+            <td>Annualized Premium</td>
+        </tr>
+        @foreach(var risk in ViewBag.Risks)
+        {
+            <tr>
+                <td style="width:150px">@risk.EffectiveDate.ToShortDateString()</td>
+                <td style="width:175px">@risk.PolicyNumber</td>
+                <td style="width:200px">@risk.UW</td>
+                <td style="width:300px">@risk.Name</td>
+                <td>@risk.AnnualizedPremium.ToString("C0")</td>
+            </tr>
+        }
+    </tbody>
+</table>

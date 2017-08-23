@@ -1,0 +1,51 @@
+﻿<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading collapseControl" data-collapse-panel="DBFiltersPane">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-filter fa-fw"></i> Dashboard Filters
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <i class="fa fa-chevron-circle-down fa-lg"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div id="DBFiltersPane" class="panel-body gray hidden">
+                <form id="dbFiltersForm">
+                    <div class="form-group">
+                        <label>Underwriter</label>
+                        @Html.DropDownList("UnderwriterIds", new SelectList(ViewBag.UnderWriters, "UserId", "Name"), "", new { @class = "form-control"})
+                    </div>
+
+                    <div class="form-group">
+                        <label>Branch</label>
+                        @Html.DropDownList("Branches", new SelectList(ViewBag.Branches, "Value", "DisplayText"), "", new { @class = "form-control"})
+                    </div>
+
+                    <div class="form-group">
+                        <label>Product Line</label>
+                        @Html.DropDownList("ProductLines", new SelectList(ViewBag.ProductLines, "Name", "Name"), "", new { @class = "form-control"})
+                    </div>
+
+                    <button id="ApplyDBFilters" type="button" class="btn btn-success first" style="width:100%"><i class="fa fa-refresh"></i> Apply Filters</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#ApplyDBFilters").click(function () {
+            ora.Ajax.Ajax({
+                url: "/policytracker/Dashboard/Dashboard",
+                type: "POST", dataType: "HTML",
+                data: $("#dbFiltersForm").serializeArray(),
+                successCallback: function (data) { $("#dbSection").html(data); },
+                cache: false,
+            });
+        });
+    });
+</script>

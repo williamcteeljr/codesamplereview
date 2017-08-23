@@ -1,0 +1,1201 @@
+﻿
+@model PolicyTracker.DomainModel.Policy.Risk
+
+
+@using PolicyTracker.DomainModel.Policy
+
+
+@{
+    Layout = "~/Views/Shared/_RiskEditLayout.cshtml";
+    var reasonStatuses = new[] { RiskStatus.CANCELED.Value, RiskStatus.DECLINED.Value, RiskStatus.LOST.Value };
+}
+
+<!-- Script for hiding "Send Posting Notice" button on click-->
+<script type="text/javascript">
+    $(function () {
+        $("#btnReset").bind("click", function () {
+            @*var currentRiskId = @Model.Id;
+            var dataObject = JSON.stringify({ RiskId : currentRiskId });
+            $.ajax({
+                url: "@Url.Action("ResetMainLocations")",
+                type: "POST",
+                data: dataObject,
+                contentType: "application/json; charset=utf-8",
+            });*@
+
+            //Remove Selected Locations
+            $("#lstMainLocations").find("option").attr("selected", false);
+           
+        });
+    });
+
+    $(function () {
+        $("#btnSelectAll").bind("click", function () {
+            @*var currentRiskId = @Model.Id;
+            var dataObject = JSON.stringify({ RiskId : currentRiskId });
+            $.ajax({
+                url: "@Url.Action("ResetMainLocations")",
+                type: "POST",
+            data: dataObject,
+            contentType: "application/json; charset=utf-8",
+            });*@
+
+        //Remove Selected Locations
+            $("#lstMainLocations").find("option").attr("selected", true);
+           
+    });
+    });
+</script>
+
+<form id="RiskEditForm" class="oraForm form-horizontal">
+    @Html.HiddenFor(m => Model.Id, new { @class = "required" })
+    @Html.HiddenFor(m => Model.CreatedById, new { @class = "required" })
+    @Html.HiddenFor(m => Model.ControlNumber, new { @class = "required" })
+    @Html.HiddenFor(m => Model.QuotedDate, new { @class = "required" })
+
+    <div id="Warnings" class="callout callout-warning @(Model.ParentID != 0 ? "" : "hidden")">
+        <h4><i class="icon fa fa-warning"></i> Alert!</h4>
+        <span>This risk was cloned from Risk: @Model.ParentID</span>
+    </div>
+
+    <div id="BrokerLicenseIssue" class="callout callout-warning @(!ViewBag.IsLicensed ? "" : "hidden")">
+        <h4><i class="icon fa fa-warning"></i> Alert!</h4>
+        <div class="pull-left clear" style="margin:5px 30px 0px 0px">The broker/agency assigned to this risk is not licensed in the risk state. Please contact agent licensing prior to quoting.</div>
+        <button id="NotifyCompliance" type="button" class="btn btn-default">Notify Compliance</button>
+    </div>
+
+    <div id="OFACWarning" class="callout callout-danger @(Model.HasFailedOFAC ? "" : "hidden")">
+        <h4><i class="icon fa fa-warning"></i> Alert!</h4>
+        <i class="fa fa-drupal fa-lg"></i> The Named Insured on this Risk was found on the OFAC SDN List. Please verify this person is not a Specially Designated National before doing anymore business with them.
+        <div class="checkbox">
+            <label>
+                @Html.CheckBoxFor(m => Model.HasFailedOFAC)
+                Is a Specially Designated National
+            </label>
+        </div>
+    </div>
+
+    @*@if (Model.QuoteType == "AVC" || Model.QuoteType == "AP")
+        {
+            <div>
+                @Html.HiddenFor(m => Model.AgencyID, new { @class = "required" })
+                @Html.HiddenFor(m => Model.NamedInsured.State, new { @class = "required" })
+            </div>
+
+        }*@
+
+    @Html.Partial("RiskIndicatorPanel", Model)
+
+    @Html.ValidationSummary()
+
+    <!-- #region Risk Header Information -->
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <i class="fa fa-info"></i>
+            <h3 class="box-title">Risk Info</h3>
+        </div><!-- /.box-header -->
+        <!-- form start -->
+        <div class="box-body">
+            <div class="col-lg-5 col-md-12">
+                <div class="form-group hidden">
+                    <label class="col-lg-3 col-sm-3 control-label">Id:</label>
+                    <div class="col-lg-9 col-sm-9">
+                        <p class="form-control-static">@Model.Id</p>
+                    </div>
+                </div>
+                @if (Model.Status == RiskStatus.CANCELED.Value)
+                {
+                    <div class="form-group">
+                        <label class="col-lg-3 col-sm-3 control-label">Cancelled On:</label>
+                        <div class="col-lg-9 col-sm-9">
+                            <p class="form-control-static">@(Model.CancelDate != null ? Model.CancelDate.Value.ToShortDateString() : "")</p>
+                        </div>
+                    </div>
+                }
+
+                <div class="form-group">
+                    <label id="PolicyNumberLbl" class="col-lg-3 col-sm-3 control-label">
+                        Policy #:
+                        @*<i class="btn btn-danger reqField RFD hidden" data-dec-field="PolicyType">D</i>*@
+                        <span class="req hidden">*</span>
+                    </label>
+                    <div class="col-lg-4 col-sm-3">
+                        @Html.DropDownListFor(m => @Model.Prefix, new SelectList(ViewBag.Products, "Prefix", "DisplayText"), "", new { @class = "form-control editable INE" })
+                    </div>
+                    <div class="col-lg-3 col-sm-4">
+                        @Html.TextBoxFor(m => Model.PolicyNumber, new { @class = "form-control" })
+                    </div>
+                    <div class="col-lg-2 col-sm-2">
+                        @Html.TextBoxFor(m => Model.PolicySuffix, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label id="ImageRightLbl" class="col-lg-3 col-sm-3 control-label">IR #: <span class="req hidden">*</span></label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.TextBoxFor(m => Model.ImageRightId, new { @class = "form-control upper editable" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label id="BranchLbl" class="col-lg-3 col-sm-3 control-label">Branch: <span class="req hidden">*</span></label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.DropDownListFor(m => Model.Branch, new SelectList(ViewBag.Branches, "Value", "DisplayText"), new { @class = "form-control editable" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label id="StatusLbl" class="col-lg-3 col-sm-3 control-label">Status: <span class="req hidden">*</span></label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.DropDownListFor(m => Model.Status, new SelectList(ViewBag.Statuses, "DisplayText", "DisplayText"), new { @class = "form-control editable INE" })
+                    </div>
+                </div>
+                <!-- Status Reason-->
+                <div id="Reasondd" class="@(reasonStatuses.Contains(Model.Status) ? "" : "hidden")">
+                    @if (1 == 2)
+                    {
+                        <div class="form-group">
+                            <label for="PolicyRating" class="col-lg-3 col-sm-3 control-label">Grade <i id="ratingHelp" class="fa fa-question text-danger"></i></label>
+                            <div class="col-lg-9 col-sm-9">
+                                <div class="row">
+                                    <div class="col-lg-12" style="line-height:40px">
+                                        <div style="float:left;width:100px">
+                                            @Html.DropDownList("PolicyRating", new SelectList(new int[] { 1, 2, 3, 4, 5 }, Model.Rating), new { })
+                                            @Html.HiddenFor(m => Model.Rating)
+                                        </div>
+                                        <span style="float:left;padding-left:10px;font-size:16px;margin-top:-3px">(How attractive was the risk)</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12" id="ratingHelpText" style="display:none">
+                                        The submission scoring system is designed to capture how much you really wanted to bind this account.
+                                        Data collected here will unveil the type of risks (good, average, poor) each brokers is submitting you
+                                        and when during the year you should be spending more time based on expiration dates of the more valuable
+                                        accounts you need to win.
+                                    </div>
+                                </div>
+                                <script type="text/javascript">
+                                    $("#ratingHelp").click(function () {
+                                        $("#ratingHelpText").toggle();
+                                    })
+                                </script>
+                            </div>
+                        </div>
+
+                        <script type="text/javascript">
+                            $(function() {
+                                $('#PolicyRating').barrating({
+                                    theme: 'fontawesome-stars',
+                                    allowEmpty: true,
+                                    showSelectedRating: true,
+                                    emptyValue: 0,
+                                    onSelect: function (value, text, event) {
+                                        $("#Rating").val(value);
+                                    }
+                                });
+                            });
+                        </script>
+                    }
+
+                    <div class="form-group">
+                        <label class="col-lg-3 col-sm-3 control-label">
+                            Reason:
+                            <span class="req hidden">*</span>
+                        </label>
+                        <div class="col-lg-9 col-sm-9">
+                            <div class="input-group">
+                                @Html.DropDownListFor(m => Model.StatusReason, new SelectList(ViewBag.StatusReasons, "Id", "Reason"), new { @class = "form-control editable" })
+                                <span class="input-group-btn">
+                                    <a id="StatusReasonHelp" role="button" class="btn btn-default" title="Status Reason Help">
+                                        <i class="fa fa-question-circle"></i>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <script type="text/javascript">
+                        $("#StatusReasonHelp").click(function (e) {
+                            e.preventDefault();
+                            $("#StatusReasonExamplesPopup").dialog({
+                                title: "Status Reason Examples",
+                                width: 600,
+                                height: $(window).height() / 1.5,
+                                modal: true,
+                                buttons: [{
+                                    text: "Close", id: "Cancel", name: "Cancel",
+                                    click: function () {
+                                        $(this).dialog('close');
+                                    }
+                                }]
+                            });
+                        });
+                    </script>
+
+                    <div id="StatusReasonExamplesPopup" class="hidden" title="Status Reason Examples">
+                        @if (ViewBag.StatusReasons.Count > 0)
+                        {
+                            foreach (var r in ViewBag.StatusReasons)
+                            {
+                                <div>
+                                    <p>@r.Reason - @r.ReasonDesc</p>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label id="ProductLineLbl" class="col-lg-3 col-sm-3 control-label">
+                        Product Line:
+                        <span class="req hidden">*</span>
+                    </label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.DropDownListFor(m => @Model.ProductLine, new SelectList(ViewBag.ProductLines, "ProductLineId", "Name"), "", new { @class = "form-control editable INE" })
+                    </div>
+                </div>
+                <!-- Added by WTeel -->
+                <div class="form-group">
+                    <label id="RenewalQuoteID" class="col-lg-3 col-sm-3 control-label">
+                        Renewal Of Risk ID:
+                        <span class="req hidden">*</span>
+                    </label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.TextBoxFor(m => Model.RenewalOf, new { @class = "form-control upper editable" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5 col-md-12">
+                <div class="form-group">
+                    <label id="EffectiveDateLbl" class="col-lg-3 col-sm-3 control-label">
+                        Effective:
+                        <span class="req hidden">*</span>
+                    </label>
+                    <div class="col-lg-5 col-sm-5">
+                        @Html.TextBoxFor(m => Model.EffectiveDate, new { @class = "form-control datepicker editable INE", @Value = WebAppDisplay.GetDateDisplayValue(Model.EffectiveDate) })
+                    </div>
+                    <div class="col-lg-4 col-sm-4">
+                        @Html.TextBoxFor(m => Model.ExpirationDate, new { @class = "form-control datepicker editable INE", @Value = WebAppDisplay.GetDateDisplayValue(Model.ExpirationDate) })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label id="ProcessedDateLbl" class="col-lg-3 col-sm-3 control-label">Processed: <span class="req hidden">*</span></label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.TextBoxFor(m => Model.CreatedDate, new { @class = "form-control editable datepicker", @Value = WebAppDisplay.GetDateDisplayValue(Model.CreatedDate) })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 col-sm-3 control-label">Lead Insurer:</label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.DropDownListFor(m => Model.LeadInsurer, new SelectList(ViewBag.Markets, "CompanyName", "CompanyName"), "", new { @class = "form-control editable INE" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 col-sm-3 control-label">ORA %:</label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.TextBoxFor(m => Model.ORAPercent, new { @class = "form-control editable INE" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label id="MarketLbl" class="col-lg-3 col-sm-3 control-label">Market: <span class="req hidden">*</span></label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.DropDownListFor(m => Model.Market, new SelectList(ViewBag.Markets, "Id", "CompanyName"), new { @class = "form-control editable INE" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 col-sm-3 control-label">Signed App Date:</label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.TextBoxFor(m => Model.ApplicationDate, null, new { @class = "form-control editable datepicker", @Value = WebAppDisplay.GetDateDisplayValue(Model.ApplicationDate) })
+                        @if (Model.ExpirationDate > DateTime.Now && Model.ApplicationDate != null && (DateTime.Now - Model.ApplicationDate).Value.Days / 365 >= 5)
+                        {
+                            <p class="text-red">* Last App Received Over 5 Years Ago *</p>
+                        }
+                    </div>
+                </div>
+                @*<div id="ACPurposeOfUse" class="@(Model.Prefix == "AVC" || Model.Prefix == "AA" || Model.Prefix == "RAL" || Model.Prefix == "CA" || Model.Prefix == "AV" ? "" : "hidden")">*@
+                <div id="ACPurposeOfUse">
+                    <div class="form-group">
+                        <label id="PurposeOfUseLbl" class="col-lg-3 col-sm-3 control-label">
+                            Purpose Of Use:
+                            <span class="req hidden">*</span>
+                        </label>
+                        <div class="col-lg-9 col-sm-9">
+                            @Html.DropDownListFor(m => Model.PurposeOfUse, new SelectList(ViewBag.AircraftUses, "Code", "Name"), "", new { @class = "form-control editable INE" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label id="AirportLbl" class="col-lg-3 col-sm-3 control-label">
+                            Airport:
+                            <span class="req hidden">*</span>
+                        </label>
+                        <div class="col-lg-9 col-sm-9">
+                            @Html.Partial("RiskEditAirportComboBox", Model)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-md-12">
+                <div class="checkbox">
+                    <label>
+                        @Html.CheckBoxFor(m => Model.IsTargetAccount)
+                        Target Account
+                    </label>
+                </div>
+
+                <div class="checkbox">
+                    <label>
+                        @Html.CheckBoxFor(m => Model.AppReceived)
+                        App Received
+                    </label>
+                </div>
+
+                <div class="checkbox">
+                    <label>
+                        @Html.CheckBoxFor(m => Model.InstallmentInfo.IsPaidInInstallments)
+                        Paid In Installments
+                    </label>
+                </div>
+
+                @if (Model.ProductLine != (int)ProductLines.WC)
+                {
+                    <div class="checkbox">
+                        <label>
+                            @Html.CheckBoxFor(m => Model.InstallmentInfo.IsReporter)
+                            Reporter
+                        </label>
+                    </div>
+
+                    <div class="checkbox">
+                        <label>
+                            @Html.CheckBoxFor(m => Model.IsMexicanPolicy)
+                            Mexican Policy
+                        </label>
+                    </div>
+
+                    <div class="checkbox">
+                        <label>
+                            @Html.CheckBoxFor(m => Model.NamedInsured.IsFBOClient)
+                            PBTH Client
+                        </label>
+                    </div>
+                }
+
+                <div class="checkbox">
+                    <label>
+                        @Html.CheckBoxFor(m => Model.IsDoNotRenew)
+                        Do Not Renew
+                    </label>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- #endregion -->
+
+    <div id="RiskPremiumContent">
+        @Html.Action("RiskPremiumContentPartial", "Policy", new { rpi = Model.PremiumInfo })
+    </div>
+
+    <!-- #region Workers Comp Information -->
+    <div class="box box-warning @(Model.ProductLine == (int)ViewBag.WCProductLineId ? "" : "hidden")">
+        <div class="box-header with-border">
+            <h3 class="box-title"><i class="fa fa-ambulance"></i> Workers Comp</h3>
+        </div><!-- /.box-header -->
+        <!-- form start -->
+        <div class="box-body">
+            @Html.HiddenFor(m => Model.WorkersCompInfo.RiskId)
+            <div class="col-lg-5 col-md-12">
+                <div class="form-group">
+                    <label class="col-lg-3 col-sm-3 control-label">Program Type:</label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.DropDownListFor(m => Model.WorkersCompInfo.ProgramType, new SelectList(ViewBag.WCPrograms, "Value", "DisplayText"), "", new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label id="AccountDescLbl" class="col-lg-3 col-sm-3 control-label">
+                        Acct Desc:
+                        <span class="req hidden">*</span>
+                    </label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.DropDownListFor(m => Model.WorkersCompInfo.AccountDescription, new SelectList(ViewBag.WCAccountDescs, "Value", "DisplayText"), "", new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 col-sm-3 control-label">Scheduled Rate:</label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.TextBoxFor(m => Model.WorkersCompInfo.ScheduledRating, new { @class = "form-control numeric" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 col-sm-3 control-label">Experience Mod:</label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.TextBoxFor(m => Model.WorkersCompInfo.ExperienceModifier, new { @class = "form-control numeric" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5 col-md-12">
+                <div class="form-group">
+                    <label class="col-lg-3 col-sm-3 control-label">Payroll:</label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.DevExpress().TextBoxFor(model => Model.WorkersCompInfo.Payroll, settings =>
+                           {
+                               settings.Name = "WorkersCompInfo.Payroll";
+                               settings.ShowModelErrors = true;
+                               settings.ControlStyle.CssClass = "form-control";
+                               settings.Properties.MaskSettings.AllowMouseWheel = false;
+                               settings.Properties.MaskSettings.Mask = "<0..9999999999g>";
+                               settings.Properties.MaskSettings.IncludeLiterals = MaskIncludeLiteralsMode.DecimalSymbol;
+                           }).Bind(Model.WorkersCompInfo.Payroll.ToString("N0")).GetHtml()
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 col-sm-3 control-label">Exp Payroll:</label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.DevExpress().TextBoxFor(model => Model.WorkersCompInfo.ExpiringPayroll, settings =>
+                           {
+                               settings.Name = "WorkersCompInfo.ExpiringPayroll";
+                               settings.ShowModelErrors = true;
+                               settings.ControlStyle.CssClass = "form-control";
+                               settings.Properties.MaskSettings.AllowMouseWheel = false;
+                               settings.Properties.MaskSettings.Mask = "<0..9999999999g>";
+                               settings.Properties.MaskSettings.IncludeLiterals = MaskIncludeLiteralsMode.DecimalSymbol;
+                           }).Bind(Model.WorkersCompInfo.ExpiringPayroll.ToString("N0")).GetHtml()
+                    </div>
+                </div>
+
+                @{
+                    var netRate = 0m;
+                    var expNetRate = 0m;
+                    var netRateChange = 0m;
+                    var payrollChange = 0m;
+
+                    netRate = (Model.WorkersCompInfo.Payroll != 0) ? (Model.PremiumInfo.AnnualizedPremium / (Model.WorkersCompInfo.Payroll / 100)) : 0;
+                    expNetRate = (Model.WorkersCompInfo.ExpiringPayroll != 0) ? (Model.PremiumInfo.ExpiringWrittenPremium / (Model.WorkersCompInfo.ExpiringPayroll / 100)) : 0;
+                    netRateChange = (expNetRate != 0) ? ((netRate / expNetRate) - 1) * 100 : 0;
+                    payrollChange = (Model.WorkersCompInfo.ExpiringPayroll != 0) ? ((Model.WorkersCompInfo.Payroll / Model.WorkersCompInfo.ExpiringPayroll) - 1) * 100 : 0;
+                }
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Payroll Change:</label>
+                    <div class="col-sm-9">
+                        <p class="form-control-static">@payrollChange.ToString("N2") %</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Net Rate:</label>
+                    <div class="col-sm-9">
+                        <p class="form-control-static">@netRate.ToString("N2") %</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Exp Net Rate:</label>
+                    <div class="col-sm-9">
+                        <p class="form-control-static">@expNetRate.ToString("N2") %</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Net Rate Change:</label>
+                    <div class="col-sm-9">
+                        <p class="form-control-static">@netRateChange.ToString("N2") %</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-md-12">
+                <div class="checkbox">
+                    <label>
+                        @Html.CheckBoxFor(m => Model.WorkersCompInfo.IsPassengerCarrying)
+                        Passenger Carrying
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- #endregion -->
+    <!-- #region Hazard Group Information -->
+
+    @if (Model.ProductLine == 8)
+    {
+        <div class="box box-warning ">
+            <div class="box-header with-border">
+                <h3 class="box-title"><i class="fa fa-ambulance"></i> Hazard Group Information</h3>
+            </div><!-- /.box-header -->
+            <div class="box-body">
+                <div class="col-lg-12">
+                    @Html.jqGrid("HazardGroupDetailsGrid", true)
+                    <script type="text/javascript">
+                        ora.UI.Grid.Grid({
+                            id: "HazardGroupDetailsGrid",
+                            pager: "HazardGroupDetailsGridPager",
+                            height: 120,
+                            restUrl: '/policytracker/api/postingnotice/GetHazardGroupDetails/@Model.Id',
+                            rowId: 'exposureId',
+                            caption: '',
+                            columnNames: ['ID', 'Quote ID', 'State', 'Class Code', 'Hazard Group',
+                                'Employee Type', 'Payroll Total', 'Premium Total','Employee Count'],
+                            columnModel: [
+                                { name: 'ExposureID', width: 70, search: false, align: 'center', hidden: true },
+                                { name: 'QuoteId', width: 70, search: false, align: 'center', hidden: true },
+                                { name: 'HazardState', width: 70, search: false, align: 'center' },
+                                { name: 'Class', width: 70, search: false, align: 'center' },
+                                { name: 'HazardGroupCode', width: 70, search: false, align: 'center' },
+                                { name: 'EmployeeTypeName', width: 70, search: false, align: 'center' },
+                                  ora.UI.Grid.Column.Currency('EmployeePayroll', 70),
+                                  ora.UI.Grid.Column.Currency('EmployeePremium', 70),
+                                { name: 'EmployeeCount', width: 70, search: false, align: 'center' },
+                                //{ name: 'LocationID', width: 70, search: false, align: 'center' }
+                            ]
+                        });
+
+                        ora.UI.Grid.Pager(
+                            {
+                                id: "HazardGroupDetailsGrid",
+                                pager: "HazardGroupDetailsGridPager",
+                                deleteURL: "/policytracker/api/postingnotice/DeleteHazardGroup?id={0}",
+                                editParams: {
+                                    ExposureID: "exposureId"
+                                },
+                                getURL: "/policytracker/Policy/HazardGroupDetailsEdit?policyNumber=@Model.FullPolicyNumber&quoteId=@Model.Id",
+                                form: {
+                                    id: 'HazardGroupEditForm',
+                                    grid: "HazardGroupDetailsGrid",
+                                    submitURL: "/policytracker/Policy/HazardGroupDetailsEdit",
+                                    container: "AircraftEdit_dg",
+                                    dialog: "AircraftEdit_dg",
+                                    autoFocus: 'FAANo'
+                                },
+                                type: ora.Dialog.ActionFormSizes.Medium,
+                                modal: true
+                            },
+                            { hasWriteAccess: true, hasDeleteAccess: true }
+                        );
+                    </script>
+                </div>
+            </div>
+        </div>
+    }
+
+    <!-- #endregion -->
+    <!-- #region Broker/Named Insured Information -->
+    <div class="box box-danger">
+        <div class="box-header with-border">
+            <h3 class="box-title"><i class="fa fa-user"></i> Broker & Named Insured</h3>
+        </div><!-- /.box-header -->
+        <div class="box-body">
+            <div class="col-lg-5">
+                <div class="form-group">
+                    <label id="BrokerLbl" class="col-lg-3 col-sm-3 control-label">
+                        Broker:
+                        <span class="req hidden">*</span>
+                    </label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.Partial("BrokerComboBox", Model)
+                        @Html.HiddenFor(m => Model.NamedInsured.AgencyID)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <script type="text/javascript">
+                        $("#IsNet").change(function () { if ($(this).is(':checked')) { $("form#RiskEditForm #Commission").val(0); } });
+                    </script>
+                    <label id="CommissionLbl" class="col-lg-3 col-sm-3 control-label">Commission: <span class="req hidden">*</span></label>
+                    <div class="col-lg-4 col-sm-4">
+                        @Html.TextBoxFor(m => Model.Commission, new { @class = "form-control editable INE" })
+                    </div>
+                    <div class="col-lg-5 col-sm-5">
+                        <div class="checkbox">
+                            <label>
+                                @Html.CheckBoxFor(m => Model.IsNet)
+                                Is Net Commission
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label id="AgentLbl" class="col-lg-3 col-sm-3 control-label">Agent: <span class="req hidden">*</span></label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.DropDownListFor(m => Model.AgentId, new SelectList(ViewBag.Agents, "IndID", "Name"), "", new { @class = "form-control editable" })
+                        @Html.HiddenFor(m => Model.AgentName)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label id="UnderwriterLbl" class="col-lg-3 col-sm-3 control-label">
+                        Underwriter:
+                        <span class="req hidden">*</span>
+                    </label>
+                    <div class="col-lg-9 col-sm-9">
+                        @*@Html.Partial("UnderWriterComboBox", Model)*@
+                        @Html.DropDownListFor(m => Model.UnderwriterId, new SelectList(ViewBag.Underwriters, "UserId", "Name"), "", new { @class = "form-control editable" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label id="UALbl" class="col-lg-3 col-sm-3 control-label">UW Assistant: <span class="req hidden">*</span></label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.DropDownListFor(m => @Model.UnderwriterAssistantId, new SelectList(ViewBag.Assistants, "UserId", "Name"), new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label id="RenewalUnderwriterLbl" class="col-lg-3 col-sm-3 control-label">Renewal UW: <span class="req hidden">*</span></label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.DropDownListFor(m => @Model.RenewalUnderwriterId, new SelectList(ViewBag.Underwriters, "UserId", "Name"), new { @class = "form-control editable" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                @Html.HiddenFor(m => Model.NamedInsured.ControlNumber)
+
+                <div class="form-group">
+                    <div class="col-lg-3 col-sm-3">&nbsp;</div>
+                    <div class="col-sm-9">
+                        <div class="checkbox">
+                            <label>
+                                @Html.CheckBox("IsCorp", !String.IsNullOrEmpty(Model.CompanyName))
+                                Corporation
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="IndividualInput">
+                    <div class="form-group">
+                        <label id="NameLbl" class="col-lg-3 col-sm-3 control-label">
+                            First/Last:
+                            <span class="req hidden">*</span>
+                        </label>
+                        <div class="col-sm-4">
+                            @Html.TextBoxFor(m => Model.FirstName, new { @class = "form-control track", placeholder = "First Name" })
+                        </div>
+                        <div class="col-sm-1">
+                            @Html.TextBoxFor(m => Model.MiddleInitial, new { @class = "form-control track", placeholder = "MI", maxlength = "1" })
+                        </div>
+                        <div class="col-sm-4">
+                            @Html.TextBoxFor(m => Model.LastName, new { @class = "form-control track", placeholder = "Last Name" })
+                        </div>
+                    </div>
+                </div>
+
+                <div id="CorpInput" class="form-group">
+                    <label id="CompanyLbl" class="col-lg-3 col-sm-3 control-label">
+                        Company:
+                        <span class="req hidden">*</span>
+                    </label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.TextBoxFor(m => Model.CompanyName, new { @class = "form-control track", placeholder = "Company Name" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-lg-3 col-sm-3 control-label">DBA:</label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.TextBoxFor(m => Model.DoingBusinessAs, new { @class = "form-control track" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label id="StreetAddressLbl" class="col-lg-3 col-sm-3 control-label">Street Address: <span class="req hidden">*</span></label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.TextBoxFor(m => Model.StreetAddress1, new { @class = "form-control track" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-3 col-sm-3 control-label">Address Line 2:</label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.TextBoxFor(m => Model.StreetAddress2, new { @class = "form-control track" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label id="CityStateLbl" class="col-lg-3 col-sm-3 control-label">City/State/Zip: <span class="req hidden">*</span></label>
+                    <div class="col-sm-4">
+                        @Html.TextBoxFor(m => Model.City, new { @class = "form-control track" })
+                    </div>
+                    <div class="col-sm-2">
+                        @Html.DropDownListFor(m => Model.State, new SelectList(ViewBag.States, "StateCode", "StateCode"), "", new { @class = "form-control track" })
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.TextBoxFor(m => Model.Zip, new { @class = "form-control track" })
+                    </div>
+                </div>
+@if (Model.ProductLine == 8)
+{
+                <div class="form-group">
+                    <label class="col-lg-3 col-sm-3 control-label">FEIN #:</label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.TextBoxFor(m => Model.Fein, new { @class = "form-control track" })
+                    </div>
+                </div>
+                
+                    <!-- List Box For Main Insured Locations-->
+                    <div id="MainInsuredSelect" class="form-group">
+                        <label class="col-lg-3 col-sm-3 control-label">Locations:</label>
+                        <div class="col-lg-9 col-sm-9">
+                            @Html.ListBoxFor(x => x.MainLocationsSelectedItemsIds, Model.MainLocationsOptionList ?? new List<SelectListItem>(), new { id = "lstMainLocations", SelectionMode = "multiple", style = "width:100%" })
+
+                            <input type="button" id="btnReset" value="Remove All Selected Locations" onclick="Reset();" />
+                            <input type="button" id="btnSelectAll" value="Select All Locations" />
+                        </div>
+                    </div>
+}
+
+                <div class="form-group">
+                    <div class="col-lg-3 col-sm-3">&nbsp;</div>
+                    <div class="col-sm-9">
+                        <div class="checkbox">
+                            <label>
+                                @Html.CheckBox("UpdateClientInfo")
+                                Update Client Info With Risk Info
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @* Posting Notice Confirmation dialog window to execute major Payload send or decline send *@
+            @if (Model.ProductLine == 8)
+            {
+                <div class="col-lg-5">
+                    <script type="text/javascript">
+                        $("#SendingPostingNotice").click(function () {
+                            ora.Dialog.SimpleAjax({
+                                Id: 'PostingNoticePartial_dg', Title: 'Posting Notice Confirmation',
+                                Url: '/policytracker/Policy/PostingNoticeConfirmation',
+                                MinWidth: function () { return 100 },
+                                MaxWidth: function () { return 450 },
+                                Width: function () { return 415 },
+                                MaxHeight: function () { return 500 },
+                                MinHeight: function () { return 100 },
+                                Height: function () { return 280 },
+
+                                buttons: [
+                                    {
+                                        text: "Yes", id: "SaveClose", name: "SaveClose",
+                                        //icons: { primary: "", secondary: "ui-icon-disk" },
+                                        click: function () {
+                                            //var d = $(this);
+                                            //if ($(d.context).find("form").length == 0) { $(d).dialog('destroy').remove(); }
+                                            //else {
+                                            //    $(d.context).closest('[aria-describedby|="' + d.context.id + '"]').find(".ui-dialog-buttonpane").find(".ui-dialog-buttonset").find("#Save").removeClass("PostedForm");
+                                            //    $(d.context).find("form").submit();
+                                            //}
+                                            var currentSuffix = @Model.PolicySuffix;
+                                            var currentRiskId = @Model.Id;
+                                            //var currentUserId = 1; //reach out to Josh about this one.
+                                            var dataObject = JSON.stringify({ Suffix : currentSuffix, RiskId : currentRiskId });
+                                            $.ajax({
+                                                url: "@Url.Action("PostingNoticeSubmission")",
+                                                type: "POST",
+                                                data: dataObject,
+                                                contentType: "application/json; charset=utf-8",
+                                                success: function (response) {
+                                                    console.log(JSON.stringify(response));
+                                                    $.each(response, function(index, responses){
+                                                        var value = responses;
+                                                        console.log(value);
+                                                        if(value.toString() === "0")
+                                                        {
+                                                            alert("Error! Your Confirmation Number is " + value);
+                                                            $('#postingNoticeConfirmNote').html("There is an error with your posting notice request and we are unable to process your request at this time.");
+                                                        }
+                                                        else
+                                                        {
+                                                            alert("Success! Your Confirmation Number is " + value);
+                                                            $('#postingNoticeConfirmNote').html("Success! Your Confirmation Number is " + value);
+                                                            $("#btnSubmit").attr("disabled", true);
+                                                        }
+                                                    });
+                                                },
+                                                error: function (response) {
+                                                    console.log('error: ' + response);
+                                                }
+                                            });
+
+                                        }
+                                    },
+                                    {
+                                        text: "No", id: "Cancel", name: "No",
+                                        click: function () {
+                                            $(this).dialog('destroy').remove();
+                                        }
+                                    }
+                                ]
+                            });
+                        });
+                    </script>
+                    <div id="fullPayloadSubmission">
+                        <button id="SendingPostingNotice" type="button" class="btn-danger btn-lg dx-show-clear-button">Send Full Posting Notice</button>
+                    </div>
+                </div>
+            }
+
+        </div>
+        <div>
+
+        </div>
+    </div>
+    </div>
+
+    @if (Model.ProductLine != 8)
+    {
+        <div class="box box-warning">
+            <div class="box-header with-border">
+                <h3 class="box-title"><i class="fa fa-plane"></i> Aircraft Info</h3>
+            </div><!-- /.box-header -->
+            <div class="box-body">
+                <div class="col-lg-12">
+                    @Html.jqGrid("RiskEditAircraftGrid", true)
+                    <script type="text/javascript">
+                        ora.UI.Grid.Grid({
+                            id: "RiskEditAircraftGrid",
+                            pager: "RiskEditAircraftGridPager",
+                            height: 120,
+                            restUrl: '/policytracker/api/risk/GetAircraft/@Model.Id',
+                            rowId: 'Id',
+                            caption: '',
+                            columnNames: ['Id', 'RiskId', 'Active', 'Purpose Of Use', 'N#', 'Year', 'Make', 'Model', 'Airport', 'Engine', 'Value', 'Liab Limit', 'Sub Limit',
+                                'Liab Prem', 'Hull Prem.'],
+                            columnModel: [
+                                { name: 'Id', width: 70, search: false, hidden: true },
+                                { name: 'QuoteId', width: 70, search: false, hidden: true },
+                                { name: 'IsIncluded', width: 30, search: false, align: "center", formatter: "checkbox", formatoptions: { disabled: true } },
+                                { name: 'PurposeOfUse', width: 70, search: false, align: 'center' },
+                                { name: 'FAANo', width: 70, search: false, align: 'center' },
+                                { name: 'Year', width: 70, search: false, align: 'center' },
+                                { name: 'Make', width: 70, search: false, align: 'center' },
+                                { name: 'ModelName', width: 70, search: false, align: 'center' },
+                                { name: 'AirportID', width: 70, search: false, align: 'center' },
+                                { name: 'EngineType', width: 70, search: false },
+                                ora.UI.Grid.Column.Currency('Value', 70),
+                                ora.UI.Grid.Column.Currency('Liability.Limit', 70),
+                                ora.UI.Grid.Column.Currency('Liability.Sublimit', 70),
+                                ora.UI.Grid.Column.Currency('LiabPrem', 70),
+                                ora.UI.Grid.Column.Currency('HullPrem', 70),
+                                //Remove WrittenPrem from Aircraft Info columns
+                                //ora.UI.Grid.Column.Currency('WrittenPrem', 70),
+
+                            ]
+                        });
+
+                        ora.UI.Grid.Pager(
+                            {
+                                id: "RiskEditAircraftGrid",
+                                pager: "RiskEditAircraftGridPager",
+                                deleteURL: "/policytracker/api/aircraft/DeleteAircraft?riskId={1}&id={0}",
+                                editParams: {
+                                    Id: "id",
+                                    QuoteId: "riskId"
+                                },
+                                getURL: "/policytracker/Policy/AircraftEditForm?riskId=@Model.Id",
+                                form: {
+                                    id: 'AircraftEditForm',
+                                    grid: "RiskEditAircraftGrid",
+                                    submitURL: "/policytracker/Policy/AircraftEditForm",
+                                    container: "AircraftEdit_dg",
+                                    dialog: "AircraftEdit_dg",
+                                    autoFocus: 'FAANo'
+                                },
+                                type: ora.Dialog.ActionFormSizes.Medium,
+                                modal: true
+                            },
+                            { hasWriteAccess: true, hasDeleteAccess: true }
+                        );
+                    </script>
+                </div>
+            </div>
+        </div>
+    }
+
+    @if (Model.Prefix == "AP")
+    {
+        <div class="box box-warning">
+            <div class="box-header with-border">
+                <h3 class="box-title"><i class="fa fa-user"></i> Airports/Locations</h3>
+            </div><!-- /.box-header -->
+            <div class="box-body">
+                <div class="col-lg-12">
+                    <div class="panel panel-primary nomargin">
+                        <div class="panel-heading">
+                            <i class="fa fa-road fa-lg"></i> Location Info.
+                        </div>
+                        <div class="panel-body gray">
+                            @Html.Action("RiskLocationsGrid", new { riskId = Model.Id })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+    <!-- #region Additional Named Insured Information -->
+
+    @if (Model.ProductLine == 8)
+    {
+        <div class="box box-warning ">
+            <div class="box-header with-border">
+                <h3 class="box-title"><i class="fa fa-users"></i> Additional Named Insured</h3>
+            </div><!-- /.box-header -->
+            <div class="box-body">
+                <div class="col-lg-12">
+                    @Html.jqGrid("AdditionalNamedInsuredGrid", true)
+                    <script type="text/javascript">
+                        ora.UI.Grid.Grid({
+                            id: "AdditionalNamedInsuredGrid",
+                            pager: "AdditionalNamedInsuredGridPager",
+                            height: 120,
+                            restUrl: '/policytracker/api/postingnotice/GetAdditionalNamedInsured/@Model.Id',
+                            rowId: 'AdditionalNamedInsuredId',
+                            caption: '',
+                            columnNames: ['Quote ID','Insured ID','Named Insured', 'Insured Name 2','FEIN #', 'Street Address', 'City', 'State', 'Zip Code'],
+                            columnModel: [
+                                { name: 'QuoteId', width: 70, search: false, align: 'center', hidden: true },
+                                { name: 'AdditionalNamedInsuredId', width: 70, search: false, align: 'center', hidden: false },
+                                { name: 'CompanyName', width: 70, search: false, align: 'center' },
+                                { name: 'Name2', width: 70, search: false, align: 'center' },
+                                { name: 'FEIN', width: 70, search: false, align: 'center' },
+                                { name: 'StreetAddress1', width: 70, search: false, align: 'center' },
+                                { name: 'City', width: 70, search: false, align: 'center' },
+                                { name: 'State', width: 70, search: false, align: 'center' },
+                                { name: 'Zip', width: 70, search: false, align: 'center' }
+                            ]
+                        });
+
+                        ora.UI.Grid.Pager(
+                            {
+                                id: "AdditionalNamedInsuredGrid",
+                                pager: "AdditionalNamedInsuredGridPager",
+                                deleteURL: "/policytracker/api/postingnotice/DeleteAdditionalInsured?id={0}",
+                                editParams: {
+                                    AdditionalNamedInsuredId: "aniID"
+                                },
+                                getURL: "/policytracker/Policy/AdditionalNamedInsuredEdit?quoteId=@Model.Id",
+                                form: {
+                                    id: 'AdditionalNamedInsuredEditForm',
+                                    grid: "AdditionalNamedInsuredGrid",
+                                    submitURL: "/policytracker/Policy/AdditionalNamedInsuredEdit",
+                                    container: "AdditionalNamedInsuredGrid_dg",
+                                    dialog: "AdditionalNamedInsuredGrid_dg"
+                                },
+                                type: ora.Dialog.ActionFormSizes.Medium,
+                                modal: true
+                            },
+                            { hasWriteAccess: true, hasDeleteAccess: true }
+                        );
+                    </script>
+                </div>
+            </div>
+        </div>
+    }
+
+    <!-- #endregion -->
+    <!-- #region Additional Locations Information -->
+
+    @if (Model.ProductLine == 8)
+    {
+        <div class="box box-warning ">
+            <div class="box-header with-border">
+                <h3 class="box-title"><i class="fa fa-building"></i> Insured Locations</h3>
+            </div><!-- /.box-header -->
+            <div class="box-body">
+                <div class="col-lg-12">
+                    @Html.jqGrid("AdditionalLocationsGrid", true)
+                    <script type="text/javascript">
+                        ora.UI.Grid.Grid({
+                            id: "AdditionalLocationsGrid",
+                            pager: "AdditionalLocationsGridPager",
+                            height: 120,
+                            restUrl: '/policytracker/api/postingnotice/GetAdditionalLocations/@Model.Id',
+                            rowId: 'locationId',
+                            caption: '',
+                            columnNames: ['Quote Id', 'Id', 'Location Name', 'Location Name 2','Street Address',
+                                'Street Address 2', 'City', 'State', 'Zip Code', 'Airport ID',
+                                'Employee Count', 'Print Quantity'],
+                            columnModel: [
+                                { name: 'QuoteId', width: 70, search: false, align: 'center', hidden: true },
+                                { name: 'LocationId', width: 70, search: false, align: 'center', hidden: true },
+                                //{ name: 'ControlNumber', width: 70, search: false, align: 'center', hidden: true },
+                                { name: 'CompanyName', width: 70, search: false, align: 'center' },
+                                { name: 'Name2', width: 70, search: false, align: 'center' },
+                                { name: 'StreetAddress1', width: 70, search: false, align: 'center' },
+                                { name: 'StreetAddress2', width: 70, search: false, align: 'center' },
+                                { name: 'City', width: 70, search: false, align: 'center' },
+                                { name: 'State', width: 70, search: false, align: 'center' },
+                                { name: 'ZipCode', width: 70, search: false, align: 'center' },
+                                { name: 'AirportID', width: 70, search: false, align: 'center' },
+                                { name: 'EmployeeCount', width: 70, search: false, align: 'center' },
+                                { name: 'Quantity', width: 70, search: false, align: 'center' },
+                                //{ name: 'AdditionalNamedInsuredId', width: 70, search: false, align: 'center', hidden: true}
+
+                            ]
+                        });
+
+                        ora.UI.Grid.Pager(
+                            {
+                                id: "AdditionalLocationsGrid",
+                                pager: "AdditionalLocationsGridPager",
+                                deleteURL: "/policytracker/api/postingnotice/DeleteAdditionalLocations?id={0}",
+                                editParams: {
+                                    LocationId: "locationId"
+                                },
+                                getURL: "/policytracker/Policy/AdditionalLocationsEdit?quoteId=@Model.Id",
+                                form: {
+                                    id: 'AdditionalLocationsEditForm',
+                                    grid: "AdditionalLocationsGrid",
+                                    submitURL: "/policytracker/Policy/AdditionalLocationsEdit",
+                                    container: "AircraftEdit_dg",
+                                    dialog: "AircraftEdit_dg",
+                                    autoFocus: 'FAANo'
+                                },
+                                type: ora.Dialog.ActionFormSizes.Medium,
+                                modal: true
+                            },
+                            { hasWriteAccess: true, hasDeleteAccess: true }
+                        );
+                    </script>
+                </div>
+            </div>
+        </div>
+    }
+
+    <!-- #endregion -->
+
+    <div class="box box-primary @(Model.InstallmentInfo.IsPaidInInstallments || Model.InstallmentInfo.IsReporter ? "" : "hidden")">
+        <div class="box-header with-border">
+            <h3 class="box-title"><i class="fa fa-dollar"></i> Installment/Reporter Payment Info</h3>
+        </div><!-- /.box-header -->
+        <div class="box-body">
+            <div id="RiskInstallmentContent">
+                @Html.Action("RiskEditInstallmentContent", new { risk = Model })
+            </div>
+
+            <div class="col-lg-8">
+                @Html.Action("InstallmentPaymentsGrid", new { riskId = Model.Id })
+            </div>
+        </div>
+    </div>
+
+    <div class="nav-tabs-custom">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">Endorsements</a></li>
+            <li><a href="#tab_2" data-toggle="tab" aria-expanded="false">Comments</a></li>
+            @if (Model.ProductLine == (int)ViewBag.WCProductLineId)
+            {
+                <li><a href="#tab_3" data-toggle="tab">Audits</a></li>
+            }
+
+            @if (Model.ProductLine == 8)
+            {
+                <li><a href="#tab_4" data-toggle="tab">Posting Notice Confirmation Logs</a></li>
+            }
+
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab_1">
+                @Html.Action("EndorsementsGrid", new { riskId = Model.Id })
+            </div><!-- /.tab-pane -->
+            <div class="tab-pane" id="tab_2">
+                @Html.jqGrid("RiskNotesGrid", true)
+            </div><!-- /.tab-pane -->
+            @if (Model.ProductLine == (int)ViewBag.WCProductLineId)
+            {
+                <div class="tab-pane" id="tab_3">
+                    @Html.jqGrid("RiskAuditsGrid", true)
+
+                    <script type="text/javascript">
+                        ora.UI.Grid.Grid({
+                            id: "RiskAuditsGrid",
+                            pager: "RiskAuditsGridPager",
+                            height: 75,
+                            restUrl: '/policytracker/api/risk/GetAudits/@Model.Id',
+                            rowId: 'Id',
+                            caption: '',
+                            columnNames: ['AuditId', 'RiskId', 'Audit Date', 'Amount'],
+                            columnModel: [
+                                { name: 'AuditId', width: 70, search: false, hidden: true },
+                                { name: 'RiskId', width: 70, search: false, hidden: true },
+                                ora.UI.Grid.Column.ShortDate('AuditDate', 70),
+                                { name: 'Amount', width: 400, search: false },
+                            ]
+                        });
+
+                        ora.UI.Grid.Pager(
+                            {
+                                id: "RiskAuditsGrid",
+                                pager: "RiskAuditsGridPager",
+                                deleteURL: "/policytracker/api/risk/DeleteAudit/{0}",
+                                editParams: {
+                                    AuditId: "auditId"
+                                },
+                                getURL: "/policytracker/Policy/RiskAuditEditForm?riskId=@Model.Id",
+                                form: {
+                                    id: 'RiskAuditForm',
+                                    grid: "RiskAuditsGrid",
+                                    submitURL: "/policytracker/Policy/RiskAuditEditForm",
+                                    container: "RiskAuditEdit",
+                                    dialog: "RiskAuditEdit",
+                                    autoFocus: "Amount_I"
+                                },
+                                type: ora.Dialog.ActionFormSizes.Small
+                            },
+                            {
+                                hasWriteAccess: true,
+                                hasDeleteAccess: true
+                            }
+                        );
+                    </script>
+                </div><!-- /.tab-pane -->
+            }
+
+            @if (Model.ProductLine == 8)
+            {
+                <div class="tab-pane" id="tab_4">
+                    @Html.jqGrid("PNConfirmationGrid", true)
+
+                    <script type="text/javascript">
+                        ora.UI.Grid.Grid({
+                            id: "PNConfirmationGrid",
+                            pager: "PNConfirmationGridPager",
+                            height: 120,
+                            restUrl: '/policytracker/api/postingnotice/GetPNConfirmationGrid/@Model.Id',
+                            rowId: 'PNConfirmationId',
+                            caption: '',
+                            columnNames: ['ID', "Quote ID", 'Status', 'Submission Type', 'Confirmation Code',
+                                'Submissions', 'Response', 'Submitted By', 'Submitted Date'],
+                            columnModel: [
+                                { name: 'PNConfirmationId', width: 70, search: false, align: 'center', hidden: false },
+                                { name: 'QuoteId', width: 70, search: false, align: 'center', hidden: false },
+                                { name: 'Status', width: 70, search: false, align: 'center' },
+                                { name: 'SubmissionType', width: 70, search: false, align: 'center' },
+                                { name: 'ConfirmationCode', width: 70, search: false, align: 'center' },
+                                //{ name: 'ErrorMessage', width: 70, search: false, align: 'center' },
+                                { name: 'Submission', width: 70, search: false, align: 'center' },
+                                { name: 'Response', width: 70, search: false, align: 'center' },
+                                { name: 'SentById', width: 70, search: false, align: 'center' },
+                                { name: 'SentDate', width: 70, search: false, align: 'center' }
+                            ],
+
+                        });
+
+                        ora.UI.Grid.Pager(
+                            {
+                                id: "PNConfirmationGrid",
+                                pager: "PNConfirmationGridPager",
+                                //deleteURL: "/policytracker/api/postingnotice/DeleteAdditionalLocations?locationId={1}&id={0}",
+                                editParams: {
+                                    PNConfirmationId: "pNConfirmationId"
+                                },
+                                getURL: "/policytracker/Policy/PNConfirmationView?quoteId=@Model.Id",
+                                form: {
+                                    id: 'PNConfirmationEditForm',
+                                    grid: "PNConfirmationGrid",
+                                    //submitURL: "/policytracker/Policy/PNConfirmationView"
+                                },
+                                type: ora.Dialog.ActionFormSizes.Medium,
+                                modal: true
+                            },
+                            { hasWriteAccess: false, hasDeleteAccess: false }
+                        );
+                    </script>
+                </div><!-- /.tab-pane -->
+            }
+        </div>
+</form>

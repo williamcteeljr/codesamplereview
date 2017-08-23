@@ -1,0 +1,35 @@
+﻿<div class="row">
+    <div class="col-xs-12">
+        <div class="box box-solid">
+            <div class="box-header">
+                <h3 class="box-title">Reports</h3>
+            </div><!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover">
+                    <tbody>
+                        <tr>
+                            <th>Report</th>
+                            <th>Emails</th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td>This Months Expiring Policies</td>
+                            <td><input type="text" class="form-control" placeholder="Email Addresses"/></td>
+                            <td class="text-right"><button type="button" class="btn btn-default btn-lg MonthlyExpiredPolicies">Send</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div><!-- /.box-body -->
+        </div><!-- /.box -->
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.MonthlyExpiredPolicies').click(function () {
+            $.get('/policytracker/reporting/MonthlyExpiringAccounts')
+                .done(function (data) {  })
+                .fail(function (data) {  })
+        })
+    })
+</script>

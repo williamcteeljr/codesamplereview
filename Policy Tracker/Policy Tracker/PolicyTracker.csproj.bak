@@ -1,0 +1,786 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DD674D7A-CF42-4EA2-9028-E06B6CB56308}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PolicyTracker</RootNamespace>
+    <AssemblyName>PolicyTracker</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <PrecompileRazorFiles>true</PrecompileRazorFiles>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunOctoPack>true</RunOctoPack>
+    <OctoPackPublishPackageToHttp>http://pamave.oraero.com:81/nuget/packages</OctoPackPublishPackageToHttp>
+    <OctoPackPublishApiKey>API-UWWLH71PWXDWZOP6DLEGFKEYQ</OctoPackPublishApiKey>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CsvHelper, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
+      <HintPath>..\packages\CsvHelper.2.16.0.0\lib\net45\CsvHelper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v16.2.Core, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v16.2, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v16.2, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DataAccess.v16.2, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v16.2.Core, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.PivotGrid.v16.2.Core, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v16.2.Core, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v16.2.Core, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v16.2, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v16.2, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Web.ASPxGauges.v16.2, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Web.ASPxHtmlEditor.v16.2, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Web.ASPxPivotGrid.v16.2, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Web.ASPxRichEdit.v16.2, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Web.ASPxScheduler.v16.2, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Web.ASPxSpellChecker.v16.2, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Web.ASPxSpreadsheet.v16.2, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Web.ASPxThemes.v16.2, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Web.Mvc.v16.2, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Web.v16.2, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v16.2, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v16.2, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v16.2.Web, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v16.2.Core, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v16.2.Presets, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPivotGrid.v16.2, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Sparkline.v16.2.Core, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.CodeParser.v16.2, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v16.2, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v16.2.Extensions, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Printing.v16.2.Service, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v16.2.Service, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Web.Resources.v16.2, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v16.2.Web, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="Hangfire.Core, Version=1.5.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hangfire.Core.1.5.3\lib\net45\Hangfire.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Hangfire.SqlServer, Version=1.5.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hangfire.SqlServer.1.5.3\lib\net45\Hangfire.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="RazorGenerator.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\RazorGenerator.Mvc.2.3.6\lib\net40\RazorGenerator.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Mvc.FixedDisplayModes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.FixedDisplayModes.1.0.0\lib\net40\Microsoft.Web.Mvc.FixedDisplayModes.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.1.2\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20715.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="UIAutomationClient" />
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0.3\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActionResults\BinaryContentResult.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RazorGeneratorMvcStart.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AppManagementController.cs" />
+    <Compile Include="Controllers\AssistantsController.cs" />
+    <Compile Include="Controllers\ConsoleController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\FrameworkController.cs" />
+    <Compile Include="Controllers\DXGridControllers.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PolicyController.cs" />
+    <Compile Include="Controllers\ReportingController.cs" />
+    <Compile Include="Controllers\SecurityController.cs" />
+    <Compile Include="DTO\DataTransferObjects.cs" />
+    <Compile Include="EventProcessing\Events.cs" />
+    <Compile Include="EventProcessing\HangFire.cs" />
+    <Compile Include="EventProcessing\OWIN.cs" />
+    <Compile Include="Filters\ExceptionFilter.cs" />
+    <Compile Include="Filters\NoCacheFilter.cs" />
+    <Compile Include="Filters\SecurityFilter.cs" />
+    <Compile Include="Filters\UnitOfWorkFilter.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\InstallmentsReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PendingPremiumReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RiskSubmissionCountReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Utilities\HtmlHelpers.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\BoundNotIssuedReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BoundNotIssuedReport.Designer.cs">
+      <DependentUpon>BoundNotIssuedReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ExpiringPoliciesReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ExpiringPoliciesReport.Designer.cs">
+      <DependentUpon>ExpiringPoliciesReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\NewBusinessFlowReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\NewBusinessFlowReport.Designer.cs">
+      <DependentUpon>NewBusinessFlowReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\NewBusinessFlowYTD.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\NewBusinessFlowYTD.Designer.cs">
+      <DependentUpon>NewBusinessFlowYTD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PredictivePremiumReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PredictivePremiumReport.Designer.cs">
+      <DependentUpon>PredictivePremiumReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ProductLineMonthlyDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ProductLineMonthlyDetail.Designer.cs">
+      <DependentUpon>ProductLineMonthlyDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\TargetAccountReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\TargetAccountReport.Designer.cs">
+      <DependentUpon>TargetAccountReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\UnPaidInstallmentsByMonthReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\UnPaidInstallmentsByMonthReport.Designer.cs">
+      <DependentUpon>UnPaidInstallmentsByMonthReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\UnResolvedRenewalsReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\UnResolvedRenewalsReport.Designer.cs">
+      <DependentUpon>UnResolvedRenewalsReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\FileResultHelper.cs" />
+    <Compile Include="Utilities\WebUtils.cs" />
+    <Compile Include="Views\DX\DXHelperSettings.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\AdminLTE\AdminLTE.min.css" />
+    <Content Include="Content\AdminLTE\collapsed-sidebar.html" />
+    <Content Include="Content\AdminLTE\skin-blue.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\dx.android5.light.css" />
+    <Content Include="Content\dx.common.css" />
+    <Content Include="Content\dx.contrast.compact.css" />
+    <Content Include="Content\dx.contrast.css" />
+    <Content Include="Content\dx.dark.compact.css" />
+    <Content Include="Content\dx.dark.css" />
+    <Content Include="Content\dx.ios7.default.css" />
+    <Content Include="Content\dx.light.compact.css" />
+    <Content Include="Content\dx.light.css" />
+    <Content Include="Content\dx.spa.css" />
+    <Content Include="Content\dx.win10.black.css" />
+    <Content Include="Content\dx.win10.white.css" />
+    <Content Include="Content\dx.win8.black.css" />
+    <Content Include="Content\dx.win8.white.css" />
+    <Content Include="Content\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\FormLayout.css" />
+    <Content Include="Content\generic.light-compact.custom.css" />
+    <Content Include="Content\Images\ajax-loader.gif" />
+    <Content Include="Content\Images\commentIcon.png" />
+    <Content Include="Content\Images\error.jpg" />
+    <Content Include="Content\jQuery-UI-Mods.css" />
+    <Content Include="Content\jquery-ui\external\jquery\jquery.js" />
+    <Content Include="Content\jquery-ui\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\jquery-ui\images\ui-bg_flat_100_337ab7_40x100.png" />
+    <Content Include="Content\jquery-ui\images\ui-bg_flat_65_999999_40x100.png" />
+    <Content Include="Content\jquery-ui\images\ui-bg_flat_75_dadada_40x100.png" />
+    <Content Include="Content\jquery-ui\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\jquery-ui\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\jquery-ui\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\jquery-ui\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\jquery-ui\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\jquery-ui\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\jquery-ui\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\jquery-ui\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\jquery-ui\jquery-ui.css" />
+    <Content Include="Content\jquery-ui\jquery-ui.js" />
+    <Content Include="Content\jquery-ui\jquery-ui.min.css" />
+    <Content Include="Content\jquery-ui\jquery-ui.min.js" />
+    <Content Include="Content\jquery-ui\jquery-ui.structure.css" />
+    <Content Include="Content\jquery-ui\jquery-ui.structure.min.css" />
+    <Content Include="Content\jquery-ui\jquery-ui.theme.css" />
+    <Content Include="Content\jquery-ui\jquery-ui.theme.min.css" />
+    <Content Include="Content\layouts\Desktop\DesktopLayout.css" />
+    <Content Include="Content\layouts\Desktop\DesktopLayout.html" />
+    <Content Include="Content\layouts\Desktop\DesktopLayout.js" />
+    <Content Include="Content\layouts\Empty\EmptyLayout.css" />
+    <Content Include="Content\layouts\Empty\EmptyLayout.html" />
+    <Content Include="Content\layouts\Empty\EmptyLayout.js" />
+    <Content Include="Content\layouts\Popup\PopupLayout.css" />
+    <Content Include="Content\layouts\Popup\PopupLayout.html" />
+    <Content Include="Content\layouts\Popup\PopupLayout.js" />
+    <Content Include="Content\metisMenu.css" />
+    <Content Include="Content\sb-admin-2.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\font-awesome\.bower.json" />
+    <Content Include="Content\font-awesome\.gitignore" />
+    <Content Include="Content\font-awesome\.npmignore" />
+    <Content Include="Content\font-awesome\bower.json" />
+    <Content Include="Content\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Content\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Content\font-awesome\less\core.less" />
+    <Content Include="Content\font-awesome\less\extras.less" />
+    <Content Include="Content\font-awesome\less\fixed-width.less" />
+    <Content Include="Content\font-awesome\less\font-awesome.less" />
+    <Content Include="Content\font-awesome\less\icons.less" />
+    <Content Include="Content\font-awesome\less\larger.less" />
+    <Content Include="Content\font-awesome\less\list.less" />
+    <Content Include="Content\font-awesome\less\mixins.less" />
+    <Content Include="Content\font-awesome\less\path.less" />
+    <Content Include="Content\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Content\font-awesome\less\spinning.less" />
+    <Content Include="Content\font-awesome\less\stacked.less" />
+    <Content Include="Content\font-awesome\less\variables.less" />
+    <Content Include="Content\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Content\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Content\font-awesome\scss\_core.scss" />
+    <Content Include="Content\font-awesome\scss\_extras.scss" />
+    <Content Include="Content\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Content\font-awesome\scss\_icons.scss" />
+    <Content Include="Content\font-awesome\scss\_larger.scss" />
+    <Content Include="Content\font-awesome\scss\_list.scss" />
+    <Content Include="Content\font-awesome\scss\_mixins.scss" />
+    <Content Include="Content\font-awesome\scss\_path.scss" />
+    <Content Include="Content\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Content\font-awesome\scss\_spinning.scss" />
+    <Content Include="Content\font-awesome\scss\_stacked.scss" />
+    <Content Include="Content\font-awesome\scss\_variables.scss" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="log4net.debug.config" />
+    <Content Include="log4net.release.config" />
+    <Content Include="Global.asax" />
+    <Content Include="jqGrid\css\ui.jqgrid-bootstarp.css" />
+    <Content Include="jqGrid\css\ui.jqgrid.css" />
+    <Content Include="jqGrid\js\Changes.txt" />
+    <Content Include="jqGrid\js\i18n\grid.locale-en.js" />
+    <Content Include="jqGrid\js\install.txt" />
+    <Content Include="jqGrid\js\jquery-1.11.0.min.js" />
+    <Content Include="jqGrid\js\jquery.jqGrid.min.js" />
+    <Content Include="jqGrid\js\jquery.jqGrid.src.js" />
+    <Content Include="jqGrid\plugins\grid.addons.js" />
+    <Content Include="jqGrid\plugins\grid.postext.js" />
+    <Content Include="jqGrid\plugins\grid.setcolumns.js" />
+    <Content Include="jqGrid\plugins\jquery.contextmenu.js" />
+    <Content Include="jqGrid\plugins\jquery.searchFilter.js" />
+    <Content Include="jqGrid\plugins\jquery.tablednd.js" />
+    <Content Include="jqGrid\plugins\searchFilter.css" />
+    <Content Include="jqGrid\plugins\ui.multiselect.css" />
+    <Content Include="jqGrid\plugins\ui.multiselect.js" />
+    <Content Include="jqGrid\src\css\ui.jqgrid-bootstarp.css" />
+    <Content Include="jqGrid\src\css\ui.jqgrid.css" />
+    <Content Include="jqGrid\src\css\ui.multiselect.css" />
+    <Content Include="jqGrid\src\grid.base.js" />
+    <Content Include="jqGrid\src\grid.celledit.js" />
+    <Content Include="jqGrid\src\grid.common.js" />
+    <Content Include="jqGrid\src\grid.filter.js" />
+    <Content Include="jqGrid\src\grid.formedit.js" />
+    <Content Include="jqGrid\src\grid.grouping.js" />
+    <Content Include="jqGrid\src\grid.import.js" />
+    <Content Include="jqGrid\src\grid.inlinedit.js" />
+    <Content Include="jqGrid\src\grid.jqueryui.js" />
+    <Content Include="jqGrid\src\grid.pivot.js" />
+    <Content Include="jqGrid\src\grid.subgrid.js" />
+    <Content Include="jqGrid\src\grid.treegrid.js" />
+    <Content Include="jqGrid\src\grid.utils.js" />
+    <Content Include="jqGrid\src\i18n\grid.locale-en.js" />
+    <Content Include="jqGrid\src\jqDnR.js" />
+    <Content Include="jqGrid\src\jqModal.js" />
+    <Content Include="jqGrid\src\jquery.fmatter.js" />
+    <Content Include="jqGrid\src\jquery.jqGrid.js" />
+    <Content Include="Scripts\AdminLTE\app.min.js" />
+    <Content Include="Scripts\Angular\angular-sanitize.js" />
+    <Content Include="Scripts\Angular\angular.min.js" />
+    <Content Include="Scripts\Angular\ProductLineConsole.js" />
+    <Content Include="Scripts\Angular\BranchConsole.js" />
+    <Content Include="Scripts\Angular\CompanyConsole.js" />
+    <Content Include="Scripts\Angular\directives.js" />
+    <Content Include="Scripts\Angular\factory.js" />
+    <Content Include="Scripts\Angular\Reporting.js" />
+    <Content Include="Scripts\Angular\ProductLineMaster.js" />
+    <Content Include="Scripts\Angular\UnderwritingAssistants.js" />
+    <Content Include="Scripts\Angular\filters.js" />
+    <Content Include="Scripts\cldr.js" />
+    <Content Include="Scripts\cldr\event.js" />
+    <Content Include="Scripts\cldr\supplemental.js" />
+    <Content Include="Scripts\cldr\unresolved.js" />
+    <Content Include="Scripts\devextreme-localization\dx.web.de.js" />
+    <Content Include="Scripts\devextreme-localization\dx.web.ja.js" />
+    <Content Include="Scripts\devextreme-localization\dx.web.ru.js" />
+    <Content Include="Scripts\devextreme\dx.all.js" />
+    <Content Include="Scripts\devextreme\globalize.min.js" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\jquery-ui\jquery-ui.min.js.map">
+      <DependentUpon>jquery-ui.js</DependentUpon>
+    </Content>
+    <Content Include="ClassDiagram1.cd" />
+    <Content Include="Content\icons\dxiconsios.woff" />
+    <Content Include="Content\icons\dxiconsios.ttf" />
+    <Content Include="Content\icons\dxiconsios.eot" />
+    <Content Include="Content\icons\dxicons.woff" />
+    <Content Include="Content\icons\dxicons.ttf" />
+    <Content Include="Content\icons\dxicons.eot" />
+    <None Include="Scripts\jquery-2.1.4.intellisense.js" />
+    <Content Include="Scripts\dx.viz-web.debug.js" />
+    <Content Include="Scripts\dx.viz-web.js" />
+    <Content Include="Scripts\dx.viz.debug.js" />
+    <Content Include="Scripts\dx.viz.js" />
+    <Content Include="Scripts\dx.web.debug.js" />
+    <Content Include="Scripts\dx.web.js" />
+    <Content Include="Scripts\globalize.js" />
+    <Content Include="Scripts\globalize\currency.js" />
+    <Content Include="Scripts\globalize\date.js" />
+    <Content Include="Scripts\globalize\message.js" />
+    <Content Include="Scripts\globalize\number.js" />
+    <Content Include="Scripts\globalize\plural.js" />
+    <Content Include="Scripts\globalize\relative-time.js" />
+    <Content Include="Scripts\globalize\unit.js" />
+    <Content Include="Scripts\jquery-2.1.4.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jszip.js" />
+    <Content Include="Scripts\jszip.min.js" />
+    <Content Include="Scripts\lib\bootstrap.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.map" />
+    <Content Include="Scripts\jquery-2.1.4.min.js.map">
+      <DependentUpon>jquery-2.1.4.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jquery-ui-1.8.24.min.js.map">
+      <DependentUpon>jquery-ui-1.8.24.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js.map">
+      <DependentUpon>jquery.unobtrusive-ajax.js</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.8.24.js" />
+    <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
+    <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\plugins\fcsaNumber.js" />
+    <Content Include="Scripts\lib\metisMenu.js" />
+    <Content Include="Scripts\plugins\ui-bootstrap-tpls-0.14.3.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\lib\charts\Chart.Bar.js" />
+    <Content Include="Scripts\lib\charts\Chart.Core.js" />
+    <Content Include="Scripts\lib\charts\Chart.Doughnut.js" />
+    <Content Include="Scripts\lib\charts\Chart.min.js" />
+    <Content Include="Scripts\lib\charts\Chart.PolarArea.js" />
+    <Content Include="Scripts\lib\charts\Chart.Radar.js" />
+    <Content Include="Scripts\lib\excanvas.js" />
+    <Content Include="Scripts\lib\jquery.are-you-sure.js" />
+    <Content Include="Scripts\lib\jquery.numeric.js" />
+    <Content Include="Scripts\lib\charts\kuma-gauge.jquery.min.js" />
+    <Content Include="Scripts\ORA\ora.Ajax.js" />
+    <Content Include="Scripts\ORA\ora.jQueryPlugins.js" />
+    <Content Include="Scripts\ORA\ora.Dialog.js" />
+    <Content Include="Scripts\ORA\ora.js" />
+    <Content Include="Scripts\ORA\ora.Utilities.js" />
+    <Content Include="Scripts\ORA\ora.UI.js" />
+    <Content Include="Scripts\lib\sb-admin-2.js" />
+    <Content Include="Scripts\lib\sugar.js" />
+    <Content Include="Scripts\vectormap-data\africa.js" />
+    <Content Include="Scripts\vectormap-data\canada.js" />
+    <Content Include="Scripts\vectormap-data\eurasia.js" />
+    <Content Include="Scripts\vectormap-data\europe.js" />
+    <Content Include="Scripts\vectormap-data\usa.js" />
+    <Content Include="Scripts\vectormap-data\world.js" />
+    <Content Include="Scripts\vectormap-utils\dx.vectormaputils.debug.js" />
+    <Content Include="Scripts\vectormap-utils\dx.vectormaputils.js" />
+    <Content Include="Scripts\vectormap-utils\dx.vectormaputils.node.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Scripts\Angular\UnderwriterConsole.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Security\Index.cshtml" />
+    <Content Include="Views\Security\SessionExpired.cshtml" />
+    <Content Include="Views\Policy\RiskEntryForm.cshtml" />
+    <Content Include="Views\Home\WorkingListGridView.cshtml" />
+    <Content Include="Views\Policy\BrokerComboBox.cshtml" />
+    <Content Include="Views\Policy\ClearanceSearch.cshtml" />
+    <Content Include="Views\Policy\RiskPreview.cshtml" />
+    <Content Include="Views\Policy\NoteForm.cshtml" />
+    <Content Include="Views\Policy\AircraftEditForm.cshtml" />
+    <Content Include="Views\Shared\_Menubar.cshtml" />
+    <Content Include="Views\Policy\AircraftMakeComboBox.cshtml" />
+    <Content Include="Views\Policy\AircraftModelComboBox.cshtml" />
+    <Content Include="Views\Policy\AirportComboBox.cshtml" />
+    <Content Include="Views\Policy\DeclineRiskForm.cshtml" />
+    <Content Include="Scripts\ORA\ora.Risk.js" />
+    <Content Include="Views\Policy\RiskEditAirportComboBox.cshtml" />
+    <Content Include="Views\Home\WorkingList.cshtml" />
+    <Content Include="Views\Policy\RiskIndicatorPanel.cshtml" />
+    <Content Include="Scripts\ORA\ora.DX.js" />
+    <Content Include="Views\Home\SaveFilterSettings.cshtml" />
+    <Content Include="Views\Home\UserFilters.cshtml" />
+    <Content Include="Views\Reporting\Index.cshtml" />
+    <Content Include="Views\Reporting\UnResolvedRenewalsReport.cshtml" />
+    <Content Include="Views\Reporting\TargetAccountsReport.cshtml" />
+    <Content Include="Views\Reporting\NewBusinessFlowReport.cshtml" />
+    <Content Include="Views\Reporting\NewBusinessFlow.cshtml" />
+    <Content Include="Views\Reporting\YTDNewBusinessFlow.cshtml" />
+    <Content Include="Views\Reporting\YTDNewBusinessFlowReport.cshtml" />
+    <Content Include="Views\Reporting\PredictivePremium.cshtml" />
+    <Content Include="Views\Reporting\PredictivePremiumReport.cshtml" />
+    <Content Include="Views\Policy\InstallmentPaymentsGrid.cshtml" />
+    <Content Include="Views\Reporting\UnPaidInstallmentsByMonthReport.cshtml" />
+    <Content Include="Views\Reporting\ProductLineMonthlyDetail.cshtml" />
+    <Content Include="Views\Reporting\ProductLineMonthlyDetailReport.cshtml" />
+    <Content Include="Views\Reporting\BoundNotIssuedReport.cshtml" />
+    <Content Include="Views\Policy\CommercialRatingApp.cshtml" />
+    <Content Include="Views\Policy\RiskLocationsGrid.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Dashboard\Filters.cshtml" />
+    <Content Include="Views\Dashboard\Dashboard.cshtml" />
+    <Content Include="Views\AppManagement\Index.cshtml" />
+    <Content Include="Views\AppManagement\MonthlyBudgets.cshtml" />
+    <Content Include="Views\AppManagement\EditMonthlyBudget.cshtml" />
+    <Content Include="Views\Home\ExportStats.cshtml" />
+    <Content Include="Views\Policy\EndorsementsGrid.cshtml" />
+    <Content Include="Views\Home\QuickAssign.cshtml" />
+    <Content Include="Views\Dashboard\StatsChart.cshtml" />
+    <Content Include="Views\Dashboard\StatChartFilters.cshtml" />
+    <Content Include="Views\AppManagement\BrokerAssignments.cshtml" />
+    <Content Include="Views\AppManagement\EditBrokerAssignment.cshtml" />
+    <Content Include="Views\AppManagement\Products.cshtml" />
+    <Content Include="Views\AppManagement\PurposesOfUse.cshtml" />
+    <Content Include="Views\AppManagement\EditPurposeOfUse.cshtml" />
+    <Content Include="Views\AppManagement\EditProduct.cshtml" />
+    <Content Include="Views\Home\WorkingListConfig\Index.cshtml" />
+    <Content Include="Views\Home\WorkingListConfig\ConfigForm.cshtml" />
+    <Content Include="Views\Home\WorkingListConfig\ConfigSelection.cshtml" />
+    <Content Include="Views\Home\GridConfigList.cshtml" />
+    <Content Include="Views\Policy\RiskAuditEditForm.cshtml" />
+    <Content Include="Views\Console\UnderwriterConsole.cshtml" />
+    <Content Include="Views\Shared\_DevExtremeLayout.cshtml" />
+    <Content Include="Views\Console\BranchConsole.cshtml" />
+    <Content Include="Views\Console\CompanyConsole.cshtml" />
+    <Content Include="Views\Reporting\Home.cshtml" />
+    <Content Include="Views\Reporting\Aircraft\Lookup.cshtml" />
+    <Content Include="Views\Reporting\Lists\ReportListing.cshtml" />
+    <Content Include="Views\Reporting\Lists\Installments.cshtml" />
+    <Content Include="Views\AppManagement\Reasons.cshtml" />
+    <Content Include="Views\AppManagement\EditReason.cshtml" />
+    <Content Include="Views\Shared\_RiskEditLayout.cshtml" />
+    <Content Include="Views\Policy\RiskEditForm.cshtml" />
+    <Content Include="Views\AppManagement\Logs.cshtml" />
+    <Content Include="Views\Assistants\Index.cshtml" />
+    <Content Include="Views\Assistants\RiskLookup.cshtml" />
+    <Content Include="Views\Assistants\Payments.cshtml" />
+    <Content Include="Views\Assistants\Endorsements.cshtml" />
+    <Content Include="Views\Policy\RiskPremiumContent.cshtml" />
+    <Content Include="Views\Policy\RiskInstallmentContent.cshtml" />
+    <Content Include="Scripts\jquery.validate.min.js.map">
+      <DependentUpon>jquery.validate.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js.map">
+      <DependentUpon>jquery.validate.unobtrusive.js</DependentUpon>
+    </Content>
+    <Content Include="Views\Console\ProductLineMaster.cshtml" />
+    <Content Include="Views\AppManagement\SessionManager.cshtml" />
+    <Content Include="Views\Shared\_EmailLayout.cshtml" />
+    <Content Include="Views\AppManagement\DailyReports.cshtml" />
+    <Content Include="Views\Reporting\EmailedReports\MonthlyExpiringAccounts.cshtml" />
+    <Content Include="Views\AppManagement\RiskNamedInsuredSwitch.cshtml" />
+    <Content Include="Views\Console\ProductLineConsole.cshtml" />
+    <Content Include="Views\AppManagement\Security.cshtml" />
+    <Content Include="Scripts\jszip.min.js.map" />
+    <Content Include="Views\AppManagement\SecurityResourceForm.cshtml" />
+    <Content Include="Views\AppManagement\SecurityAccessForm.cshtml" />
+    <Content Include="Views\Reporting\NewBuisnessCountReport.cshtml" />
+    <Content Include="Views\Reporting\InstallmentsReport.cshtml" />
+    <Content Include="Views\Reporting\PendingPremiumReport.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Scripts\devextreme-modules\" />
+    <Folder Include="WebAppObjs\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessServices\BusinessServices.csproj">
+      <Project>{ee0c8268-e840-4625-a19e-bf9fa58a407b}</Project>
+      <Name>BusinessServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{2b846237-9c53-4d0f-80f1-4f47d0c09a5b}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DomainModel\DomainModel.csproj">
+      <Project>{492b5df3-522e-4622-a091-e2de3ad0a701}</Project>
+      <Name>DomainModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Platform\Platform.csproj">
+      <Project>{ef21cae9-3f43-4db8-a316-0f20ba3f503f}</Project>
+      <Name>Platform</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebAPI\WebAPI.csproj">
+      <Project>{5279e043-c9ae-4698-9988-53ace2fdba47}</Project>
+      <Name>WebAPI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Reports\BoundNotIssuedReport.resx">
+      <DependentUpon>BoundNotIssuedReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ExpiringPoliciesReport.resx">
+      <DependentUpon>ExpiringPoliciesReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\InstallmentsReport.resx">
+      <DependentUpon>InstallmentsReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NewBusinessFlowReport.resx">
+      <DependentUpon>NewBusinessFlowReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NewBusinessFlowYTD.resx">
+      <DependentUpon>NewBusinessFlowYTD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PendingPremiumReport.resx">
+      <DependentUpon>PendingPremiumReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PredictivePremiumReport.resx">
+      <DependentUpon>PredictivePremiumReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ProductLineMonthlyDetail.resx">
+      <DependentUpon>ProductLineMonthlyDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RiskSubmissionCountReport.resx">
+      <DependentUpon>RiskSubmissionCountReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\TargetAccountReport.resx">
+      <DependentUpon>TargetAccountReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\UnPaidInstallmentsByMonthReport.resx">
+      <DependentUpon>UnPaidInstallmentsByMonthReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\UnResolvedRenewalsReport.resx">
+      <DependentUpon>UnResolvedRenewalsReport.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!--<Import Project="$(SolutionDir)\packages\RazorGenerator.MsBuild.2.3.10\tools\RazorGenerator.targets"/>-->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:25681/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+    <Error Condition="!Exists('..\packages\RazorGenerator.MsBuild.2.4.1\build\RazorGenerator.MsBuild.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\RazorGenerator.MsBuild.2.4.1\build\RazorGenerator.MsBuild.targets'))" />
+  </Target>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Import Project="..\packages\RazorGenerator.MsBuild.2.4.1\build\RazorGenerator.MsBuild.targets" Condition="Exists('..\packages\RazorGenerator.MsBuild.2.4.1\build\RazorGenerator.MsBuild.targets')" />
+  <Import Project="..\packages\OctoPack.3.0.60\tools\OctoPack.targets" Condition="Exists('..\packages\OctoPack.3.0.60\tools\OctoPack.targets')" />
+  <Target Name="EnsureOctoPackImported" BeforeTargets="BeforeBuild" Condition="'$(OctoPackImported)' == ''">
+    <Error Condition="!Exists('..\packages\OctoPack.3.0.60\tools\OctoPack.targets') And ('$(RunOctoPack)' != '' And $(RunOctoPack))" Text="You are trying to build with OctoPack, but the NuGet targets file that OctoPack depends on is not available on this computer. This is probably because the OctoPack package has not been committed to source control, or NuGet Package Restore is not enabled. Please enable NuGet Package Restore to download them. For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\OctoPack.3.0.60\tools\OctoPack.targets') And ('$(RunOctoPack)' != '' And $(RunOctoPack))" Text="OctoPack cannot be run because NuGet packages were restored prior to the build running, and the targets file was unavailable when the build started. Please build the project again to include these packages in the build. You may also need to make sure that your build server does not delete packages prior to each build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

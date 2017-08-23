@@ -1,0 +1,126 @@
+﻿<div id="RiskEditformBox">
+    <script type="text/javascript">
+        ora.UI.Grid.Grid({
+            id: "RiskNotesGrid",
+            pager: "RiskNotesGridPager",
+            height: 109,
+            restUrl: '/policytracker/api/risk/GetNotes/@Model.Id',
+            rowId: 'Id',
+            caption: '',
+            columnNames: ['Id', 'RiskId', 'User', 'Date', 'Comment', 'Impacts Premium', 'Impact Date'],
+            columnModel: [
+                { name: 'Id', width: 70, search: false, hidden: true },
+                { name: 'RiskId', width: 70, search: false, hidden: true },
+                { name: 'CreatedById', width: 70, search: false, align: 'center' },
+                ora.UI.Grid.Column.ShortDate('CreatedDate', 70),
+                { name: 'Comment', width: 400, search: false },
+                { name: 'ImpactsPremium', width: 50, search: false, align: "center", formatter: "checkbox", formatoptions: { disabled: true } },
+                ora.UI.Grid.Column.ShortDate('ImpactDate', 70),
+            ]
+        });
+
+        ora.UI.Grid.Pager(
+            {
+                id: "RiskNotesGrid", pager: "RiskNotesGridPager",
+                deleteURL: "/policytracker/api/risk/DeleteNote?id={0}",
+                editParams: { Id: "noteId" },
+                getURL: "/policytracker/Policy/NoteForm?riskId=@Model.Id",
+                form: { id: 'RiskNoteForm', grid: "RiskNotesGrid", submitURL: "/policytracker/Policy/NoteForm", container: "RiskCommentEdit", dialog: "RiskCommentEdit", autoFocus: "Comment" },
+                type: ora.Dialog.ActionFormSizes.Small
+            },
+            {
+                hasWriteAccess: true,
+                hasDeleteAccess: true
+            }
+        );
+
+        $(document).ready(function () {
+            @* var fullEditStatuses = ["Submission", "Declined", "Already Involved"];
+            if (("@Html.Raw(Model.QuoteType)" == "AP" || "@Html.Raw(Model.QuoteType)" == "AVC") && fullEditStatuses.indexOf("@Html.Raw(Model.Status)") == -1) {
+                ora.Utilities.Warnings.Add("Warnings", { Id: "CommercialApp", Msg: "Must Edit Commercial policies using the Commercial Rating App" });
+                //$("#RiskEditForm :input").prop("disabled", true);
+                $("#RiskEditForm :input").not(".required, .editable").prop("readonly", true);
+                $("#InstallmentInfo\\.EstimatedPremPerMonth_I, #InstallmentInfo\\.ActualPremPerMonth_I, #NamedInsured\\.Email_I, #NamedInsured\\.PhoneNumber_I, #ORAPercent_I").prop("readonly", false);
+                $("#AirportId_I, #AefgencyID_I, #AgentId_I, #UnderwriterId_I, #Branch_I").prop("readonly", false);
+                $("#RiskEditForm select").not(".required, .editable").prop("disabled", true);
+                $("#CommercialQuote").prop("disabled", false);
+
+                if ("@Model.Status" == "Issued") {
+                    //INE = Issued No Edit
+                    $("#RiskEditForm :input.INE").prop("readonly", true); //each(function () { console.log($(this)); })//prop("readonly", true);
+                    $("#RiskEditForm select.INE").prop("disabled", true);
+                    $("#InstallmentInfo\\.EstimatedPremPerMonth_I, #InstallmentInfo\\.ActualPremPerMonth_I, #ORAPercent_I").prop("readonly", true);
+                    $("#AirportId_I, #AefgencyID_I, #AgentId_I, #UnderwriterId_I, #Branch_I").prop("readonly", true);
+                }
+            }*@
+
+            @* Execute to Setup Labels for loaded Status*@
+            ora.Risk.setLabelsForStatus('@Model.ProductLine','@Model.Status', '@Model.PolicySuffix');
+
+            if ($("#IsCorp").is(":checked")) {
+                $("#IndividualInput").hide();
+                $("#CorpInput").show();
+            }
+            else {
+                $("#IndividualInput").show();
+                $("#CorpInput").hide();
+            }
+
+            $("#RiskEditForm").submit(function (event) {
+                event.preventDefault();
+                var dxEndorsementsGrid = ASPxClientControl.GetControlCollection().GetByName('RiskEndorsements');
+                var dxInstallmentsGrid = ASPxClientControl.GetControlCollection().GetByName('InstallmentPayments');
+                dxEndorsementsGrid.UpdateEdit();
+                dxInstallmentsGrid.UpdateEdit();
+                orAero.risk.update();
+            });
+
+            $("#PremiumHelp").click(function (e) {
+                e.preventDefault(); $("#PremiumInfoHelp").dialog({
+                    title: "Premium Field Information", width: 600, modal: true, buttons: [{
+                        text: "Close", id: "Cancel", name: "Cancel",
+                        click: function () {
+                            $(this).dialog('close');
+                        }
+                    }]
+                });
+            });
+
+            $('#NotifyCompliance').click(function () { ora.Risk.SendBrokerLicenseNotification('RiskEditForm'); });
+        });
+
+        $('#NamedInsured_State').change(function () { ora.Risk.UpdateBrokerLicenseNotification(); });
+        $("#Status").change(function () {
+            ora.Risk.setLabelsForStatus($('#ProductLine').val(), $(this).val(), $('#PolicySuffix').val());
+            ora.Risk.StatusChange('RiskEditForm');
+        });
+        $("#IsCorp").change(function () { ora.Risk.ClientTypeChange(); });
+        $("#Prefix").change(function () { ora.Risk.ProductLineChange(); });
+        $("#ProductLine").change(function () {
+            ora.Risk.setLabelsForStatus($(this).val(), $('#Status').val(), $('#PolicySuffix').val());
+            ora.Risk.ProductLineChange();
+        });
+        $("#InstallmentInfo_IsReporter, #InstallmentInfo_IsPaidInInstallments").change(function () {
+            var isReporter = $("#InstallmentInfo_IsReporter").is(":checked");
+            var isInstallment = $("#InstallmentInfo_IsPaidInInstallments").is(":checked");
+            if (isInstallment || isReporter) {
+                $("#RiskInstallmentPanel").show();
+            } else {
+                $("#RiskInstallmentPanel").hide();
+            }
+        });
+    </script>
+
+    @RenderBody()
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#gbox_RiskNotesGrid").each(function () {
+                var parent = $(this).parent();
+                var id = this.id.replace("gbox_", "");
+                var gridParentWidth = parent[0].clientWidth;
+                $("#" + id).setGridWidth(gridParentWidth - 30).trigger("resize");
+            });
+        });
+    </script>
+</div>

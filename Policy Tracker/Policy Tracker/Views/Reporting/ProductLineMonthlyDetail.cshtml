@@ -1,0 +1,44 @@
+﻿<script type="text/javascript">
+    $("#ReportSubmit").click(function () { $("#ProductLineMonthlyDetailForm").submit() });
+    $("#ProductLineMonthlyDetailForm").submit(function (e) {
+        e.preventDefault();
+        var month = $("#ReportMonth").val();
+        var pl = encodeURIComponent($("#ReportProductLine").val());
+        var qString = "?month=" + month + "&productLine=" + pl;
+        ora.Ajax.Ajax({
+            url: "/policytracker/Reporting/ProductLineMonthlyDetailReport" + qString,
+            dataType: "HTML", type: "GET",
+            successCallback: function (data) { $("#ReportPanel").html(data); }
+        });
+    });
+</script>
+
+<form id="ProductLineMonthlyDetailForm">
+    @Html.ValidationSummary()
+
+    <div class="col-lg-12 no-padding">
+        <div class="panel panel-primary borderless" style="margin:0px !important">
+            <div class="panel-body gray form-horizontal">
+                <div class="form-group">
+                    <label class="col-lg-1 col-sm-3 control-label">Month:</label>
+                    <div class="col-lg-5 col-sm-9">
+                        @Html.DropDownList("ReportMonth", new SelectList(ViewBag.Months, "Value", "DisplayText", DateTime.Now.Month), new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-1 col-sm-3 control-label">Product Line:</label>
+                    <div class="col-lg-5 col-sm-9">
+                        @Html.DropDownList("ReportProductLine", new SelectList(ViewBag.ProductLines, "Name", "Name"), new { @class = "form-control" })
+                    </div>
+                </div>
+                        
+            </div>
+            <div class="panel-footer">
+                <button id="ReportSubmit" type="button" class="btn btn-primary"><i class="fa fa-refresh"></i> Run Report</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div id="ReportPanel"></div>

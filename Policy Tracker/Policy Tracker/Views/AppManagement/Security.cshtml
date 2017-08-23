@@ -1,0 +1,97 @@
+﻿<div class="box box-solid">
+    <div class="box-header with-border">
+        <h3 class="box-title">Security Resources</h3>
+    </div>
+    <div class="box-body">
+        @Html.jqGrid("SecurityResources", true)
+    </div>
+</div>
+
+<div class="box box-solid">
+    <div class="box-header with-border">
+        <h3 class="box-title">Security Access</h3>
+    </div>
+    <div class="box-body">
+        @Html.jqGrid("SecurityAccess", true)
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    ora.UI.Grid.Grid({
+        id: "SecurityResources",
+        pager: "SecurityResourcesPager",
+        height: 250,
+        restUrl: '/policytracker/api/Security/GetResources/',
+        rowId: 'ResourceId',
+        caption: '',
+        columnNames: ['Id', 'Path', 'Name'],
+        columnModel: [
+            { name: 'Id', width: 30, search: false},
+            { name: 'ResourcePath', width: 100 },
+            { name: 'Name', width: 200 },
+        ]
+    });
+
+    ora.UI.Grid.Pager({
+        id: "SecurityResources",
+        pager: "SecurityResourcesPager",
+        deleteURL: "/policytracker/api/Security/DeleteResource/{0}",
+        editParams: { Id: "id" },
+        getURL: "/policytracker/AppManagement/SecurityResourceForm",
+        form: {
+            id: 'SecurityResourceForm',
+            grid: "SecurityResources",
+            submitURL: "/policytracker/AppManagement/SecurityResourceForm",
+            container: "SecurityResourceForm_dg",
+            dialog: "SecurityResourceForm_dg"
+        },
+        type: ora.Dialog.ActionFormSizes.Small,
+        modal: true
+    }, {
+        hasWriteAccess: true,
+        hasDeleteAccess: true
+    });
+
+    $("#SecurityResources").filterToolbar({ searchOnEnter: true, enableClear: true });
+
+    ora.UI.Grid.Grid({
+        id: "SecurityAccess",
+        pager: "SecurityAccessPager",
+        height: 250,
+        restUrl: '/policytracker/api/Security/GetAccess/',
+        rowId: 'Id',
+        caption: '',
+        columnNames: ['Id', 'Role', 'Resource', 'Can Read', 'Can Write', 'Can Delete'],
+        columnModel: [
+            { name: 'Id', width: 30, search: false },
+            { name: 'RoleName', width: 100 },
+            { name: 'ResourceName', width: 200 },
+            { name: 'Read', width: 30, search: false },
+            { name: 'Write', width: 100, search: false },
+            { name: 'Delete', width: 200, search: false },
+        ]
+    });
+
+    ora.UI.Grid.Pager({
+        id: "SecurityAccess",
+        pager: "SecurityAccessPager",
+        deleteURL: "/policytracker/api/Security/DeleteAccess/{0}",
+        editParams: { Id: "id" },
+        getURL: "/policytracker/AppManagement/SecurityAccessForm",
+        form: {
+            id: 'SecurityAccessForm',
+            grid: "SecurityAccess",
+            submitURL: "/policytracker/AppManagement/SecurityAccessForm",
+            container: "SecurityAccessForm_dg",
+            dialog: "SecurityAccessForm_dg"
+        },
+        type: ora.Dialog.ActionFormSizes.Small,
+        modal: true
+    }, {
+        hasWriteAccess: true,
+        hasDeleteAccess: true
+    });
+
+    $("#SecurityAccess").filterToolbar({ searchOnEnter: true, enableClear: true });
+</script>

@@ -1,0 +1,150 @@
+﻿@{
+    ViewBag.Title = "Underwriter Console";
+    Layout = "~/Views/Shared/_DevExtremeLayout.cshtml";
+}
+
+@Scripts.Render("~/angular/controllers")
+
+
+<section class="content-header">
+    <h1>
+        Underwriter Console
+        <small>Year to Date</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li>Consoles</li>
+        <li class="active"><strong>Underwriter</strong></li>
+    </ol>
+</section>
+
+<section class="content" ng-app="UnderwriterConsole" ng-controller="consoleController">
+    <div class="row">
+        <div class="col-lg-2 col-md-3">
+            <!-- Profile Image -->
+            <div class="box box-primary">
+                <div class="box-body box-profile">
+                    <div class="col-sm-12 text-center">
+                        <span class="fa-stack fa-lg" style="font-size:30px">
+                            <i class="fa fa-circle-o fa-stack-2x"></i>
+                            <i class="fa fa-user fa-stack-1x"></i>
+                        </span>
+                    </div>
+                            
+                    <select ng-model="underwriter" ng-options="uw as uw.Name for uw in Underwriters track by uw.UserId" class="form-control"></select>
+
+                    <ul class="list-group list-group-unbordered">
+                        <li class="list-group-item" title="total number of new business submissions">
+                            <b>New Bus. Submissions</b> <a class="pull-right">{{riskStatusCounts.Submissions}}</a>
+                        </li>
+                        <li class="list-group-item" title="Total # of new business submissions declined">
+                            <b>Declined New Bus.</b> <a class="pull-right">{{riskStatusCounts.Declined}}</a>
+                        </li>
+                        <li class="list-group-item" title="Total New Business submissions quoted">
+                            <b>Quoted New Bus.</b> <a class="pull-right">{{riskStatusCounts.Quotes}}</a>
+                        </li>
+                        <li class="list-group-item" title="Total new and renewal policies issued">
+                            <b>Issued</b> <a class="pull-right">{{riskStatusCounts.Issued}}</a>
+                        </li>
+                        <li class="list-group-item" title="Total number of renewals lost">
+                            <b>Lost Renewals</b> <a class="pull-right">{{riskStatusCounts.Lost}}</a>
+                        </li>
+                        <li class="list-group-item" title="Total # of new and renewal policies cancelled">
+                            <b>Canceled</b> <a class="pull-right">{{riskStatusCounts.Cancelled}}</a>
+                        </li>
+                        <li class="list-group-item" title="Total # of policies currently inforce">
+                            <b>Total Inforce</b> <a class="pull-right">{{riskStatusCounts.TotalInforce}}</a>
+                        </li>
+                    </ul>
+                </div><!-- /.box-body -->
+            </div><!-- /.box -->
+            <!-- About Me Box -->
+            <div class="box box-primary">
+                <div class="box-body text-center">
+                    <p class="lead"><strong>Quote Ratio</strong> <br/> {{quoteRatio}} %</p>
+                    <div id="quoteRatioGauge" dx-Circular-gauge="quoteRatioSettings"></div>
+                            
+                    <hr>
+
+                    <p class="lead"><strong>Hit Ratio</strong> <br/> {{hitRatio}} %</p>
+                    <div id="hitRatioGauge" dx-Circular-gauge="hitRatioSettings"></div>
+
+                    <hr>
+
+                    <p class="lead"><strong>Written Ratio</strong> <br/> {{writtenRatio}} %</p>
+                    <div id="writtenRatioGauge" dx-Circular-gauge="writtenRatioSettings"></div>
+                </div><!-- /.box-body -->
+            </div><!-- /.box -->
+        </div><!-- /.col -->
+
+        <div class="col-lg-8 col-md-6">
+
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Risk Status Count Summary By Month (New & Renewal)</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                    <div dx-chart="statusCountByMonthChart"></div>
+                </div><!-- /.box-body -->
+            </div>
+
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs pull-right">
+                    <li class=""><a href="#tab_2-2" data-toggle="tab" aria-expanded="false">Renewals</a></li>
+                    <li class="active"><a href="#tab_1-1" data-toggle="tab" aria-expanded="true">New Business</a></li>
+                    <li class="pull-left header">Policy Count & Premium Value</li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_1-1">
+                        <div dx-chart="businessTypeCountChart"></div>
+                    </div><!-- /.tab-pane -->
+                    <div class="tab-pane" id="tab_2-2">
+                        <div dx-chart="businessTypeValueChart"></div>
+                    </div><!-- /.tab-pane -->
+                </div><!-- /.tab-content -->
+            </div>
+
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Top 20 Inforce Policies</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                    <div dx-data-grid="topTwentyAccounts"></div>
+                </div><!-- /.box-body -->
+            </div>
+        </div><!-- /.col -->
+
+        <div class="col-lg-2 col-md-3">
+            <div class="box box-primary">
+                <div class="box-body box-profile">
+                    <p class="lead"><strong>Top 10 Brokers (Premium)</strong></p>
+                    <ul class="list-group list-group-unbordered">
+                        <li class="list-group-item clearfix" ng-repeat="model in TopTenBrokerPremium | orderBy: 'TotalPremium' : true">
+                            <div class="col-lg-8 col-md-12 no-padding clearfix">
+                                <span ng-attr-title="{{model.AgencyName}}"><strong>{{model.AgencyName | limitTo : 20 : 0}}<span ng-show="model.AgencyName.trim().length > 20">...</span></strong></span> 
+                            </div>
+                            <div class="col-lg-4 col-md-12 no-padding clearfix text-right">
+                                <a>{{model.TotalPremium | currency:"$":0}}</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div><!-- /.box-body -->
+            </div>
+
+            <div class="box box-primary">
+                <div class="box-body box-profile">
+                    <p class="lead"><strong>Top 10 Brokers (Count)</strong></p>
+                    <ul class="list-group list-group-unbordered">
+                        <li class="list-group-item clearfix" ng-repeat="model in TopTenBrokerCount | orderBy: 'TotalRisks' : true">
+                            <div class="col-lg-10 col-md-12 no-padding clearfix">
+                                <span ng-attr-title="{{model.AgencyName}}"><strong>{{model.AgencyName | limitTo : 20 : 0}}<span ng-show="model.AgencyName.trim().length > 20">...</span></strong></span>
+                            </div>
+                            <div class="col-lg-2 col-md-12 no-padding clearfix text-right">
+                                <a>{{model.TotalRisks}}</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div><!-- /.box-body -->
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,74 @@
+﻿@{
+    ViewBag.Title = "Logs";
+    Layout = "~/Views/Shared/_DevExtremeLayout.cshtml";
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.LogLink').each(function () {
+            $(this).click(function (e) {
+                e.preventDefault();
+                var filePath = $(this).attr('data-file-path');
+                var title = $(this).text();
+
+                ora.Ajax.Ajax({
+                    type: 'GET', dataType: 'HTML',
+                    url: '/policytracker/AppManagement/GetLogFile',
+                    data: { file: filePath },
+                    successCallback: function (data, successCallbackData) {
+                        $('#LogFileContent').html(data);
+                        $('#logTitle').text(title);
+                    }
+                });
+            });
+        });
+
+        $("#accordion").accordion({ animate: false });
+    });
+</script>
+
+<div class="col-lg-3 col-sm-12 col-md-12">
+    <div id="accordion" style="padding-top: 10px">
+        <h3>Application Logs</h3>
+        <div>
+            @foreach (var file in ViewBag.AppLogs)
+            {
+                <span class="clear left">
+                    <i class="fa fa-circle-o"></i>
+                    <a class="LogLink" data-file-path="@file" href="#">@file.Substring(file.LastIndexOf("\\") + 1, file.Length - file.LastIndexOf("\\") - 1)</a>
+                </span>
+                
+            }
+        </div>
+        <h3>Error Logs</h3>
+        <div>
+            @foreach (var file in ViewBag.ErrorLogs)
+            {
+                <span class="clear left">
+                    <i class="fa fa-circle-o"></i>
+                    <a class="LogLink" data-file-path="@file" href="#">@file.Substring(file.LastIndexOf("\\") + 1, file.Length - file.LastIndexOf("\\") - 1)</a>
+                </span>                
+            }
+        </div>
+        <h3>Performance Logs</h3>
+        <div>
+            @foreach (var file in ViewBag.PerformanceLogs)
+            {
+                <span class="clear left">
+                    <i class="fa fa-circle-o"></i>
+                    <a class="LogLink" data-file-path="@file" href="#">@file.Substring(file.LastIndexOf("\\") + 1, file.Length - file.LastIndexOf("\\") - 1)</a>
+                </span>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-9 col-sm-12 col-md-12" style="padding-top: 10px">
+    <div class="box box-solid">
+        <div class="box-header with-border">
+            <i class="fa fa-comment"></i>
+            <h3 id="logTitle" class="box-title">Content of Log File</h3>
+        </div>
+        <div id="LogFileContent" class="box-body" style="overflow-y: auto; white-space: pre-wrap;"></div>
+    </div>
+</div>

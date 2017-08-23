@@ -1,0 +1,129 @@
+﻿@model PolicyTracker.DomainModel.Policy.RiskPremiumInfo
+
+<!-- #region Premium Information -->
+<div class="box box-success">
+    <div class="box-header with-border">
+        <h3 class="box-title"><i class="fa fa-info"></i> Premium</h3>
+    </div><!-- /.box-header -->
+    <!-- form start -->
+    <div class="box-body">
+        @Html.HiddenFor(m => Model.RiskId)
+        <div class="col-lg-5 col-md-12">
+            @if (Model.InceptionPremium != 0)
+            {
+                <div class="form-group thin">
+                    <label class="col-lg-3 col-sm-3 control-label">Inception Premium:</label>
+                    <div class="col-sm-9">
+                        <p class="form-control-static">@Model.InceptionPremium.ToString("C0")</p>
+                    </div>
+                </div>
+            }
+
+            <div class="form-group">
+                <label id="AnnualPremLbl" class="col-lg-3 col-md-4 col-sm-3 control-label">Annual Prem: <span class="req hidden">*</span></label>
+                <div class="col-lg-9 col-md-8 col-sm-9">
+                    @Html.DevExpress().TextBox(settings =>
+                           {
+                               settings.Name = "PremiumInfo.AnnualizedPremium";
+                               settings.ControlStyle.CssClass = "form-control";
+                               settings.ToolTip = "Total dollar value of the policy in annuallized full policy term dollars.";
+                               settings.Properties.MaskSettings.AllowMouseWheel = false;
+                               settings.Properties.MaskSettings.Mask = "<0..999999999g>";
+                               settings.Properties.MaskSettings.IncludeLiterals = MaskIncludeLiteralsMode.DecimalSymbol;
+                           }).Bind(Model.AnnualizedPremium.ToString("N0")).GetHtml()
+                </div>
+            </div>
+            <div class="form-group">
+                <label id="WrittenPremLbl" class="col-lg-3 col-sm-3 control-label">Written Prem: <span class="req hidden">*</span></label>
+                <div class="col-lg-9 col-sm-9">
+                    @Html.DevExpress().TextBox(settings =>
+                           {
+                               settings.Name = "PremiumInfo.WrittenPremium";
+                               settings.ControlStyle.CssClass = "form-control";
+                               settings.Properties.MaskSettings.AllowMouseWheel = false;
+                               settings.Properties.MaskSettings.Mask = "<0..9999999999g>";
+                               settings.Properties.MaskSettings.IncludeLiterals = MaskIncludeLiteralsMode.DecimalSymbol;
+                           }).Bind(Model.WrittenPremium.ToString("N0")).GetHtml()
+                </div>
+            </div>
+            <div class="form-group">
+                <label id="DepositPremLbl" class="col-lg-3 col-sm-3 control-label">Deposit Prem: <span class="req hidden">*</span></label>
+                <div class="col-lg-9 col-sm-9">
+                    @Html.DevExpress().TextBoxFor(model => Model.DepositPremium, settings =>
+                           {
+                               settings.Name = "PremiumInfo.DepositPremium";
+                               settings.ControlStyle.CssClass = "form-control";
+                               settings.Properties.MaskSettings.AllowMouseWheel = false;
+                               settings.Properties.MaskSettings.Mask = "<0..999999999g>";
+                               settings.Properties.MaskSettings.IncludeLiterals = MaskIncludeLiteralsMode.DecimalSymbol;
+                           }).Bind(Model.DepositPremium.ToString("N0")).GetHtml()
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-5 col-md-12">
+            <div class="form-group">
+                <label id="ExpAnnualPremLbl" class="col-lg-3 col-sm-5 col-md-3 control-label">Exp. Premium: <span class="req hidden">*</span></label>
+                <div class="col-lg-9 col-sm-7 col-md-9">
+                    @Html.DevExpress().TextBoxFor(model => Model.ExpiredAnnualizedPremium, settings =>
+                           {
+                               settings.Name = "PremiumInfo.ExpiredAnnualizedPremium";
+                               settings.ControlStyle.CssClass = "form-control";
+                               settings.Properties.MaskSettings.AllowMouseWheel = false;
+                               settings.Properties.MaskSettings.Mask = "<0..9999999999g>";
+                               settings.Properties.MaskSettings.IncludeLiterals = MaskIncludeLiteralsMode.DecimalSymbol;
+                           }).Bind(Model.ExpiredAnnualizedPremium.ToString("N0")).GetHtml()
+                </div>
+            </div>
+            <div class="form-group">
+                <label id="ExpWrittenPremLbl" class="col-lg-3 col-sm-3 control-label">Exp. Written: <span class="req hidden">*</span></label>
+                <div class="col-lg-9 col-sm-9">
+                    @Html.DevExpress().TextBoxFor(model => Model.ExpiringWrittenPremium, settings =>
+                           {
+                               settings.Name = "PremiumInfo.ExpiringWrittenPremium";
+                               settings.ControlStyle.CssClass = "form-control";
+                               settings.Properties.MaskSettings.AllowMouseWheel = false;
+                               settings.Properties.MaskSettings.Mask = "<0..9999999999g>";
+                               settings.Properties.MaskSettings.IncludeLiterals = MaskIncludeLiteralsMode.DecimalSymbol;
+                           }).Bind(Model.ExpiringWrittenPremium.ToString("N0")).GetHtml()
+                </div>
+            </div>
+            @*<div class="form-group">
+                <label class="col-lg-3 col-sm-3 control-label">Exp. Earned Prem:</label>
+                <div class="col-lg-9 col-sm-9">
+                    @Html.DevExpress().TextBoxFor(model => Model.PremiumInfo.ExpiringEarnedPremium, settings => {
+                        settings.Name = "PremiumInfo.ExpiringEarnedPremium";
+                        settings.ControlStyle.CssClass = "form-control";
+                        settings.Properties.MaskSettings.Mask = "<0..9999999999g>";
+                        settings.Properties.MaskSettings.IncludeLiterals = MaskIncludeLiteralsMode.DecimalSymbol;
+                    }).Bind(Model.PremiumInfo.ExpiringEarnedPremium.ToString("N0")).GetHtml()
+                </div>
+            </div>*@
+            <div class="form-group thin">
+                <label class="col-lg-3 col-sm-3 control-label">Prem. Change: <span class="req hidden">*</span></label>
+                <div class="col-sm-9">
+                    <p class="form-control-static">@(Model.ExpiredAnnualizedPremium != 0 ? ((Model.AnnualizedPremium / Model.ExpiredAnnualizedPremium - 1) * 100).ToString("N0") : "0") %</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-3 col-sm-3 control-label">Prem. Change Reason:</label>
+                <div class="col-lg-9 col-sm-9">
+                    @Html.DropDownListFor(m => Model.PremiumChangeReasonCode, new SelectList(ViewBag.PremChangeReasons, "Code", "Name"), "", new { @class = "form-control editable" })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        
+
+<div id="PremiumInfoHelp" class="hidden" title="Premium Field Information">
+    <p><b>Annual Premium:</b> Total dollar value of the policy in annuallized full policy term dollars.</p>
+    <p><b>Written Premium:</b> Amount the policy or added amendments are originally booked for regardless of the amount eventually earned.</p>
+    <p>
+        <b>Earned Premium:</b> That portion of a policy's premium that applies to the expired portion of the policy. Although insurance premiums are often paid in advance, insurers typically "earn" the premium at an even rate throughout the policy term.
+        Calculated based on date. Stops earning when policy is cancelled. Based pro-rate of Written premium including endorsements.  Some endorsements and policy may be fully earned at binding.  See fully earned box.
+    </p>
+    <p></p>
+</div>
+        <!-- #endregion -->

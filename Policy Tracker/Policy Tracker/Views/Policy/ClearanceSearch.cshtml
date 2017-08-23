@@ -1,0 +1,200 @@
+﻿<script type="text/javascript">
+    $(document).ready(function () {
+        $("#NamedInsuredSearchGrid").jqGrid({
+            url: '/policytracker/api/Clearance/GetClients',
+            datatype: "JSON",
+            colNames: ['Client #', 'Policy #', 'FAA#', 'Name', 'First', 'Last', 'Company', 'Street', 'City', 'State', 'Zip', 'Email', 'Phone#'],
+            colModel: [ { name: 'ControlNumber', width: 40, search: false, align: 'center', hidden: true },
+                        { name: 'PolicyNumber', width: 50, search: true },
+                        { name: 'FAANo', width: 30, search: true },
+                        { name: 'Name', width: 125, search: true },
+                        { name: 'FirstName', width: 50, search: true, hidden: true },
+                        { name: 'LastName', width: 50, search: true, hidden: true },
+                        { name: 'Company', width: 50, search: true, hidden: true },
+                        { name: 'StreetAddress1', width: 100, search: true },
+                        { name: 'City', width: 50, search: true },
+                        { name: 'State', width: 30, search: true, align: 'center' },
+                        { name: 'Zip', width: 40, search: true },
+                        { name: 'Email', width: 10, search: true, hidden: true },
+                        { name: 'PhoneNumber', width: 10, search: true, hidden: true },
+            ],
+            jsonReader: { root: "Results", page: "CurrentPage", total: "TotalPages", records: "TotalResults", id: "ControlNumber", cell: "", repeatitems: false },
+            prmNames: { page: "pageNumber", rows: "pageSize", order: "sortOrder", sort: "sortProperty" },
+            pager: '#NamedInsuredSearchGridPager',
+            sortname: 'ControlNumber',
+            sortorder: 'desc',
+            autowidth: true,
+            height: 200,
+            altRows: true,
+            footerrow: false,
+            caption: '',
+            sortable: true,
+            onSelectRow: function (id) {
+                $("#RiskFindRowPreview").html('');
+                var row = $(this).getRowData(id);
+                jQuery("#RiskFindGrid").jqGrid().setGridParam({ url: '/policytracker/api/risk/GetRisks/' + id }).trigger("reloadGrid");
+            }
+        });
+
+        jQuery("#NamedInsuredSearchGrid").navGrid('#NamedInsuredSearchGridPager', { search: false, add: false, del: false, edit: false, view: false });
+        jQuery("#NamedInsuredSearchGrid").filterToolbar({ searchOnEnter: true, enableClear: true });
+
+        $("#RiskFindGrid").jqGrid({
+            url: '/policytracker/api/risk/GetRisks/0',
+            datatype: "JSON",
+            colNames: ['ControlNumber', 'Id', 'Policy #', 'IR#', 'Type', 'Status', 'Broker', 'Effective', 'FirstName', 'LastName', 'CompanyName'],
+            colModel: [ { name: 'ControlNumber', width: 40, align: 'center', hidden: true },
+                        { name: 'RiskId', width: 40, search: true, align: 'center', hidden: true },
+                        { name: 'PolicyNumber', width: 75, search: true },
+                        { name: 'ImageRightId', width: 75, search: true },
+                        { name: 'Prefix', width: 40, search: true, align: 'center', hidden: true },
+                        { name: 'Status', width: 35, search: true, },
+                        { name: 'AgencyName', width: 80, search: true },
+                        ora.UI.Grid.Column.ShortDate('EffectiveDate', 80),
+                        { name: 'FirstName', width: 75, search: true, hidden: true },
+                        { name: 'LastName', width: 75, search: true, hidden: true },
+                        { name: 'CompanyName', width: 75, search: true, hidden: true },
+            ],
+            jsonReader: { root: "Results", page: "CurrentPage", total: "TotalPages", records: "TotalResults", id: "RiskId", cell: "", repeatitems: false },
+            prmNames: { page: "pageNumber", rows: "pageSize", order: "sortOrder", sort: "sortProperty" },
+            pager: '#RiskFindGridPager',
+            sortname: 'RiskId',
+            sortorder: 'desc',
+            autowidth: true,
+            height: 200,
+            altRows: true,
+            //footerrow: false,
+            gridview: false,
+            caption: '',
+            sortable: true,
+            selectFirstRowOnLoad: true,
+            onSelectRow: function (id) {
+                var row = $(this).getRowData(id);
+                ora.Ajax.Ajax({
+                    type: "GET",
+                    url: "/policytracker/Policy/RiskPreview?riskId=" + row.RiskId + "&context=RiskFindRowPreview",
+                    dataType: "HTML",
+                    successCallback: function (data) { $("#RiskFindRowPreview").html(data); }
+                });
+
+                if (row.Status == "Declined") {
+                    $("#DeclineRisk").hide();
+                } else {
+                    $("#DeclineRisk").show();
+                }
+            },
+            afterInsertRow: function (rowid, rowdata, rowelem) {
+                if (rowdata.Status == "Declined") {
+                    $("#RiskFindGrid").find("#" + rowid).addClass('ui-grid-row-red');
+                }
+            },
+            ondblClickRow: function (id) {
+                var rowData = $(this).getRowData(id);
+
+                var displayName = (rowData.CompanyName != null && rowData.CompanyName != "") ? rowData.CompanyName : "";
+                if (!appUtilities.isNullOrWhitespace(rowData.FirstName) && !appUtilities.isNullOrWhitespace(rowData.CompanyName)) displayName += ' - ' + rowData.FirstName + ' ' + rowData.LastName
+                else if (!appUtilities.isNullOrWhitespace(rowData.FirstName)) displayName += rowData.FirstName + ' ' + rowData.LastName
+
+                ora.Dialog.ActionForm(
+                {
+                    id: 'RiskEdit_dg',
+                    title: 'Editing Risk ' + id + " For " + displayName,
+                    form: { id: "RiskEditForm", container: "RiskEdit_dg", submitURL: "/policytracker/Policy/RiskEditForm", grid: "RiskFindGrid" },
+                    url: "/policytracker/Policy/RiskEditForm/" + id,
+                    modal: true, autoFocus: "ImageRightId",
+                    WritePermissions: true,
+                    CustomFormSubmit: true,
+                    Type: ora.Dialog.ActionFormSizes.Large,
+                })
+            }
+        });
+
+        jQuery("#RiskFindGrid").navGrid('#RiskFindGridPager', {
+            search: false, add: true, addtext:'Add', del: false, edit: true, edittext: 'Edit', view: false,
+            editfunc: function (id) {
+                var rowData = $(this).getRowData(id);
+                ora.Dialog.ActionForm(
+                {
+                   id: 'RiskEdit_dg',
+                   title: 'Editing Risk ' + id + " For " + rowData.FirstName + " " + rowData.LastName + " " + rowData.CompanyName,
+                   form: { id: "RiskEditForm", container: "RiskEdit_dg", submitURL: "/policytracker/Policy/RiskEditForm", grid: "RiskFindGrid" },
+                   url: "/policytracker/Policy/RiskEditForm/" + id,
+                   modal: true, autoFocus: "ImageRightId",
+                   WritePermissions: true,
+                   CustomFormSubmit: true,
+                   Type: ora.Dialog.ActionFormSizes.Large,
+                })
+            },
+            addfunc: function () {
+                var rowid = $("#NamedInsuredSearchGrid").jqGrid('getGridParam', 'selrow');
+                if (rowid == null) {
+                    ora.Dialog.Simple({ id: "PleaseSelectRisk", message: "First Select a Client/Named Insured." });
+                } else {
+                    var rowData = $("#NamedInsuredSearchGrid").getRowData(rowid);
+                    ora.Dialog.ActionForm(
+                    {
+                        id: 'RiskEntry_dg',
+                        title: 'Entering a New Risk For ' + rowData.Name,
+                        form: { id: "RiskEntryForm", container: "RiskEntry_dg", submitURL: "/policytracker/Policy/RiskEntryForm", grid: "RiskFindGrid" },
+                        url: "/policytracker/Policy/RiskEntryForm?controlNumber=" + rowData.ControlNumber,
+                        modal: true, autoFocus: "ImageRightId",
+                        WritePermissions: true,
+                        CustomFormSubmit: true,
+                        Type: ora.Dialog.ActionFormSizes.Large,
+                    })
+                }
+            }
+        });
+        jQuery("#RiskFindGrid").filterToolbar({ searchOnEnter: true, enableClear: true });
+
+        $(".button").btn();
+    });
+</script>
+
+<div class="row">
+    <div class="col-md-12">
+        <button id="clearAddNew" type="button" class="btn btn-success w-12" title="New Client/Named Insured"><i class="fa fa-plus"></i> New Client</button>
+        <script type="text/javascript">
+            $("#clearAddNew").click(function () { ora.Risk.NewRisk(); });
+        </script>
+    </div>
+</div>
+
+<div class="row" style="margin-top:10px">
+        <div class="col-lg-6 col-md-12 col-sm-12">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title"><i class="fa fa-search"></i> Client Lookup</h3>
+                </div><!-- /.box-header -->
+                <!-- form start -->
+                <div class="box-body" style="padding:0px">
+                    @Html.jqGrid("NamedInsuredSearchGrid", true)
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-12 col-sm-12">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title"><i class="fa fa-file-text-o"></i> Risks For Client</h3>
+                </div><!-- /.box-header -->
+                <!-- form start -->
+                <div class="box-body" style="padding:0px">
+                    @Html.jqGrid("RiskFindGrid", true)
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div id="RiskFindRowPreview" class="row"></div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#gbox_RiskFindGrid, #gbox_NamedInsuredSearchGrid").each(function () {
+            var parent = $(this).parent()
+            var id = this.id.replace("gbox_", "");
+            var gridParentWidth = parent[0].clientWidth - 10;
+            $("#" + id).setGridWidth(gridParentWidth).trigger("resize");
+        });
+    });
+</script>

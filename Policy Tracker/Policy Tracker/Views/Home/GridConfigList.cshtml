@@ -1,0 +1,31 @@
+﻿<div class="dropdown gridMenu">
+    <button class="btn btn-primary dropdown-toggle" type="button" id="testtest" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" >
+        @foreach(var config in ViewBag.GridConfigs)
+        {
+            <li><a href="#" ora-grid-config="@config.Name" class="gridConfigLink">@config.Name</a></li>
+        }
+    </ul>
+</div>
+
+<script type="text/javascript">
+    $(".gridConfigLink").each(function () {
+        $(this).click(function (e) {
+            e.preventDefault();
+            var config = $(this).attr('ora-grid-config');
+            ora.Ajax.Ajax({
+                url: '/policytracker/home/WorkingList?gridConfig=' + config, type: 'GET', dataType: 'HTML',
+                successCallback: function (html) {
+                    $("#page-wrapper").html(html);
+                    var commandMenuHeight = $('#WorkingListCommandMenu').height();
+                    var height = $('#page-wrapper').height();
+                    WorkingListGrid.SetHeight(height - 93 - (commandMenuHeight - 34));
+                    var containerWidth = $('#page-wrapper').width();
+                    WorkingListGrid.SetWidth(containerWidth);
+                }
+            });
+        });
+    });
+</script>

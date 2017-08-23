@@ -1,0 +1,34 @@
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\Platform\bin\Debug\Platform.dll.config
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\Platform\bin\Debug\Platform.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\Platform\bin\Debug\Platform.pdb
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\Platform\bin\Debug\Common.Logging.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\Platform\bin\Debug\DomainModel.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\Platform\bin\Debug\itextsharp.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\Platform\bin\Debug\log4net.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\Platform\bin\Debug\System.Web.Mvc.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\Platform\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\Platform\bin\Debug\DomainModel.pdb
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\Platform\bin\Debug\itextsharp.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\Platform\bin\Debug\log4net.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\Platform\bin\Debug\System.Web.Mvc.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\Platform\obj\Debug\Platform.csprojResolveAssemblyReference.cache
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\Platform\obj\Debug\Platform.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\Platform\obj\Debug\Platform.pdb
+C:\TFSProjects\Policy_Tracker\Policy Tracker\Platform\bin\Debug\Platform.dll.config
+C:\TFSProjects\Policy_Tracker\Policy Tracker\Platform\bin\Debug\Platform.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\Platform\bin\Debug\Platform.pdb
+C:\TFSProjects\Policy_Tracker\Policy Tracker\Platform\bin\Debug\Common.Logging.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\Platform\bin\Debug\DomainModel.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\Platform\bin\Debug\itextsharp.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\Platform\bin\Debug\log4net.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\Platform\bin\Debug\System.Web.Mvc.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\Platform\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\Platform\bin\Debug\DomainModel.pdb
+C:\TFSProjects\Policy_Tracker\Policy Tracker\Platform\bin\Debug\itextsharp.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\Platform\bin\Debug\log4net.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\Platform\bin\Debug\System.Web.Mvc.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\Platform\obj\Debug\Platform.csprojResolveAssemblyReference.cache
+C:\TFSProjects\Policy_Tracker\Policy Tracker\Platform\obj\Debug\Platform.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\Platform\obj\Debug\Platform.pdb
+C:\TFSProjects\Policy_Tracker\Policy Tracker\Platform\bin\Debug\nunit.framework.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\Platform\bin\Debug\nunit.framework.xml

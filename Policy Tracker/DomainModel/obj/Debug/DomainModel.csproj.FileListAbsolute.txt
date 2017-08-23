@@ -1,0 +1,40 @@
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\DomainModel\bin\Debug\DomainModel.dll.config
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\DomainModel\bin\Debug\DomainModel.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\DomainModel\bin\Debug\DomainModel.pdb
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\DomainModel\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\DomainModel\bin\Debug\System.Web.Helpers.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\DomainModel\bin\Debug\System.Web.Mvc.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\DomainModel\bin\Debug\System.Web.Razor.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\DomainModel\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\DomainModel\bin\Debug\System.Web.WebPages.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\DomainModel\bin\Debug\System.Web.WebPages.Razor.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\DomainModel\bin\Debug\System.Web.Helpers.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\DomainModel\bin\Debug\System.Web.Mvc.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\DomainModel\bin\Debug\System.Web.Razor.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\DomainModel\bin\Debug\System.Web.WebPages.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\DomainModel\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\DomainModel\bin\Debug\System.Web.WebPages.Razor.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\DomainModel\obj\Debug\DomainModel.csprojResolveAssemblyReference.cache
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\DomainModel\obj\Debug\DomainModel.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\DomainModel\obj\Debug\DomainModel.pdb
+C:\TFSProjects\Policy_Tracker\Policy Tracker\DomainModel\bin\Debug\DomainModel.dll.config
+C:\TFSProjects\Policy_Tracker\Policy Tracker\DomainModel\bin\Debug\DomainModel.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\DomainModel\bin\Debug\DomainModel.pdb
+C:\TFSProjects\Policy_Tracker\Policy Tracker\DomainModel\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\DomainModel\bin\Debug\System.Web.Helpers.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\DomainModel\bin\Debug\System.Web.Mvc.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\DomainModel\bin\Debug\System.Web.Razor.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\DomainModel\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\DomainModel\bin\Debug\System.Web.WebPages.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\DomainModel\bin\Debug\System.Web.WebPages.Razor.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\DomainModel\bin\Debug\System.Web.Helpers.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\DomainModel\bin\Debug\System.Web.Mvc.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\DomainModel\bin\Debug\System.Web.Razor.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\DomainModel\bin\Debug\System.Web.WebPages.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\DomainModel\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\DomainModel\bin\Debug\System.Web.WebPages.Razor.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\DomainModel\obj\Debug\DomainModel.csprojResolveAssemblyReference.cache
+C:\TFSProjects\Policy_Tracker\Policy Tracker\DomainModel\obj\Debug\DomainModel.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\DomainModel\obj\Debug\DomainModel.pdb
+C:\TFSProjects\Policy_Tracker\Policy Tracker\DomainModel\bin\Debug\nunit.framework.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\DomainModel\bin\Debug\nunit.framework.xml

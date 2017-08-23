@@ -1,0 +1,6 @@
+﻿@Html.DevExpress().DocumentViewer(settings =>
+{   settings.Name = "ExhibitBPayrollReport";
+    settings.Report = (Policy_Tracker.Reports.ExhibitBPayrollReport)ViewData["Report"];
+    settings.CallbackRouteValues = new { Controller = "Reporting", Action = "ExhibitBPayrollReport" };
+    settings.ExportRouteValues = new { Controller = "Reporting", Action = "ExportExhibitBPayrollReport" };
+}).GetHtml()

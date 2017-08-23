@@ -1,0 +1,43 @@
+﻿<script type="text/javascript">
+    $("#YTDNBFSubmit").click(function () { $("#YTDNBFForm").submit() });
+    $("#YTDNBFForm").submit(function (e) {
+        e.preventDefault();
+        var year = $("#ReportYear").val();
+        var uw = encodeURIComponent($("#ReportUnderwriter").val());
+        var qString = "?year=" + year + "&underwriter=" + uw;
+        ora.Ajax.Ajax({
+            url: "/policytracker/Reporting/YTDNewBusinessFlowReport" + qString,
+            dataType: "HTML", type: "GET",
+            successCallback: function (data) { $("#NewBusinessFlowReportPanel").html(data); }
+        });
+    });
+</script>
+
+
+<form id="YTDNBFForm">
+    @Html.ValidationSummary()
+
+    <div class="box box-solid">
+        <div class="box-body form-horizontal">
+            <div class="form-group">
+                <label class="col-lg-1 col-sm-3 control-label">Year:</label>
+                <div class="col-lg-11 col-sm-9">
+                    @Html.DropDownList("ReportYear", new SelectList(ViewBag.Years), new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-lg-1 col-sm-3 control-label">Underwriter:</label>
+                <div class="col-lg-11 col-sm-9">
+                    @Html.DropDownList("ReportUnderwriter", new SelectList(ViewBag.Underwriters, "Name", "Name"), "", new { @class = "form-control" })
+                </div>
+            </div>
+        </div><!-- /.box-body -->
+        <div class="box-footer">
+            <button id="YTDNBFSubmit" type="button" class="btn btn-primary btn-block btn-flat"><i class="fa fa-terminal"></i> Run Report</button>
+        </div>
+    </div><!-- /.box -->
+</form>
+
+
+<div id="NewBusinessFlowReportPanel"></div>

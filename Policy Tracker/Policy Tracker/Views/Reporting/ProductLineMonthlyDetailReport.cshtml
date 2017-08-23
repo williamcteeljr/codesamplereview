@@ -1,0 +1,6 @@
+﻿@Html.DevExpress().DocumentViewer(settings =>{
+    settings.Name = "ProductLineMontlyDetailReport";
+    settings.Report = (Policy_Tracker.Reports.ProductLineMonthlyDetail)ViewData["Report"];
+    settings.CallbackRouteValues = new { Controller = "Reporting", Action = "ProductLineMonthlyDetailReport", month = ViewBag.Month, productLine = ViewBag.ProductLine };
+    settings.ExportRouteValues = new { Controller = "Reporting", Action = "ExportProductLineMonthlyDetailReport", month = ViewBag.Month, productLine = ViewBag.ProductLine };
+}).GetHtml()

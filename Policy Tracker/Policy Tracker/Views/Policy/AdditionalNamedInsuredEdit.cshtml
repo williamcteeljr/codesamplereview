@@ -1,0 +1,188 @@
+﻿@model PolicyTracker.DomainModel.Policy.AdditionalNamedInsured
+
+<form id="AdditionalNamedInsuredEditForm" class="oraForm form-horizontal">
+    @Html.ValidationSummary()
+    @Html.HiddenFor(m => Model.AdditionalNamedInsuredId)
+    @Html.HiddenFor(m => Model.QuoteId)
+
+    <script>
+        $(function () {
+            $("#btnSelectAllAddLocations").bind("click", function () {
+                @*var currentRiskId = @Model.Id;
+                var dataObject = JSON.stringify({ RiskId : currentRiskId });
+                $.ajax({
+                    url: "@Url.Action("ResetMainLocations")",
+                    type: "POST",
+                data: dataObject,
+                contentType: "application/json; charset=utf-8",
+                });*@
+
+            //Remove Selected Locations
+                $("#AddInsuredLocations").find("option").attr("selected", true);
+           
+        });
+        });
+    </script>
+   
+    <div class="col-lg-8">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <i class="fa fa-plane"></i>
+                <h3 class="box-title">Named Insured</h3>
+            </div><!-- /.box-header -->
+            <!-- form start -->
+            <div class="box-body">
+
+                <div class="form-group">
+                    <label class="col-lg-3 col-sm-3 control-label">New Named Insured</label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.TextBoxFor(m => Model.CompanyName, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-3 col-sm-3 control-label">Name 2</label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.TextBoxFor(m => Model.Name2, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-3 col-sm-3 control-label">FEIN #:</label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.TextBoxFor(m => Model.FEIN, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-3 col-sm-3 control-label">Street Address:</label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.TextBoxFor(m => Model.StreetAddress1, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-3 col-sm-3 control-label">Street Address 2:</label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.TextBoxFor(m => Model.StreetAddress2, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-3 col-sm-3 control-label">City:</label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.TextBoxFor(m => Model.City, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-3 col-sm-3 control-label">State:</label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.TextBoxFor(m => Model.State, new { @class = "form-control upper editable" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-3 col-sm-3 control-label">Zip Code:</label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.TextBoxFor(m => Model.Zip, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-3 col-sm-3 control-label">Locations:</label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.ListBoxFor(x => x.SelectedItemsIds, Model.OptionList, new { id = "AddInsuredLocations", SelectionMode = "multiple", style = "width:100%" })
+                        <input type="button" id="btnSelectAllAddLocations" value="Select All Locations" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="box box-danger">
+             <!--form start -->
+            <div class="box-body" style="text-align:center">
+                <i class="fa fa-users" style="font-size:14em"></i>
+            </div>
+        </div>
+    </div>
+    @if (Model.AdditionalNamedInsuredId != 0)
+    {
+    <div class="col-lg-4">
+        <script type="text/javascript">
+                        $("#AddNamedInsuredEndorsement").click(function () {
+                            ora.Dialog.SimpleAjax({
+                                Id: 'PostingNoticePartial_dg', Title: 'Endorsement Confirmation',
+                                Url: '/policytracker/Policy/AdditionalInsuredEndorsement',
+                                MinWidth: function () { return 100 },
+                                MaxWidth: function () { return 450 },
+                                Width: function () { return 415 },
+                                MaxHeight: function () { return 500 },
+                                MinHeight: function () { return 100 },
+                                Height: function () { return 250 },
+
+                                buttons: [
+                                    {
+                                        text: "Yes", id: "SaveClose", name: "SaveClose",
+                                        //icons: { primary: "", secondary: "ui-icon-disk" },
+                                        click: function () {
+                                            //var d = $(this);
+                                            //if ($(d.context).find("form").length == 0) { $(d).dialog('destroy').remove(); }
+                                            //else {
+                                            //    $(d.context).closest('[aria-describedby|="' + d.context.id + '"]').find(".ui-dialog-buttonpane").find(".ui-dialog-buttonset").find("#Save").removeClass("PostedForm");
+                                            //    $(d.context).find("form").submit();
+                                            //}
+                                            var currentInsuredId = @Model.AdditionalNamedInsuredId;
+                                            var currentRiskId = @Model.QuoteId;
+                                            var dataObject = JSON.stringify({ InsuredId : currentInsuredId, RiskId : currentRiskId });
+                                            $.ajax({
+                                                url: "@Url.Action("PostingNoticeEndorsedInsuredSubmission")",
+                                                type: "POST",
+                                                data: dataObject,
+                                                contentType: "application/json; charset=utf-8",
+                                                success: function (response) {
+                                                    console.log(JSON.stringify(response));
+                                                    $.each(response, function(index, responses){
+                                                        var value = responses;
+                                                        console.log(value);
+                                                        if(value.toString() === "0")
+                                                        {
+                                                            alert("Error! Your Confirmation Number is " + value);
+                                                            $('#postingNoticeInsuredEndorsement').html("There is an error with your posting notice request and we are unable to process your request at this time."
+                                                                + " Please check the Logs for details");
+                                                        }
+                                                        else
+                                                        {
+                                                            alert("Success! Your Confirmation Number is " + value);
+                                                            $('#postingNoticeInsuredEndorsement').html("Success! Your Confirmation Number is " + value + ". Please check the Logs for additional information.");
+                                                            //$("#SaveClose").attr("disabled", true);
+                                                                                                                     
+                                                                //$("#WLRefresh").click();
+                                                            
+                                                        }
+                                                    });
+                                                },
+                                                error: function (response) {
+                                                    console.log('error: ' + response);
+                                                }
+                                            });
+
+                                        }
+                                    },
+                                    {
+                                        text: "No", id: "Cancel", name: "No",
+                                        click: function () {
+                                            $(this).dialog('destroy').remove();
+                                        }
+                                    }
+                                ]
+                            });
+                        });
+        </script>
+        <button id="AddNamedInsuredEndorsement" type="button" class="btn-danger btn">Send Endorsement</button>
+    </div>
+    }
+</form>

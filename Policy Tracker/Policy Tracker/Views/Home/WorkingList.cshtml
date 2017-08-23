@@ -1,0 +1,521 @@
+﻿<script type="text/javascript">
+    function WLQuickAssign(s, e) {
+        if (e.item.name == "QuickAssign") {
+            var grid = ASPxClientControl.GetControlCollection().GetByName('WorkingListGrid');
+            grid.SetFocusedRowIndex(e.elementIndex);
+
+            var key = $("#WLCurrentKey").val();
+            if (key != null) {
+                ora.Dialog.ActionForm(
+                {
+                    id: 'QuickAssign_dg',
+                    title: 'Assign Risk to Underwriter',
+                    form: { id: "QuickAssignForm", container: "QuickAssign_dg", submitURL: "/policytracker/Home/QuickAssign", grid: "" },
+                    url: "/policytracker/Home/QuickAssign/" + key,
+                    modal: true, autoFocus: "UnderwriterId",
+                    WritePermissions: true,
+                    HideSaveButton: true,
+                    CustomFormSubmit: true,
+                    Type: ora.Dialog.ActionFormSizes.Small,
+                })
+            }
+
+        }
+    };
+
+    $(document).ready(function () {
+        $('#WorkingListPresetsd_dg').dialog({
+            position: { my: "center", at: "center", of: window },
+            modal: true,
+            autoOpen: false,
+            minWidth: 700,
+            width: 700,
+            minHeight: 500,
+            buttons: {
+                Close: function () {
+                    $('#WorkingListPresetsd_dg').dialog("close");
+                }
+            },
+        })
+
+        $('#WorkingListPresets').click(function () {
+            $('#WorkingListPresetsd_dg').dialog('open');
+        })
+
+        $("#exportWorkingList").click(function () {
+            var grid = ASPxClientControl.GetControlCollection().GetByName('WorkingListGrid');
+            var actionParams = $("form#exptWorkingList").attr("action").split("?filterExp=");
+            actionParams[1] = grid.cpFilterExpression;
+            $("form#exptWorkingList").attr("action", actionParams.join("?filterExp="));
+            $("form#exptWorkingList").submit();
+        })
+
+        $("#WLConfigureGrid").click(function () {
+            ora.Dialog.SimpleAjax({
+                Id: 'GridConfig_dg', Title: 'Customize Grid Configuration',
+                Url: '/policytracker/Home/GridConfig',
+            });
+        });
+
+        $("#ResetWorkingList").click(function () {
+            var grid = ASPxClientControl.GetControlCollection().GetByName('WorkingListGrid');
+            $('input:radio').removeAttr('checked');
+            $("#WLMyFilter").val("");
+            grid.ClearFilter();
+        });
+
+        $("#WLRefresh").click(function () {
+            var grid = ASPxClientControl.GetControlCollection().GetByName('WorkingListGrid');
+            grid.ApplyFilter(grid.cpFilterExpression);
+        });
+
+        $("#GridPerformCallback").click(function () {
+            grid = ASPxClientControl.GetControlCollection().GetByName('WorkingListGrid');
+            grid.PerformCallback();
+        });
+
+        $("#WLMyList").click(function () {
+            $("#WLMyFilter").val("");
+            grid = ASPxClientControl.GetControlCollection().GetByName('WorkingListGrid');
+            $('input:radio').removeAttr('checked');
+
+            var isUA = $("#UserIsUA").val();
+
+            var date = new Date();
+            var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+            var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+
+            var filterExp = "";
+            if (isUA == "True") {
+                filterExp = "Contains([UA], '@ViewBag.UserName') ";
+            } else {
+                filterExp = "Contains([UW], '@ViewBag.UserName') ";
+            }
+
+            filterExp += " AND [EffectiveDate] >= #" + ora.UI.Utils.GetFormattedDate(firstDay) + "#";
+            filterExp += " AND [EffectiveDate] <= #" + ora.UI.Utils.GetFormattedDate(lastDay) + "#";
+            grid.ApplyFilter(filterExp);
+            //grid.GetRowValues(s.GetFocusedRowIndex(), 'RiskId;Name', GetSelectedFieldValuesCallback)
+        });
+
+        $("#WLSaveFilter").click(function () {
+            grid = ASPxClientControl.GetControlCollection().GetByName('WorkingListGrid');
+            var filterExp = encodeURIComponent(grid.cpFilterExpression)
+
+            if (grid.cpFilterExpression == "") {
+                ora.Dialog.Simple({ title: "Oops...", message: "No filters are currently applied" });
+            } else {
+                ora.Dialog.ActionForm({
+                    id: 'UserFilter_dg',
+                    title: 'Save Filter Settings',
+                    form: {
+                        id: "UserFilterForm", container: "UserFilter_dg", dialog: "UserFilter_dg", submitURL: "/policytracker/Home/SaveFilterSettings", grid: "",
+                        successCallback: function (data) {
+                            ora.Ajax.Ajax({
+                                url: "policytracker/Home/UserFilters",
+                                dataType: "HTML", type: "GET",
+                                successCallback: function (data) { $("#UserFilterPanel").html(data); }
+                            });
+                        }
+                    },
+                    url: "/policytracker/Home/SaveFilterSettings?exp=" + filterExp,
+                    modal: true, autoFocus: "Name",
+                    WritePermissions: true,
+                    HideSaveButton: true,
+                    Type: ora.Dialog.ActionFormSizes.Medium,
+                });
+            }
+        });
+
+        $("#WLEditRisk").click(function () {
+            var key = $("#WLCurrentKey").val();
+            if (key != null) {
+                ora.Risk.RiskEdit(key);
+            }
+        });
+
+        $("#WLAddNewRisk").click(function () {
+            ora.Risk.NewRisk();
+        });
+
+        $("#WLDeleteRisk").click(function () {
+            var riskId = $("#WLCurrentKey").val();
+            if (riskId != null) {
+                ora.Dialog.Confirm({
+                    message: "Are you sure you want to delete risk " + riskId + "?",
+                    AcceptCallback: function () {
+
+                        ora.Ajax.Ajax({
+                            url: "/policytracker/Policy/DeleteRisk/" + riskId,
+                            dataType: "HTML", type: "DELETE",
+                            successCallback: function (data) { $("#WLRefresh").click(); }
+                        });
+                    }
+                });
+            }
+        });
+
+        $("#WLShowing").change(function () { $("#ApplyExternalFilters").click(); });
+
+        $("#WLApplyOtherFilter").click(function () {
+            var grid = ASPxClientControl.GetControlCollection().GetByName('WorkingListGrid');
+            var filterExp = grid.cpFilterExpression;
+            var filterToRemove = [];
+
+            var lowerEffective = new Date($("#LowerEffectiveDate").val());
+            var upperEffective = new Date($("#UpperEffectiveDate").val());
+            var renewalUW = $("#WLRenewalUWFilter option:selected").text();
+
+            var propertyFilters = filterExp.split(/\sAND\s|\sAnd\s/);
+
+            for (var i = 0; i < propertyFilters.length; i++) {
+                if (propertyFilters[i] === 'undefined') {
+                    propertyFilters.splice(i);
+                }
+            }
+
+            if (lowerEffective != "Invalid Date" && upperEffective != "Invalid Date") {
+                for (var i = propertyFilters.length - 1; i > 0; i--) {
+                    if (propertyFilters[i].indexOf("EffectiveDate") > -1) {
+                        propertyFilters.splice(i, 1);
+                    }
+                }
+
+                propertyFilters.push("[EffectiveDate] >= #" + ora.UI.Utils.GetFormattedDate(lowerEffective) + "#");
+                propertyFilters.push("[EffectiveDate] <= #" + ora.UI.Utils.GetFormattedDate(upperEffective) + "#");
+            }
+
+            if (renewalUW) {
+                for (var i = propertyFilters.length - 1; i > 0; i--) {
+                    if (propertyFilters[i].indexOf("RUW") > -1) {
+                        propertyFilters.splice(i, 1);
+                    }
+                }
+
+                propertyFilters.push("Contains([RUW], '" + renewalUW + "')");
+            }
+
+            filterExp = '';
+
+            for (var i = 0; i < propertyFilters.length; i++) {
+                if (filterExp.length)
+                    filterExp += " AND "
+                filterExp += propertyFilters[i];
+            }
+
+            grid.ApplyFilter(filterExp);
+        });
+
+        $("input:radio").change(function () {
+            var grid = ASPxClientControl.GetControlCollection().GetByName('WorkingListGrid');
+            var filterExp = "";
+            $("#ViewDescriptions > div").hide();
+            $("#" + this.value).show();
+            $("#WLMyFilter").val("");
+
+            if (this.value == "AllMyRenewals") {
+                filterExp = "[IsRenewal] = True AND Contains([UW], '@ViewBag.UserName')";
+                grid.ApplyFilter(filterExp);
+            }
+
+            if (this.value == "InForceRenewals") {
+                filterExp = "Contains([UW], '@ViewBag.UserName') AND Contains([Status], 'Issued') AND [IsRenewal] = True";
+                grid.ApplyFilter(filterExp);
+            }
+
+            if (this.value == "UnResolvedRenewals") {
+                var date = new Date();
+                filterExp = "Contains([UW], '@ViewBag.UserName') AND [IsRenewal] = True AND Not Contains([Status], 'Lost,Issued,Declined')";
+                grid.ApplyFilter(filterExp);
+            }
+
+            if (this.value == "UnResolvedProspects") {
+                var date = new Date();
+                filterExp = "Contains([UW], '@ViewBag.UserName') AND Contains([Status], 'Submission,Quote') AND [EffectiveDate] < #" + ora.UI.Utils.GetFormattedDate(date) + "#";
+                grid.ApplyFilter(filterExp);
+            }
+
+            if (this.value == "PoliciesExpiringInNinety") {
+                //Exp > today and less than 90 days from today
+                var date = new Date();
+                var maxDate = new Date();
+                maxDate.setDate(date.getDate() + 90);
+
+                filterExp = "Contains([UW], '@ViewBag.UserName') AND Contains([Status], 'Issued')";
+                filterExp += " AND [ExpirationDate] > #" + ora.UI.Utils.GetFormattedDate(date) + "#";
+                filterExp += " AND [ExpirationDate] < #" + ora.UI.Utils.GetFormattedDate(maxDate) + "#"
+
+                grid.ApplyFilter(filterExp);
+            }
+
+            if (this.value == "EffectiveWithinThirty") {
+                var date = new Date();
+                var maxDate = new Date();
+                maxDate.setDate(date.getDate() + 30);
+                date.setDate(date.getDate());
+
+                filterExp = "Contains([UW], '@ViewBag.UserName') ";
+                filterExp += " AND [EffectiveDate] >= #" + ora.UI.Utils.GetFormattedDate(date) + "#";
+                filterExp += " AND [EffectiveDate] <= #" + ora.UI.Utils.GetFormattedDate(maxDate) + "#";
+
+                grid.ApplyFilter(filterExp);
+            }
+
+            if (this.value == "EffectiveWithinSixty") {
+                var date = new Date();
+                var maxDate = new Date();
+                maxDate.setDate(date.getDate() + 60);
+                date.setDate(date.getDate());
+
+                filterExp = "Contains([UW], '@ViewBag.UserName') ";
+                filterExp += " AND [EffectiveDate] >= #" + ora.UI.Utils.GetFormattedDate(date) + "#";
+                filterExp += " AND [EffectiveDate] <= #" + ora.UI.Utils.GetFormattedDate(maxDate) + "#";
+
+                grid.ApplyFilter(filterExp);
+            }
+
+            if (this.value == "EffectiveWithinNinety") {
+                var date = new Date();
+                var maxDate = new Date();
+                maxDate.setDate(date.getDate() + 90);
+                date.setDate(date.getDate());
+
+                filterExp = "Contains([UW], '@ViewBag.UserName') ";
+                filterExp += " AND [EffectiveDate] >= #" + ora.UI.Utils.GetFormattedDate(date) + "#";
+                filterExp += " AND [EffectiveDate] <= #" + ora.UI.Utils.GetFormattedDate(maxDate) + "#";
+
+                grid.ApplyFilter(filterExp);
+            }
+
+            if (this.value == "LatestSubmissions") {
+                var filterExp = "Contains([Status], 'Submission,Quote') AND Contains([UW], '@ViewBag.UserName')";
+                grid.ApplyFilter(filterExp);
+            }
+
+            if (this.value == "EffectiveThisMonth") {
+                var date = new Date();
+                var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+                var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+
+                filterExp = "Contains([UW], '@ViewBag.UserName') ";
+                filterExp += " AND [EffectiveDate] >= #" + ora.UI.Utils.GetFormattedDate(firstDay) + "#";
+                filterExp += " AND [EffectiveDate] <= #" + ora.UI.Utils.GetFormattedDate(lastDay) + "#"
+
+                grid.ApplyFilter(filterExp);
+            }
+        });
+    });
+
+    $(window).resize(function () {
+        var commandMenuHeight = $('#WorkingListCommandMenu').height();
+        var height = $('#page-wrapper').height();
+        WorkingListGrid.SetHeight(height - 93 - (commandMenuHeight - 34));
+        var containerWidth = $('#page-wrapper').width();
+        WorkingListGrid.SetWidth(containerWidth);
+    });
+</script>
+
+<style>
+    .clearfix:before,
+    .clearfix:after {
+        content: '\0020';
+        display: block;
+        overflow: hidden;
+        visibility: hidden;
+        width: 0;
+        height: 0;
+    }
+
+    .clearfix:after {
+        clear: both;
+    }
+
+    .clearfix {
+        zoom: 1;
+    }
+</style>
+
+<div id="WorkingListPresetsd_dg" title="Views" class="hidden">
+    <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="ViewFilter" value="LatestSubmissions">
+                All My Submissions
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="ViewFilter" value="AllMyRenewals">
+                All My Renewals
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="ViewFilter" value="PoliciesExpiringInNinety">
+                My Policies Expiring In 90 Days
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="ViewFilter" value="UnResolvedRenewals">
+                My Un-Resolved Renewals
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="ViewFilter" value="UnResolvedProspects">
+                My Un-Resolved Prospects
+            </label>
+        </div>
+
+        <div class="radio">
+            <label>
+                <input type="radio" name="ViewFilter" value="InForceRenewals">
+                My Inforce Renewals
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="ViewFilter" value="EffectiveWithinThirty">
+                My List Effective Within 30 Days
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="ViewFilter" value="EffectiveWithinSixty">
+                My List Effective Within 60 Days
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="ViewFilter" value="EffectiveWithinNinety">
+                My List Effective Within 90 Days
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="ViewFilter" value="EffectiveThisMonth">
+                My List Effective This Month @System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(DateTime.Now.Month).ToString()
+            </label>
+        </div>
+    </div>
+
+    <div id="ViewDescriptions" class="panel-body gray annotation">
+        <h4 style="margin:0px 0px 10px 0px">Filter Description</h4>
+        <div id="LatestSubmissions" class="hidden">
+            All risks assigned to @ViewBag.UserName  where status is one of (Submission, Quote)
+        </div>
+        <div id="AllMyRenewals" class="hidden">
+            All risks where the policy # suffix is greater than 1
+        </div>
+        <div id="InForceRenewals" class="hidden">
+            All risks where the policy # suffix is greater than 1 and the status is Issued and is assigned to underwriter @ViewBag.UserName
+        </div>
+        <div id="UnResolvedRenewals" class="hidden">
+            Risk policy # suffix is greater than 1 and the effective date has already passed (@DateTime.Now.ToShortDateString())
+        </div>
+        <div id="UnResolvedProspects" class="hidden">
+            Risk Status is one of (Submission, Quote) and the effective date has already passed today (@DateTime.Now.ToShortDateString())
+        </div>
+        <div id="PoliciesExpiringInNinety" class="hidden">
+            All policies where the expiring date falls between @DateTime.Now.ToShortDateString() and @DateTime.Now.AddDays(90).Date.ToShortDateString() days from today.
+        </div>
+        <div id="EffectiveWithinThirty" class="hidden">
+            All policies assigned to @PolicyTracker.Platform.Security.SessionManager.GetCurrentSession().User.Name that are effective on or before @DateTime.Now.AddDays(30).ToShortDateString()
+        </div>
+        <div id="EffectiveWithinSixty" class="hidden">
+            All policies assigned to @PolicyTracker.Platform.Security.SessionManager.GetCurrentSession().User.Name that are effective on or before @DateTime.Now.AddDays(60).ToShortDateString()
+        </div>
+        <div id="EffectiveWithinNinety" class="hidden">
+            All policies assigned to @PolicyTracker.Platform.Security.SessionManager.GetCurrentSession().User.Name that are effective on or before @DateTime.Now.AddDays(90).ToShortDateString()
+        </div>
+    </div>
+</div>
+
+<section class="content no-padding">
+    <form id="exptWorkingList" class="hidden" method="post" action="/policytracker/WorkingListGrid/Export"></form>
+    <div id="WorkingListGridPane">
+        <div id="WorkingListCommandMenu" class="clear clearfix">
+            <div class="gridMenu pull-left col-lg-8 col-md-12 col-sm-12 fillContainer">
+                <div class="dropdown btn gridMenu no-padding" title="Select from preset grid filters (views)">
+                    <button id="WorkingListPresets" class="btn btn-primary" type="button">Views</button>
+                </div>
+                <div class="dropdown btn gridMenu" style="padding:0px" title="Select other filters to apply to grid">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <i class="fa fa-filter"></i> Other Filters
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu1" style="width:700px">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label style="float:none;font-size:15px">Effective Date Range</label>
+                                <input type="text" class="form-control datePicker" id="LowerEffectiveDate" placeholder="Lower Effective Date">
+                                <input type="text" class="form-control datePicker" id="UpperEffectiveDate" placeholder="Upper Effective Date">
+                            </div>
+
+                            <div class="form-group">
+                                <label style="float:none;font-size:15px">Renewal Underwriter</label>
+                                @Html.DropDownList("WLRenewalUWFilter", new SelectList(@ViewBag.Underwriters, "UserId", "Name"), "", new { @class = "form-control" })
+                            </div>
+
+                            <div class="form-group gridMenu">
+                                <button id="WLApplyOtherFilter" type="button" class="btn btn-primary first"><i class="fa fa-filter"></i> Apply Filters</button>
+                            </div>
+                            <script type="text/ecmascript">
+                                $(".datePicker").datepicker();
+                            </script>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="WLRefresh" type="button" class="btn btn-primary" title="Refresh the grid with current filters applied"><i class="fa fa-refresh"></i> Refresh</button>
+                <button id="ResetWorkingList" type="button" class="btn btn-primary" title="Clear all filters applied to grid"><i class="fa fa-repeat"></i> Clear Filters</button>
+                <button id="WLMyList" type="button" class="btn btn-primary" title="Filter risks assigned to you for the current month"><i class="fa fa-user"></i> My List</button>
+                <button id="WLSaveFilter" type="button" class="btn btn-primary" title="Save current filter settings to user profile"><i class="fa fa-save"></i> Save Filter Settings</button>
+                <button id="exportWorkingList" type="button" class="btn btn-primary" title="Export Working List"><i class="fa fa-download"></i></button>
+                <button id="WLConfigureGrid" type="button" class="btn btn-primary" title="Setup Custom grid column selections and ordering"><i class="fa fa-wrench"></i> Configure Columns</button>
+                
+
+                <div id="GridConfigListContainer" class="btn" style="padding:0px">
+                    @Html.Action("GridConfigList")
+                </div>
+
+
+            </div>
+            <script type="text/javascript">
+                $('.dropdown-menu input, .dropdown-menu label, .dropdown-menu select').click(function (e) {
+                    e.stopPropagation();
+                });
+            </script>
+
+            <div id="userwlfilter" class="col-lg-4 col-md-12 col-sm-12 fillContainer" style="padding-top:5px">
+                <div id="UserFilterPanel">
+                    @Html.Action("UserFilters")
+                </div>
+                @Html.Hidden("CurrUserId", (int)ViewBag.UserId)
+            </div>
+        </div>
+
+        @Html.Hidden("UserIsUA", (bool)ViewBag.IsUA)
+        @Html.Hidden("WLCurrentKey")
+        @Html.Hidden("CurrUserName", (string)ViewBag.UserName)
+        <div style="overflow-x:scroll">
+            @Html.Action("WorkingListGrid", "WorkingListGrid", new { gridConfig = ViewBag.UserGridConfig })
+        </div>
+
+        <div id="WorkingListRowMenu" class="gridMenu clear">
+            @{ var canDelete = SecurityManager.HasAccess("/Risk/WorkingList", SecurityManager.ResourcePrivilege.Delete); }
+
+            @if (!canDelete)
+            {
+                <button id="WLAddNewRisk" type="button" class="btn btn-success first" style="width:50%;padding:10px 10px"><i class="fa fa-plus"></i> Add</button>
+                <button id="WLEditRisk" type="button" class="btn btn-primary" style="width:50%;padding:10px 10px"><i class="fa fa-pencil"></i> Edit</button>
+            }
+            else
+            {
+                <button id="WLAddNewRisk" type="button" class="btn btn-success first" style="width:33.33%;padding:10px 10px"><i class="fa fa-plus"></i> Add</button>
+                <button id="WLEditRisk" type="button" class="btn btn-primary" style="width:33.33%;padding:10px 10px"><i class="fa fa-pencil"></i> Edit</button>
+                <button id="WLDeleteRisk" type="button" class="btn btn-danger" style="width:33.33%;padding:10px 10px"><i class="fa fa-trash-o"></i> Delete</button>
+            }
+        </div>
+    </div>
+</section>

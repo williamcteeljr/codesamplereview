@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="sqlDataSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="customSqlQuery1.Sql" xml:space="preserve">
+    <value>select distinct
+r.RiskId,
+r.IsPaidInInstallments as PaidInstallments,
+r.EffectiveMonth,
+r.EffectiveYear,
+Case when IsPaidInInstallments = 1 then 'Yes' else 'No' end as 'Is Paid?',
+r.UW as 'Underwriter Name',
+r.PolicyNumber as 'Full Policy Number', 
+r.EffectiveDate as 'Effective Date',
+r.Name as 'Insured Name',
+r.AgencyID as 'Agency ID',
+r.AnnualizedPremium as 'Policy Annual Premium',
+rP.DueDate as 'Payment Due Date',
+rP.ActualAmount as 'Payment Amount',
+case when rP.InvoicedDate  IS NULL then 'No' else 'Yes' end as 'Was Billed'
+ from RiskGraphView r
+ join RiskPayments rP on r.RiskId = rP.RiskId
+ where
+r.EffectiveMonth = @Month
+and r.EffectiveYear = @Year
+order by r.EffectiveDate asc</value>
+  </data>
+  <data name="customSqlQuery3.Sql" xml:space="preserve">
+    <value>select distinct EffectiveMonth,
+Case when EffectiveMonth = 1 then 'January' 
+     when EffectiveMonth = 2 then 'February'
+	 when EffectiveMonth = 3 then 'March'
+	 when EffectiveMonth = 4 then 'April'
+	 when EffectiveMonth = 5 then 'May'
+	 when EffectiveMonth = 6 then 'June'
+	 when EffectiveMonth = 7 then 'July'
+	 when EffectiveMonth = 8 then 'August'
+	 when EffectiveMonth = 9 then 'September'
+	 when EffectiveMonth = 10 then 'October'
+	 when EffectiveMonth = 11 then 'November'
+	 when EffectiveMonth = 12 then 'December'	
+	 end as 'CurrentMonth'
+from RiskGraphView
+where EffectiveMonth = EffectiveMonth
+order by EffectiveMonth asc</value>
+  </data>
+  <data name="customSqlQuery4.Sql" xml:space="preserve">
+    <value>select SUM(Summaries.TotalCount) as 'TotalCount',
+SUM(Summaries.[Total Due Summary]) as 'Total Due Summary',
+SUM(Summaries.[Total Paid Summary])as 'Total Paid Summary',
+SUM(Summaries.[Total Left]) as 'Total Left'
+ from (
+
+select 
+SUM(0) as 'TotalCount'
+,SUM(rP.ActualAmount) as 'Total Paid Summary'
+,SUM(rP.AnticipatedAmount) as 'Total Due Summary'
+,SUM(rP.AnticipatedAmount - rP.ActualAmount) as 'Total Left'
+
+from RiskGraphView r
+join RiskPayments rP
+on r.RiskId = rP.RiskId
+where
+r.EffectiveMonth = @Month
+and r.EffectiveYear = @Year
+
+UNION
+
+select COUNT(*) as 'TotalCount', 
+SUM(0) as 'Total Paid Summary'
+,SUM(0) as 'Total Due Summary'
+,SUM(0) as 'Total Left'
+from RiskGraphView
+where IsPaidInInstallments = 'false'
+and EffectiveMonth = @Month	
+and EffectiveYear = @Year
+
+) as Summaries</value>
+  </data>
+  <data name="customSqlQuery5.Sql" xml:space="preserve">
+    <value>select distinct EffectiveMonth,
+Case when EffectiveMonth = 1 then 'January' 
+     when EffectiveMonth = 2 then 'February'
+	 when EffectiveMonth = 3 then 'March'
+	 when EffectiveMonth = 4 then 'April'
+	 when EffectiveMonth = 5 then 'May'
+	 when EffectiveMonth = 6 then 'June'
+	 when EffectiveMonth = 7 then 'July'
+	 when EffectiveMonth = 8 then 'August'
+	 when EffectiveMonth = 9 then 'September'
+	 when EffectiveMonth = 10 then 'October'
+	 when EffectiveMonth = 11 then 'November'
+	 when EffectiveMonth = 12 then 'December'	
+	 end as 'CurrentMonth'
+from RiskGraphView
+where EffectiveMonth = @Month
+order by EffectiveMonth asc</value>
+  </data>
+  <data name="sqlDataSource1.ResultSchemaSerializable" xml:space="preserve">
+    <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9IkN1cnJlbnRNb250aCI+PEZpZWxkIE5hbWU9IkVmZmVjdGl2ZU1vbnRoIiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0iQ3VycmVudE1vbnRoIiBUeXBlPSJTdHJpbmciIC8+PC9WaWV3PjxWaWV3IE5hbWU9Ik1vbnRoTGlzdCI+PEZpZWxkIE5hbWU9IkVmZmVjdGl2ZU1vbnRoIiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0iQ3VycmVudE1vbnRoIiBUeXBlPSJTdHJpbmciIC8+PC9WaWV3PjxWaWV3IE5hbWU9IlF1ZXJ5Ij48RmllbGQgTmFtZT0iUmlza0lkIiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0iUGFpZEluc3RhbGxtZW50cyIgVHlwZT0iQm9vbGVhbiIgLz48RmllbGQgTmFtZT0iRWZmZWN0aXZlTW9udGgiIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJFZmZlY3RpdmVZZWFyIiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0iSXMgUGFpZD8iIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iVW5kZXJ3cml0ZXIgTmFtZSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJGdWxsIFBvbGljeSBOdW1iZXIiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iRWZmZWN0aXZlIERhdGUiIFR5cGU9IkRhdGVUaW1lIiAvPjxGaWVsZCBOYW1lPSJJbnN1cmVkIE5hbWUiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iQWdlbmN5IElEIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IlBvbGljeSBBbm51YWwgUHJlbWl1bSIgVHlwZT0iRGVjaW1hbCIgLz48RmllbGQgTmFtZT0iUGF5bWVudCBEdWUgRGF0ZSIgVHlwZT0iRGF0ZVRpbWUiIC8+PEZpZWxkIE5hbWU9IlBheW1lbnQgQW1vdW50IiBUeXBlPSJEZWNpbWFsIiAvPjxGaWVsZCBOYW1lPSJXYXMgQmlsbGVkIiBUeXBlPSJTdHJpbmciIC8+PC9WaWV3PjxWaWV3IE5hbWU9IlRvdGFsU3VtbWFyeSI+PEZpZWxkIE5hbWU9IlRvdGFsQ291bnQiIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJUb3RhbCBEdWUgU3VtbWFyeSIgVHlwZT0iRGVjaW1hbCIgLz48RmllbGQgTmFtZT0iVG90YWwgUGFpZCBTdW1tYXJ5IiBUeXBlPSJEZWNpbWFsIiAvPjxGaWVsZCBOYW1lPSJUb3RhbCBMZWZ0IiBUeXBlPSJEZWNpbWFsIiAvPjwvVmlldz48VmlldyBOYW1lPSJZZWFyTGlzdCI+PEZpZWxkIE5hbWU9IkVmZmVjdGl2ZVllYXIiIFR5cGU9IkludDMyIiAvPjwvVmlldz48L0RhdGFTZXQ+</value>
+  </data>
+</root>

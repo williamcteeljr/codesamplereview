@@ -1,0 +1,40 @@
+﻿<script type="text/javascript">
+    $("#NBFSubmit").click(function () { $("#NBFForm").submit() });
+    $("#NBFForm").submit(function (e) {
+        e.preventDefault();
+        ora.Ajax.Ajax({
+            url: "/policytracker/Reporting/NewBusinessFlowReport",
+            dataType: "HTML", type: "GET", data: $("#NBFForm").serializeArray(),
+            successCallback: function (data) { $("#NewBusinessFlowReportPanel").html(data); }
+        });
+    });
+</script>
+
+
+<form id="NBFForm" class="form-inline">
+    @Html.ValidationSummary()
+
+    <div class="box box-solid">
+        <div class="box-body">
+            <div class="form-group m-r">
+                <label>Month:</label>
+                @Html.DropDownList("Month", new SelectList(ViewBag.Months, "Value", "DisplayText", DateTime.Now.Month), new { @class = "form-control" })
+            </div>
+
+            <div class="form-group m-r">
+                <label>Year:</label>
+                @Html.DropDownList("Year", new SelectList(ViewBag.Years), new { @class = "form-control" })
+            </div>
+
+            <div class="form-group m-r">
+                <label>Underwriter:</label>
+                @Html.DropDownList("UnderwriterId", new SelectList(ViewBag.Underwriters, "UserId", "Name"), new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <button id="NBFSubmit" type="button" class="btn btn-primary">Run Report <i class="fa fa-sign-in"></i></button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div id="NewBusinessFlowReportPanel"></div>

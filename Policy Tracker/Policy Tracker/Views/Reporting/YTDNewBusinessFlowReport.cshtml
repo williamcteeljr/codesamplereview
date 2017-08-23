@@ -1,0 +1,6 @@
+﻿@Html.DevExpress().DocumentViewer(settings =>{
+    settings.Name = "YTDNewBusinessFlowReport";
+    settings.Report = (Policy_Tracker.Reports.NewBusinessFlowYTD)ViewData["Report"];
+    settings.CallbackRouteValues = new { Controller = "Reporting", Action = "YTDNewBusinessFlowReport", Year = ViewBag.Year, Underwriter = ViewBag.Underwriter };
+    settings.ExportRouteValues = new { Controller = "Reporting", Action = "ExportYTDNewBusinessFlowReport", Year = ViewBag.Year, Underwriter = ViewBag.Underwriter };
+}).GetHtml()

@@ -1,0 +1,106 @@
+﻿<style>
+    .thumbnail {box-shadow: 2px 2px 5px black;}
+    .thumbnail:hover {
+        background-color: #e7e7e7;
+    }
+    a.thumblink { text-decoration: none; }
+        a.thumblink:hover {
+            background-color: lightgray;
+        }
+</style>
+
+<div class="col-lg-12">
+    <div class="box" style="margin-top:20px">
+        <div class="box-header with-border">
+            <h3 class="box-title">Aircraft Reports</h3>
+            <div class="box-tools pull-right">
+                <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
+            </div>
+        </div>
+        <div class="box-body">
+            <div class="col-lg-2 col-sm-6 col-md-4">
+                <a class="thumblink" href="#/aircraftWorkingList" ">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3>Aircraft</h3>
+                            <p>Aircraft Production Log.</p>
+                            <div class="w-12 btn btn-primary" role="button"><i class="fa fa-folder-open"></i> Open</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-12">
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">Installments / Reporters</h3>
+            <div class="box-tools pull-right">
+                <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
+            </div>
+        </div>
+        <div class="box-body">
+            <div class="col-lg-2 col-sm-6 col-md-4">
+                <a href="#/installments" class="thumblink">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3>Installments / Reporters</h3>
+                            <p>Lists of Installments & Reporter policies. List of all un-paid payments for both installment and reporter policies.</p>
+                            <div class="btn btn-block btn-primary" role="button"><i class="fa fa-folder-open"></i> Open</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-12">
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">General</h3>
+            <div class="box-tools pull-right">
+                <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
+            </div>
+        </div>
+        <div class="box-body">
+            <div class="col-lg-2 col-sm-6 col-md-4">
+                <a href="#/unresolved" class="thumblink">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3>Un-Resolved Risks</h3>
+                            <p>List of policies not in a final disposition. Final dispositions include declined, issued, lost, and cancelled.</p>
+                            <div class="btn btn-block btn-primary" role="button"><i class="fa fa-folder-open"></i> Open</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-lg-2 col-sm-6 col-md-4">
+                <a href="#/targetaccounts" class="thumblink">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3>Target Accounts</h3>
+                            <p>List of risks marked as a target account</p>
+                            <div class="btn btn-block btn-primary" role="button"><i class="fa fa-folder-open"></i> Open</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-lg-2 col-sm-6 col-md-4">
+                <a href="#/monthlyexpiringaccounts" class="thumblink">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3>Monthly Expiring Accounts</h3>
+                            <p>List of accounts that are expiring in the current month (@System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(DateTime.Now.Month)) that have not yet been issued.</p>
+                            <div class="btn btn-block btn-primary" role="button"><i class="fa fa-folder-open"></i> Open</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

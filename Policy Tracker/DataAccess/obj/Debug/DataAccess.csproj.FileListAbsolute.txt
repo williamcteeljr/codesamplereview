@@ -1,0 +1,36 @@
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\DataAccess\bin\Debug\DataAccess.dll.config
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\DataAccess\bin\Debug\DataAccess.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\DataAccess\bin\Debug\DataAccess.pdb
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\DataAccess\bin\Debug\DomainModel.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\DataAccess\bin\Debug\Platform.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\DataAccess\bin\Debug\System.Web.Mvc.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\DataAccess\bin\Debug\itextsharp.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\DataAccess\bin\Debug\log4net.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\DataAccess\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\DataAccess\bin\Debug\DomainModel.pdb
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\DataAccess\bin\Debug\Platform.pdb
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\DataAccess\bin\Debug\System.Web.Mvc.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\DataAccess\bin\Debug\itextsharp.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\DataAccess\bin\Debug\log4net.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\DataAccess\obj\Debug\DataAccess.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\DataAccess\obj\Debug\DataAccess.pdb
+C:\TFSProjects\Policy_Tracker\Policy Tracker\DataAccess\bin\Debug\DataAccess.dll.config
+C:\TFSProjects\Policy_Tracker\Policy Tracker\DataAccess\bin\Debug\DataAccess.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\DataAccess\bin\Debug\DataAccess.pdb
+C:\TFSProjects\Policy_Tracker\Policy Tracker\DataAccess\bin\Debug\DomainModel.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\DataAccess\bin\Debug\Platform.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\DataAccess\bin\Debug\System.Web.Mvc.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\DataAccess\bin\Debug\itextsharp.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\DataAccess\bin\Debug\log4net.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\DataAccess\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\DataAccess\bin\Debug\DomainModel.pdb
+C:\TFSProjects\Policy_Tracker\Policy Tracker\DataAccess\bin\Debug\Platform.pdb
+C:\TFSProjects\Policy_Tracker\Policy Tracker\DataAccess\bin\Debug\System.Web.Mvc.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\DataAccess\bin\Debug\itextsharp.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\DataAccess\bin\Debug\log4net.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+C:\TFSProjects\Policy_Tracker\Policy Tracker\DataAccess\obj\Debug\DataAccess.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\DataAccess\obj\Debug\DataAccess.pdb
+C:\TFSProjects\Policy_Tracker\Policy Tracker\DataAccess\bin\Debug\nunit.framework.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\DataAccess\bin\Debug\nunit.framework.xml

@@ -1,0 +1,155 @@
+﻿<style>
+    .title {
+        font-weight: bold;
+    }
+
+    .emphasis {
+        font-style: italic;
+        display: block;
+    }
+
+    ul.ui-autocomplete {
+        z-index: 1100;
+    }
+</style>
+
+@Html.Action("Filters")
+
+<div id="dbSection">
+    @Html.Action("Dashboard")
+</div>
+
+<div id="dashboardStatChart">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Statistics Chart</h3>
+                </div><!-- /.box-header -->
+                <div id="StatsPanel" class="box-body">
+                    <div class="col-lg-2">
+                        <div class="panel borderless panel-primary">
+                            <div class="panel-body">
+                                @Html.Action("StatChartFilters")
+                            </div>
+                            <button id="FilterStatChart" type="button" class="btn btn-primary btn-flat btn-block"><i class="fa fa-filter"></i> Filter</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-10">
+                        <div class="panel borderless panel-primary">
+                            <div id="StatChartContent" class="panel-body">
+                                @Html.Action("StatsChart")
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- /.box-body -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading collapseControl" data-collapse-panel="dbHelpPane">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-question-circle fa-lg"></i> Dashboard Help
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <i class="fa fa-question-circle fa-lg"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div id="dbHelpPane" class="panel-body gray hidden">
+                <div>
+                    <span class="title">Inforce Policy Count By Underwriter By Branch</span>
+                    <p>
+                        Displays the total inforce (issued) policies by assigned underwriter by branch. Use the branch filter to see only underwriters assigned to that branch.
+                        <span class="emphasis">Affected By Dashboard Filters: Branch</span>
+                    </p>
+                </div>
+                <div>
+                    <span class="title">Inforce Policy $ By Product Line</span>
+                    <p>
+                        Displays the total inforce (issued) policy $ values (annualized) grouped by product line. Gives an idea of the product lines total % of the companies current inforce policy value.
+                        <span class="emphasis">Affected By Dashboard Filters: none</span>
+                    </p>
+                </div>
+                <div>
+                    <span class="title">Quote / Hit / Written Ratios</span>
+                    <p>
+                        Displays the current quoted, hit, and written risk ratios.
+                        <span style="margin-left: 10px; display: block;">
+                            Quoted: Of all the submissions received how many have at least been quoted.
+                            <br />
+                            Hit: Of all the risks quoted how many were issued.
+                            <br />
+                            Written: Of all the risk submissions received how many were issued.
+                        </span>
+                        <span class="emphasis">Affected By Dashboard Filters: Underwriter, Branch, Product Line</span>
+                    </p>
+                </div>
+                <div>
+                    <span class="title">Renewals By Status</span>
+                    <p>
+                        Displays the current number of renewal policies that are in submission, quoted, issued, and lost status. Displays for the current month, next month, and the month after next.
+                        <span class="emphasis">Affected By Dashboard Filters: Underwriter, Branch, Product Line</span>
+                    </p>
+                </div>
+                <div>
+                    <span class="title">Policy Retention (Rolling 12 Months)</span>
+                    <p>
+                        Displays the current % of renewal policies that have not been lost for the current rolling 12 months by count and by annual premium $.
+                        <span class="emphasis">Affected By Dashboard Filters: Underwriter, Branch, Product Line</span>
+                    </p>
+                </div>
+                <div>
+                    <span class="title">Top 10 Quoted Prospects</span>
+                    <p>
+                        Displays the top 10 risks currently in Quoted status.
+                        <span class="emphasis">Affected By Dashboard Filters: Underwriter, Branch, Product Line</span>
+                    </p>
+                </div>
+                <div>
+                    <span class="title">Top 20 Accounts</span>
+                    <p>
+                        Displays the top 20 risks currently in either Issued or Bound status.
+                        <span class="emphasis">Affected By Dashboard Filters: Underwriter, Branch, Product Line</span>
+                    </p>
+                </div>
+                <div>
+                    <span class="title">Product Line Growth Rolling 12 Vs. Prior Rolling 12</span>
+                    <p>
+                        Displays the current growth by product line for the current rolling 12 against the prior rolling 12 in annual premium $.
+                        <span style="margin-left: 10px; display: block;">
+                            Current (Yellow): Current rolling 12 month issued policy annual premium $ amount.
+                            <br />
+                            Prior (Blue): Prior rolling 12 month issued policy annual premium $ amount.
+                        </span>
+                        <span class="emphasis">Affected By Dashboard Filters: none</span>
+                    </p>
+                </div>
+                @*<div>
+                        <span class="title">Statistics Chart</span>
+                        <p>
+
+                            <span class="emphasis">Affected By Dashboard Filters: Underwriter, Branch, Product Line</span>
+                        </p>
+                    </div>*@
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.collapseControl').each(function () {
+            $(this).click(function () {
+                var target = $(this).attr('data-collapse-panel');
+                $('#' + target).toggle();
+            });
+        });
+    });
+</script>

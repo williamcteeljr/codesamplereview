@@ -1,0 +1,77 @@
+﻿@model List<PolicyTracker.DomainModel.Reports.StatChart>
+
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th style="width:200px"></th>
+                @foreach (var tf in Model)
+                {
+                    <th>@tf.Timeframe</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Hit Ratio</th>
+                @foreach (var tf in Model)
+                {
+                    <td>@tf.HitRatio.ToString("N0")%</td>
+                }
+            </tr>
+            <tr>
+                <th># Written / Written Ratio</th>
+                @foreach (var tf in Model)
+                {
+                    <td>@tf.NumberWritten / @tf.WrittenPercent.ToString("N0")%</td>
+                }
+            </tr>
+            <tr>
+                <th># Quoted / Quote Ratio</th>
+                @foreach (var tf in Model)
+                {
+                    <td>@tf.NumberQuoted / @tf.QuotedPercent.ToString("N0")%</td>
+                }
+            </tr>
+            <tr>
+                <th># Submissions</th>
+                @foreach (var tf in Model)
+                {
+                    <td>@tf.NumberSubmissions</td>
+                }
+            </tr>
+            <tr>
+                <th></th>
+                <td colspan="6"></td>
+            </tr>
+            <tr>
+                <th>NB $</th>
+                @foreach (var tf in Model)
+                {
+                    <td>@tf.NewBusinessAmount.ToString("C0")</td>
+                }
+            </tr>
+            <tr>
+                <th>NB #</th>
+                @foreach (var tf in Model)
+                {
+                    <td>@tf.NumberNewBusiness</td>
+                }
+            </tr>
+            <tr>
+                <th>Account Retention %</th>
+                @foreach (var tf in Model)
+                {
+                    <td>@tf.AccountRetentionPercent.ToString("N0")%</td>
+                }
+            </tr>
+            <tr>
+                <th>Total Inforce</th>
+                @foreach (var tf in Model)
+                {
+                    <td>@((tf.TotalInforce != 0) ? tf.TotalInforce.ToString("N0") : "NA")</td>
+                }
+            </tr>
+        </tbody>
+    </table>
+</div>

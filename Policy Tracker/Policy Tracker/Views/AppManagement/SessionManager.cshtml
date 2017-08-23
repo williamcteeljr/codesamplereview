@@ -1,0 +1,35 @@
+﻿<div class="box box-solid">
+    <div class="box-header with-border">
+        <h3 class="box-title">Sessions</h3>
+    </div><!-- /.box-header -->
+    <div class="box-body">
+        <div class="box-body table-responsive no-padding">
+            <table class="table table-hover">
+                <tbody>
+                    <tr>
+                        <th>Name</th>
+                        <th>Session Id</th>
+                        <th></th>
+                    </tr>
+                    @foreach (var sess in ViewBag.Sessions)
+                    {
+                        <tr id="@sess.Value["PolicyTrackerUserSession"].SessionId">
+                            <td>@sess.Value["PolicyTrackerUserSession"].User.Name</td>
+                            <td>@sess.Value["PolicyTrackerUserSession"].SessionId</td>
+                            <td class="text-right"><button type="button" class="btn btn-danger btn-sm clearSession" data-sessionId="@sess.Value["PolicyTrackerUserSession"].SessionId"><i class="fa fa-close"></i> End</button></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div><!-- /.box-body -->
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.clearSession').click(function () {
+            var sessionId = $(this).attr('data-sessionId');
+            $.get('/policytracker/AppManagement/ClearSession/', { id: sessionId }).done(function () { $('#'+sessionId).remove() }).fail(function () { alert("Failed to end session"); })
+        })
+    })
+</script>

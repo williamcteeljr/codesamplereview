@@ -1,0 +1,132 @@
+﻿@model List<PolicyTracker.DomainModel.Policy.RiskEndorsement>
+
+@Html.DevExpress().GridView(
+    settings =>
+    {
+        settings.Name = "RiskEndorsements";
+        settings.KeyFieldName = "Id";
+        settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+        settings.Height = System.Web.UI.WebControls.Unit.Pixel(100);
+        settings.Settings.HorizontalScrollBarMode = ScrollBarMode.Hidden;
+        settings.Settings.VerticalScrollBarMode = ScrollBarMode.Visible;
+        settings.Settings.VerticalScrollableHeight = 150;
+        settings.CallbackRouteValues = new { Controller = "Policy", Action = "EndorsementsGrid", riskId = (int)ViewBag.RiskId };
+        settings.SettingsEditing.BatchUpdateRouteValues = new { Controller = "Policy", Action = "BatchEndorsements", riskId = (int)ViewBag.RiskId };
+
+        settings.ClientSideEvents.EndCallback = @"
+            function(s, e) {
+                $.get( '/policytracker/policy/RiskPremiumContent/" + (int)ViewBag.RiskId + @"', function(data) {
+                    $('#RiskPremiumContent').html(data);   
+                })
+                .done(function() {})
+                .fail(function() { alert('Error fetching updated premium information. Please close and reopen this risk to see updated premium information.')})
+            }";
+
+        //if (ViewBag.IsEditable)
+        //{
+        settings.SettingsEditing.BatchUpdateRouteValues = new { Controller = "Policy", Action = "BatchEndorsements", riskId = (int)ViewBag.RiskId };
+        settings.SettingsEditing.Mode = GridViewEditingMode.Batch;
+        settings.SettingsEditing.BatchEditSettings.EditMode = GridViewBatchEditMode.Cell;
+        settings.SettingsEditing.BatchEditSettings.StartEditAction = GridViewBatchStartEditAction.Click;
+        settings.SettingsCommandButton.CancelButton.ButtonType = GridCommandButtonRenderMode.Button;
+        settings.SettingsCommandButton.UpdateButton.ButtonType = GridCommandButtonRenderMode.Button;
+        settings.CommandColumn.Visible = true;
+        settings.CommandColumn.ShowDeleteButton = true;
+        settings.CommandColumn.ShowNewButtonInHeader = true;
+        settings.CommandColumn.ButtonType = GridCommandButtonRenderMode.Button;
+        settings.CommandColumn.Width = 70;
+        //}
+
+        settings.Columns.Add(column => {
+            column.FieldName = "Id";
+            column.Visible = false;
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "RiskId";
+            column.Visible = false;
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Code";
+            column.Caption = "Form Id";
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Description";
+            column.Caption = "Form Name";
+        });
+
+        settings.Columns.Add(column => {
+            column.FieldName = "EffectiveDate";
+            column.Caption = "Effective Date";
+            column.ColumnType = MVCxGridViewColumnType.DateEdit;
+            var deSettings = column.PropertiesEdit as DateEditProperties;
+            deSettings.EditFormat = EditFormat.Custom;
+            deSettings.EditFormatString = "M/dd/yyyy";
+            deSettings.DisplayFormatString = "M/dd/yyyy";
+        });
+
+        settings.Columns.Add(column => {
+            column.FieldName = "Premium";
+            column.Caption = "Annualized Premium";
+            column.ColumnType = MVCxGridViewColumnType.TextBox;
+            var tbSettings = column.PropertiesEdit as TextBoxProperties;
+            tbSettings.MaskSettings.AllowMouseWheel = false;
+            tbSettings.MaskSettings.Mask = "<-999999999..999999999g>";
+            tbSettings.MaskSettings.IncludeLiterals = MaskIncludeLiteralsMode.DecimalSymbol;
+            tbSettings.DisplayFormatString = "C0";
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "RateType";
+            column.Caption = "Premium Type";
+
+            column.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = column.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = new[] { "Flat", "Pro Rated" };
+            comboBoxProperties.ValueType = typeof(string);
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "InvoicedPremium";
+            column.Caption = "Invoiced Prem (Written)";
+            column.ColumnType = MVCxGridViewColumnType.TextBox;
+            var tbSettings = column.PropertiesEdit as TextBoxProperties;
+            tbSettings.MaskSettings.AllowMouseWheel = false;
+            tbSettings.MaskSettings.Mask = "<-999999999..999999999g>";
+            tbSettings.MaskSettings.IncludeLiterals = MaskIncludeLiteralsMode.DecimalSymbol;
+            tbSettings.DisplayFormatString = "C0";
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.Name = "";
+            column.FieldName = "IsCarryOverforRenewal";
+            column.Caption = "Renewal Carry Over";
+            column.ColumnType = MVCxGridViewColumnType.CheckBox;
+            var cbsettings = column.PropertiesEdit as CheckBoxProperties;
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.Name = "";
+            column.FieldName = "IsFullyEarned";
+            column.Caption = "Fully Earned";
+            column.ColumnType = MVCxGridViewColumnType.CheckBox;
+            var cbsettings = column.PropertiesEdit as CheckBoxProperties;
+        });
+
+        settings.InitNewRow = (sender, e) =>
+        {
+            e.NewValues["IsCarryOverforRenewal"] = true;
+            e.NewValues["IsFullyEarned"] = false;
+            e.NewValues["Premium"] = 0;
+            e.NewValues["InvoicedPremium"] = 0;
+        };
+    }).Bind(Model).GetHtml()

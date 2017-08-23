@@ -1,0 +1,114 @@
+﻿<style>
+    .dx-dropdowneditor-icon {
+        background-image: none;
+        width:100%;
+    }
+</style>
+
+<div class="col-lg-12" style="margin:5px 0px">
+    <a href="#" role="button" class="btn btn-danger"><i class="fa fa-arrow-left"></i> Reports</a>
+    <button id="exportInstallments" type="button" class="btn btn-warning" ng-click="popupVisible = true"><i class="fa fa-file-o"></i></button>
+    @*<button type="button" class="btn btn-default" ng-click="gridRefresh()"><i class="fa fa-refresh"></i> Refresh</button>*@
+</div>
+
+<div class="col-lg-12 col-md-12 col-sm-12">
+    <div class="box box-solid">
+        <div class="box-header with-border">
+            <div class="pull-left">
+                <h3 class="box-title">Inforce Policies ({{showingType}})</h3>
+            </div>
+            <div class="btn-group pull-right">
+                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-chevron-down"></i>
+                </button>
+                <ul class="dropdown-menu slidedown">
+                    <li>
+                        <a ng-click="showPolicies('Installments')">Installments</a>
+                    </li>
+                    <li>
+                        <a ng-click="showPolicies('Reporters')">Reporters</a>
+                    </li>
+                </ul>
+            </div>
+        </div><!-- /.box-header -->
+        <div class="box-body">
+            <div ng-class="{'hidden': showingType == 'Reporters'}">
+                <div id="installments" dx-data-grid="installments">
+                    <div data-options="dxTemplate: {name: 'detail'}">
+                        <div class="internal-grid-container">
+                            <div>{{"Policy:  " + data.PolicyNumber}}</div>
+                            <div class="internal-grid" dx-data-grid="{
+                                                dataSource: data.Installments,
+                                                columnAutoWidth: true,
+                                                columns: [
+                                                    'PaymentId',
+                                                    { dataField: 'InvoicedDate', dataType: 'date'},
+                                                    { dataField: 'DueDate', dataType: 'date' },
+                                                    { dataField: 'AnticipatedAmount', format: 'currency' },
+                                                    { dataField: 'ActualAmount', format: 'currency' },
+                                                    'ProcessedBy'
+                                                ]
+                                            }">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="viewInstallment" class="w-12" dx-button="{ icon: 'fa fa-search', text: 'View Policy', onClick: viewPolicy }"></div>
+            </div>
+
+            <div ng-class="{'hidden': showingType == 'Installments'}">
+                <div id="reporters" dx-data-grid="reporters">
+                    <div data-options="dxTemplate: {name: 'detail'}">
+                        <div class="internal-grid-container">
+                            <div>{{"Policy:  " + data.PolicyNumber}}</div>
+                            <div class="internal-grid" dx-data-grid="{
+                                                dataSource: data.Installments,
+                                                columnAutoWidth: true,
+                                                columns: [
+                                                    'PaymentId',
+                                                    { dataField: 'InvoicedDate', dataType: 'date'},
+                                                    { dataField: 'DueDate', dataType: 'date' },
+                                                    { dataField: 'AnticipatedAmount', format: 'currency' },
+                                                    { dataField: 'ActualAmount', format: 'currency' },
+                                                    'ProcessedBy'
+                                                ]
+                                            }">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-12" dx-button="{ icon: 'fa fa-search', text: 'View Policy', onClick: viewPolicy }"></div>
+            </div>
+        </div><!-- /.box-body -->
+    </div>
+</div>
+
+<div class="col-lg-12 col-md-12 col-sm-12">
+    <div class="box box-solid">
+        <div class="box-header with-border">
+            <h3 class="box-title">Unpaid Payments (Installments & Reporters)</h3>
+            <div class="pull-right">
+                <button class="btn btn-primary btn-sm" ng-click="exportPayments()"><i class="fa fa-file-excel-o"></i></button>
+            </div>
+        </div><!-- /.box-header -->
+        <div class="box-body">
+            <div id="paymentsGrid" dx-data-grid="payments"></div>
+        </div><!-- /.box-body -->
+    </div>
+</div>
+
+<div id="reportPane" dx-popup="{ title: 'Unpaid Installments Report', fullScreen: true, showTitle: true, bindingOptions: { visible:'popupVisible' } }"></div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#exportInstallments").click(function () {
+            console.log('test');
+            ora.Ajax.Ajax({
+                url: "/policytracker/Reporting/UnPaidInstallmentsByMonthReport",
+                dataType: "HTML",
+                type: "GET",
+                successCallback: function (data) { $(".dx-popup-content").html(data); }
+            });
+        });
+    });
+</script>

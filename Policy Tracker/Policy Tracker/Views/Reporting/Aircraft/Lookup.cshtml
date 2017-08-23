@@ -1,0 +1,160 @@
+﻿<style>
+    .dx-dropdowneditor-icon {
+        background-image: none;
+        width:100%;
+    }
+    .dx-datagrid-rowsview .dx-row:nth-child(odd) 
+    {
+        background-color: #D3D3D3;
+        color: black;
+    }
+</style>
+
+<div class="col-lg-12" style="margin:5px 0px">
+    <a href="#" role="button" class="btn btn-danger"><i class="fa fa-arrow-left"></i> Reports</a>
+    <button type="button" class="btn btn-success" ng-click="gridRefresh()"><i class="fa fa-refresh"></i> Refresh</button>
+</div>
+
+
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="box box-solid">
+            <div class="box-header with-border">
+                <h3 class="box-title">Aircraft Production Log</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" ng-click="showFilters = !showFilters">
+                        <i class="fa fa-filter"></i>
+                    </button>
+                </div>
+            </div><!-- /.box-header -->
+            <div class="box-body">
+                <div ng-show="showFilters">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-12">
+                            <div class="form-group">
+                                <label>Effective Dates</label>
+                                <input class="form-control m-b" ng-model="filters.effectiveStart" placeholder="Start Date">
+                                <input class="form-control" ng-model="filters.effectiveEnd" placeholder="End Date">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4 col-md-12">
+                            <button type="button" class="btn btn-primary" ng-click="gridRefresh()">Apply</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="aircraftLookup" dx-data-grid="grid"></div>
+            </div><!-- /.box-body -->
+        </div>
+    </div>
+
+    <div class="col-lg-5 col-md-7 col-sm-12">
+        <div class="box box-solid">
+            <div class="box-header with-border">
+                <h3 class="box-title">Summary</h3>
+            </div><!-- /.box-header -->
+            <div class="box-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr style="background-color:#808080;color:white">
+                                <th><span>Averages</span></th>
+                                <th><span>Combined</span></th>
+                                <th><span>Renewals</span></th>
+                                <th><span>New</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Average Hull Premium</td>
+                                <td>{{summary.Combined.AverageHullPremium | currency:"$ ":0}}</td>
+                                <td>{{summary.Renewals.AverageHullPremium | currency:"$ ":0}}</td>
+                                <td>{{summary.NewBusiness.AverageHullPremium | currency:"$ ":0}}</td>
+                            </tr>
+                            <tr>
+                                <td>Hull Rate</td>
+                                <td>{{summary.Combined.AverageHullRate | number:3}} %</td>
+                                <td>{{summary.Renewals.AverageHullRate | number:3}} %</td>
+                                <td>{{summary.NewBusiness.AverageHullRate | number:3}} %</td>
+                            </tr>
+                            <tr>
+                                <td>Hull Value</td>
+                                <td>{{summary.Combined.AverageHullValue | currency:"$ ":0}}</td>
+                                <td>{{summary.Renewals.AverageHullValue | currency:"$ ":0}}</td>
+                                <td>{{summary.NewBusiness.AverageHullValue | currency:"$ ":0}}</td>
+                            </tr>
+                            <tr>
+                                <td>Premium Per Unit</td>
+                                <td>{{summary.Combined.AveragePremiumPerUnit | currency:"$ ":0}}</td>
+                                <td>{{summary.Renewals.AveragePremiumPerUnit | currency:"$ ":0}}</td>
+                                <td>{{summary.NewBusiness.AveragePremiumPerUnit | currency:"$ ":0}}</td>
+                            </tr>
+                            <tr>
+                                <td>Year Built</td>
+                                <td>{{summary.Combined.AverageYearBuilt}}</td>
+                                <td>{{summary.Renewals.AverageYearBuilt}}</td>
+                                <td>{{summary.NewBusiness.AverageYearBuilt}}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="4"><h3>By Use %</h3></td>
+                            </tr>
+                            <tr ng-repeat="entry in summary.Uses | orderBy: Name">
+                                <td>{{entry.Name}}</td>
+                                <td>{{entry.CombinedTotal}} %</td>
+                                <td>{{entry.RenewalTotal}} %</td>
+                                <td>{{entry.NewTotal}} %</td>
+                            </tr>
+                            <tr>
+                                <td colspan="4"><h3>By Use Count</h3></td>
+                            </tr>
+                            <tr ng-repeat="entry in summary.Uses | orderBy: Name" ng-class="{'total-row': entry.Name == 'Total'}">
+                                <td>{{entry.Name}}</td>
+                                <td>{{entry.CombinedCount}}</td>
+                                <td>{{entry.RenewalCount}}</td>
+                                <td>{{entry.NewCount}}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="4"><h3>By Branch</h3></td>
+                            </tr>
+                            <tr ng-repeat="branch in summary.Branches | orderBy: Name" ng-class="{'total-row': branch.Name == 'Total'}">
+                                <td>{{branch.Name}}</td>
+                                <td>{{branch.Combined}}</td>
+                                <td>{{branch.Renewals}}</td>
+                                <td>{{branch.New}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div><!-- /.box-body -->
+        </div>
+    </div>
+
+    <div class="col-lg-5 col-md-7 col-sm-12">
+        <div class="box box-solid">
+            <div class="box-header with-border">
+                <h3 class="box-title">Totals</h3>
+            </div><!-- /.box-header -->
+            <div class="box-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr style="background-color:#808080;color:white">
+                                <th><span>Total Liability</span></th>
+                                <th><span>Total Premium</span></th>
+                                <th><span>Total Expiring Premium</span></th>
+                            </tr>
+                            <tr>
+                                <td>{{summary.TotalLiability | currency:"$ "}}</td>
+                                <td>{{summary.TotalPremium | currency:"$ "}}</td>
+                                <td>{{summary.TotalExpired | currency:"$ "}}</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>

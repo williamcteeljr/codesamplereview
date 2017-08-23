@@ -1,0 +1,160 @@
+﻿@{
+    var user = PolicyTracker.Platform.Security.SessionManager.GetCurrentSession().User;
+    var hangfireURL = (System.Configuration.ConfigurationManager.AppSettings["Environment"] == "Local") ? "/policytracker/hangfire" : "/policytracker/policytracker/hangfire";
+    var release = (System.Configuration.ConfigurationManager.AppSettings["ReleaseNumber"]);
+    var urlPrefix = (System.Configuration.ConfigurationManager.AppSettings["Environment"] == "Local") ? "" : "/policytracker";
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#AdminGenerateRenewals").click(function (e) {
+            e.preventDefault();
+            ora.Ajax.Ajax({
+                url: "/policytracker/api/risk/CreateRenewals",
+                dataType: "HTML",
+                type: "GET",
+            });
+        });
+
+        $(".dglink").each(function (index, element) {
+            var dgId = $(this).attr("data-dg-id");
+            var dgTitle = $(this).attr("data-dg-title");
+            var dgUrl = $(this).attr("data-dg-url");
+
+            $(this).click(function (e) {
+                e.preventDefault();
+                ora.Dialog.SimpleAjax({
+                    Id: dgId, Title: dgTitle,
+                    Url: dgUrl,
+                });
+            })
+        });
+        $("body").click(function () {
+            if ($(".main-sidebar").is(":visible")) {
+                $(".main-sidebar").hide();
+            }
+        });
+
+        $("#menuControl").click(function (e) {
+            e.stopPropagation();
+            $(".main-sidebar").toggle();
+        });
+
+        $('ul.sidebar-menu').children('li.treeview').children('a').click(function (e) {
+            e.stopPropagation();
+            $('.treeview-menu').hide();
+            $(this).next().toggle();
+        })
+
+        $('ul.treeview-menu.header').children('li').children('a.toggle').click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            $(this).next().toggle();
+        })
+    });
+</script>
+@{ var appURL = (System.Configuration.ConfigurationManager.AppSettings["Environment"] == "Local") ? "/policytracker" : "/policytracker/policytracker"; }
+<aside class="main-sidebar hidden">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu">
+            <li class="header">MAIN NAVIGATION</li>
+            @if (user.IsSuperAdmin)
+            {
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i> <span>Admin</span> <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="@hangfireURL"><i class="fa fa-circle-o"></i> HangFire</a></li>
+                        <li><a id="AdminGenerateRenewals" href="#"><i class="fa fa-circle-o"></i> Generate Renewals</a></li>
+                        <li><a href="@urlPrefix/policytracker/AppManagement/Logs"><i class="fa fa-circle-o"></i> App Logs</a></li>
+                    </ul>
+                </li>
+            }
+
+            @if (!SecurityManager.HasAccess("/Risk/WorkingList", SecurityManager.ResourcePrivilege.Read))
+            {
+                <li>
+                    <a id="AddNewRisk" href="#" title="Create New Risk">
+                        <i class="fa fa-search"></i> <span>New Risk</span>
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li>
+                    <a href="@appURL/home/UserWorkingList">
+                        <i class="fa fa-list"></i> <span>Working List</span>
+                    </a>
+                </li>
+
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i> <span>Consoles</span> <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu header">
+                        <li>
+                            <a href="#" class="toggle">
+                                <i class="fa fa-circle-o"></i> <span>Product Line</span> <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="@urlPrefix/policytracker/Console/ProductLineMaster"><i class="fa fa-circle-o"></i> Product Line Detail</a></li>
+                                <li><a href="@urlPrefix/policytracker/Console/ProductLineConsole"><i class="fa fa-circle-o"></i> Product Line Summary</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="@urlPrefix/policytracker/Console/UnderwriterConsole"><i class="fa fa-circle-o"></i> Underwriter</a></li>
+                        <li><a href="@urlPrefix/policytracker/Console/BranchConsole"><i class="fa fa-circle-o"></i> Branch</a></li>
+                        <li><a href="@urlPrefix/policytracker/Console/CompanyConsole"><i class="fa fa-circle-o"></i> Company</a></li>
+                    </ul>
+                </li>
+
+
+                if (SecurityManager.HasAccess("/Management/Menu", SecurityManager.ResourcePrivilege.Read))
+                {
+                    <li>
+                        <a href="@urlPrefix/policytracker/AppManagement">
+                            <i class="fa fa-wrench"></i> <span>App Management</span>
+                        </a>
+                    </li>
+                }
+
+                <li>
+                    <a id="Dashboarddg" class="dglink" data-dg-id="Dashboard_dg" data-dg-url="/policytracker/Dashboard/Index" data-dg-title="Dashboard" href="#">
+                        <i class="fa fa-bar-chart-o"></i> <span>Dashboard</span>
+                    </a>
+                </li>
+
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-cubes"></i> <span>Reporting</span> <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="@urlPrefix/policytracker/Reporting/index"><i class="fa fa-circle-o"></i> Reports</a>
+                        </li>
+                        <li><a href="@urlPrefix/policytracker/Reporting/Home"><i class="fa fa-circle-o"></i> Lookup/Lists</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a id="NamedInsuredLookup" href="#" title="Search/Lookup Risks">
+                        <i class="fa fa-search"></i> <span>Search Risks</span>
+                    </a>
+                </li>
+            }
+        </ul>
+    </section>
+    <!-- /.sidebar -->
+</aside>
+@if (SecurityManager.HasAccess("/Risk/WorkingList", SecurityManager.ResourcePrivilege.Read))
+{
+    <script type="text/javascript">
+        $("#NamedInsuredLookup").click(function (e) { e.preventDefault(); ora.UI.ClearanceLookup(); });
+    </script>
+}
+else
+{
+    <script type="text/javascript">
+        $("#AddNewRisk").click(function (e) { e.preventDefault(); ora.Risk.NewRisk(); });
+    </script>
+}

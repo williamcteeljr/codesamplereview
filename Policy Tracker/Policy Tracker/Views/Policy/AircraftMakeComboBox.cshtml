@@ -1,0 +1,20 @@
+﻿@model PolicyTracker.DomainModel.Policy.Aircraft
+
+@Html.DevExpress().ComboBox(settings => {
+    settings.Name = "Make";
+
+    settings.Properties.DropDownStyle = DropDownStyle.DropDown;
+    settings.CallbackRouteValues = new { Controller = "Policy", Action = "AircraftMakeComboBox" };
+    settings.Properties.CallbackPageSize = 30;
+    settings.Properties.FilterMinLength = 3;
+    settings.Properties.IncrementalFilteringDelay = 30;
+    settings.Properties.ClearButton.Visibility = AutoBoolean.True;
+
+    settings.Properties.ValueType = typeof(string);
+
+    settings.ControlStyle.CssClass = "form-control";
+    settings.Properties.CallbackPageSize = 50;
+
+    settings.Properties.ClientSideEvents.SelectedIndexChanged = "function(s, e) { ASPxClientControl.GetControlCollection().GetByName('ModelName').PerformCallback(); }";
+
+}).BindList(DXServiceLocator.AircraftMakeComboService.ItemRequestByFilter, DXServiceLocator.AircraftMakeComboService.ItemRequestByValue).Bind(Model.Make).GetHtml()

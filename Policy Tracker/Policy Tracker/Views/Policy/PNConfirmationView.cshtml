@@ -1,0 +1,103 @@
+﻿@model PolicyTracker.DomainModel.Policy.PNConfirmation
+
+<form id="AdditionalLocationsEditForm" class="oraForm form-horizontal">
+    @*@Html.ValidationSummary()*@
+
+    @*@Html.HiddenFor(m => Model.ControlNumber)*@
+    @*@Html.HiddenFor(m => Model.PolicyNumber)*@
+    @Html.HiddenFor(m => Model.PNConfirmationId)
+    @Html.HiddenFor(m => Model.QuoteId)
+
+    <div class="col-lg-8">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <i class="fa fa-plane"></i>
+                <h3 class="box-title"><strong>Posting Notice Confirmation Record</strong></h3>
+            </div><!-- /.box-header -->
+            <!-- form start -->
+            <div class="box-body">
+                <div class="form-group">
+                    <label class="col-lg-3 col-sm-3 control-label">ID:</label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.TextBoxFor(m => Model.PNConfirmationId, new { @readonly = "readonly", @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-3 col-sm-3 control-label">Quote ID:</label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.TextBoxFor(m => Model.QuoteId, new { @readonly = "readonly", @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-3 col-sm-3 control-label">Status:</label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.TextBoxFor(m => Model.Status, new { @readonly = "readonly", @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-3 col-sm-3 control-label">Submission Type:</label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.TextBoxFor(m => Model.SubmissionType, new { @readonly = "readonly", @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-3 col-sm-3 control-label">Confirmation Code:</label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.TextBoxFor(m => Model.ConfirmationCode, new { @readonly = "readonly", @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-3 col-sm-3 control-label">Error Message:</label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.TextAreaFor(m => Model.ErrorMessage, new { @readonly = "readonly", rows = "10", cols = "70", wrap = "hard" })
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="col-lg-3 col-sm-3 control-label">Submissions:</label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.TextAreaFor(m => Model.Submission, new { @readonly = "readonly", rows = "10", cols = "70", wrap = "hard" })
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="col-lg-3 col-sm-3 control-label">Response:</label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.TextAreaFor(m => Model.Response, new { @readonly = "readonly", rows = "10", cols = "70", wrap = "hard" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-3 col-sm-3 control-label">Submitted By User:</label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.TextBoxFor(m => Model.SentById, new { @readonly = "readonly", @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-3 col-sm-3 control-label">Submitted Date:</label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.TextBoxFor(m => Model.SentDate, new { @readonly = "readonly", @class = "form-control" })
+                    </div>
+                </div>
+                @*<div>
+                    <button id="ResendPostingNotice" type="button" class="btn-danger btn">Send Posting Notice</button>
+                </div>*@
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="box box-danger">
+            <!-- form start -->
+            <div class="box-body" style="text-align:center">
+                <i class="fa fa-building" style="font-size:14em"></i>
+            </div>
+        </div>
+    </div>
+</form>

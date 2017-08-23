@@ -1,0 +1,69 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var user = PolicyTracker.Platform.Security.SessionManager.GetCurrentSession().User;
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".AppManagerAction").each(function () {
+            var content = $(this).attr('data-ora-content');
+
+            $(this).click(function(e) {
+                e.preventDefault();
+                
+                ora.Ajax.Ajax({
+                    url: "/policytracker/AppManagement/" + content,
+                    dataType: "HTML",
+                    successCallback: function (data) {
+                        $("#appManage-content").html(data);
+                    }
+                });
+            });
+        });
+    });
+</script>
+
+<div class="nav-left">
+    <ul class="sidebar-menu">
+        @if (SecurityManager.HasAccess("/Management/BrokerAssignments", SecurityManager.ResourcePrivilege.Read)) {
+            <li><a class="AppManagerAction" data-ora-content="BrokerAssignments"><i class="fa fa-circle-o text-aqua"></i> Broker Assignments</a></li>
+        }
+        @if (SecurityManager.HasAccess("/Management/Budgets", SecurityManager.ResourcePrivilege.Write)) {
+            <li><a class="AppManagerAction" data-ora-content="MonthlyBudgets"><i class="fa fa-circle-o text-aqua"></i> Manage Budgets</a></li>
+        }
+        @if (SecurityManager.HasAccess("/Management/Products", SecurityManager.ResourcePrivilege.Write)) {
+            <li><a class="AppManagerAction" data-ora-content="Products"><i class="fa fa-circle-o text-aqua"></i> Products (Policy Prefix)</a></li>
+        }
+        
+        @if (SecurityManager.HasAccess("/Management/PurposeOfUse", SecurityManager.ResourcePrivilege.Write)) {
+            <li><a class="AppManagerAction" data-ora-content="PurposesOfUse"><i class="fa fa-circle-o text-aqua"></i> Purposes of Use</a></li>
+        }
+
+        @if (SecurityManager.HasAccess("/Management/StatusReasons", SecurityManager.ResourcePrivilege.Write)) {
+            <li><a class="AppManagerAction" data-ora-content="Reasons"><i class="fa fa-circle-o text-aqua"></i> Status Reasons</a></li>
+        }
+
+        @if (PolicyTracker.Platform.Security.SessionManager.GetCurrentSession().User.IsSuperAdmin)
+        {
+            <li><a class="AppManagerAction" data-ora-content="SessionManager"><i class="fa fa-circle-o text-red"></i> Manage Sessions</a></li>
+            <li><a class="AppManagerAction" data-ora-content="DailyReports"><i class="fa fa-circle-o text-red"></i> Emailed Reports</a></li>
+        }
+
+        @if (SecurityManager.HasAccess("/Management/NamedInsuredSwitch", SecurityManager.ResourcePrivilege.Write))
+        {
+            <li><a class="AppManagerAction" data-ora-content="RiskNamedInsuredSwitch"><i class="fa fa-exchange text-aqua"></i> Named Insured Switch</a></li>
+        }
+
+        @if (SecurityManager.HasAccess("/Management/Security", SecurityManager.ResourcePrivilege.Write) || user.IsSuperAdmin) {
+            <li><a class="AppManagerAction" data-ora-content="Security"><i class="fa fa-lock text-red"></i> Security</a></li>
+        }
+    </ul>
+</div>
+
+<div class="content-right">
+    <section class="content-header">
+        <h1>App Management Portal</h1>
+    </section>
+
+    <section id="appManage-content" class="content"></section>
+</div>

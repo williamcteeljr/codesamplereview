@@ -1,0 +1,498 @@
+﻿@model PolicyTracker.DomainModel.Policy.Risk
+@using PolicyTracker.DomainModel.Policy
+
+<style>
+    .dx-datagrid-rowsview .dx-row:nth-child(odd) {
+        background-color: #f9f9f9;
+        color: black;
+    }
+    .noHeaderBorders .dx-header-row>td {
+        border-left: 0px!important;
+    }
+</style>
+
+<script type="text/javascript">
+    ora.UI.Grid.Grid({
+        Parent: "@ViewBag.PreviewParent",
+        id: "AircraftGrid",
+        pager: "AircraftGridPager",
+        height: 75,
+        restUrl: '/policytracker/api/risk/GetAircraft/@Model.Id',
+            rowId: 'Id',
+            caption: '',
+            columnNames: ['Id', 'RiskId', 'N#', 'Year', 'Make', 'Model', 'Value', 'Engine', 'Use', 'Hull Prem.'],
+            columnModel: [
+                { name: 'Id', width: 70, search: false, hidden: true },
+                { name: 'QuoteId', width: 70, search: false, hidden: true },
+                { name: 'FAANo', width: 70, search: false, align: 'center' },
+                { name: 'Year', width: 70, search: false, align: 'center' },
+                { name: 'Make', width: 70, search: false },
+                { name: 'ModelID', width: 70, search: false },
+                { name: 'Value', width: 70, search: false },
+                { name: 'EngineType', width: 70, search: false },
+                { name: 'PurposeOfUse', width: 70, search: false, align: 'center' },
+                { name: 'HullPrem', width: 70, search: false },
+            ]
+    });
+
+    ora.UI.Grid.Grid({
+        Parent: "@ViewBag.PreviewParent",
+        id: "RiskInstallmentsGrid",
+        pager: "RiskInstallmentsGridPager",
+        height: 75,
+        restUrl: '/policytracker/api/risk/GetInstallments/@Model.Id',
+        rowId: 'Id',
+        caption: '',
+        columnNames: ['PaymentId', 'RiskId', 'Due Date', 'Invoiced Date', 'Anticipated %', 'Actual $', 'Report Rec' ],
+        columnModel: [
+            { name: 'PaymentId', width: 70, search: false, hidden: true },
+            { name: 'RiskId', width: 70, search: false, hidden: true },
+            { name: 'DueDate', width: 100, align: 'center', formatter: 'date', formatoptions: { srcformat: 'Y-m-d' } },
+            { name: 'InvoicedDate', width: 100, align: 'center', formatter: 'date', formatoptions: { srcformat: 'Y-m-d' } },
+            //ora.UI.Grid.Column.ShortDate('DueDate', 100),
+            //ora.UI.Grid.Column.ShortDate('InvoicedDate', 100),
+            { name: 'AnticipatedAmount', width: 100, align: 'right', formatter: 'currency', formatoptions: { prefix: '$' } },
+            { name: 'ActualAmount', width: 100, align: 'right', formatter: 'currency', formatoptions: { prefix: '$' } },
+            //ora.UI.Grid.Column.Currency('AnticipatedAmount', 100),
+            //ora.UI.Grid.Column.Currency('ActualAmount', 100),
+            { name: 'ReportReceived', width: 100, align: 'center', formatter: 'date', formatoptions: { srcformat: 'Y-m-d' } }
+            //ora.UI.Grid.Column.ShortDate('ReportReceived', 100),
+        ]
+    });
+
+    $("#EditRisk").click(function () {
+        var riskId = $("#EditRiskId").val();
+        if (riskId == null || riskId == 0) {
+            ora.Dialog.Simple({ id: "PleaseSelectRisk", message: "First Select a Risk to Edit." });
+        }
+        else {
+            var name = $("#EditRiskName").val()
+            ora.Dialog.ActionForm(
+            {
+                id: 'RiskEdit_dg',
+                title: 'Editing Risk ' + riskId + " For " + name,
+                form: { id: "RiskEditForm", container: "RiskEdit_dg", submitURL: "/policytracker/Policy/RiskEditForm", grid: "RiskFindGrid" },
+                url: "/policytracker/Policy/RiskEditForm/" + riskId,
+                modal: true, autoFocus: "ImageRightId",
+                WritePermissions: true,
+                CustomFormSubmit: true,
+                Type: ora.Dialog.ActionFormSizes.Large,
+            })
+        }
+    });
+
+    $("#CloneRisk").click(function () {
+        var riskId = $("#EditRiskId").val();
+        if (riskId == null || riskId == 0) {
+            ora.Dialog.Simple({ id: "PleaseSelectRisk", message: "First Select a Risk to Clone." });
+        }
+        else {
+            ora.Dialog.ActionForm(
+            {
+                id: 'NewRiskEntry_dg',
+                title: 'Edit Cloned Risk',
+                form: { id: "RiskEntryForm", container: "NewRiskEntry_dg", submitURL: "/policytracker/Policy/RiskEntryForm", grid: "RiskFindGrid" },
+                url: "/policytracker/Policy/CloneAndRelateRisk?riskId=" + riskId,
+                modal: true, autoFocus: "ImageRightId",
+                WritePermissions: true,
+                CustomFormSubmit: true,
+                Type: ora.Dialog.ActionFormSizes.Large,
+            })
+        }
+    });
+
+    $("#RiskForExisting").click(function () {
+        var rowid = $("#NamedInsuredSearchGrid").jqGrid('getGridParam', 'selrow');
+        var rowData = $("#NamedInsuredSearchGrid").getRowData(rowid);
+        if (rowid == null || rowid == 0) {
+            ora.Dialog.Simple({ id: "PleaseSelectRisk", message: "Must select a client." });
+        }
+        else {
+            ora.Dialog.ActionForm(
+            {
+                id: 'NewRiskEntry_dg',
+                title: 'Entering a New Risk For ' + rowData.Name,
+                form: { id: "RiskEntryForm", container: "NewRiskEntry_dg", submitURL: "/policytracker/Policy/RiskEntryForm", grid: "RiskFindGrid" },
+                url: "/policytracker/Policy/RiskEntryForm?controlNumber=" + rowData.ControlNumber,
+                modal: true, autoFocus: "ImageRightId",
+                WritePermissions: true,
+                CustomFormSubmit: true,
+                Type: ora.Dialog.ActionFormSizes.Large,
+            })
+        }
+    });
+
+    $("#DeclineRisk").click(function () {
+        var riskId = $("#EditRiskId").val();
+        if (riskId == null || riskId == 0) {
+            ora.Dialog.Simple({ id: "PleaseSelectRisk", message: "First Select a Risk to Decline." });
+        }
+        else {
+            ora.Dialog.ActionForm(
+            {
+                id: 'RiskDecline_dg',
+                title: 'Declining Risk',
+                form: { id: "DeclineRiskForm", container: "RiskDecline_dg", submitURL: "/policytracker/Policy/DeclineRiskForm", grid: "RiskFindGrid" },
+                url: "/policytracker/Policy/DeclineRiskForm/" + riskId,
+                modal: true, autoFocus: "ReasonForDecline",
+                WritePermissions: true,
+                HideSaveButton: true,
+                Type: ora.Dialog.ActionFormSizes.Small,
+            })
+        }
+    });
+
+    $("#SearchDeleteRisk").click(function () {
+        var riskId = $("#EditRiskId").val();
+        if (riskId == null || riskId == 0) {
+            ora.Dialog.Simple({ id: "PleaseSelectRisk", message: "First Select a Risk to Decline." });
+        } else {
+            ora.Dialog.Confirm({
+                message: "Are you sure you want to delete risk " + riskId + "?",
+                AcceptCallback: function () {
+
+                    ora.Ajax.Ajax({
+                        url: "/policytracker/Policy/DeleteRisk/" + riskId,
+                        dataType: "HTML", type: "DELETE",
+                        successCallback: function (data) {
+                            $('#RiskFindGrid').trigger("reloadGrid");
+                            $("#RiskFindRowPreview").html('');
+                        }
+                    });
+                }
+            });
+        }
+    });
+
+    var gridDataSource = {
+        load: function (loadOptions) {
+            var d = $.Deferred();
+            $.getJSON('/policytracker/api/risk/GetAircraft', { id: '@Model.Id'}).done(function (result) {
+                d.resolve(result.Results, { totalCount: result.TotalCount });
+            });
+            return d.promise();
+        },
+        update: function (key, values) {
+            //Updating data
+        },
+        insert: function (values) {
+            //Inserting data
+        },
+        remove: function (key) {
+            //Deleting data
+        }
+    }
+
+    $("#gridContainer").dxDataGrid({
+        dataSource: gridDataSource,
+        columns: [
+                { dataField: 'Id', visible: false },
+                { dataField: 'QuoteId', visible: false },
+                { dataField: 'FAANo', caption: 'N#'},
+                { dataField: 'Year' },
+                { dataField: 'Make' },
+                { dataField: 'ModelID', caption: 'Model' },
+                { dataField: 'Value', format: 'currency', width: 100 },
+                { dataField: 'EngineType', caption: 'Engine' },
+                { dataField: 'PurposeOfUse', caption: 'Use' },
+                { dataField: 'HullPrem', caption: 'Hull Prem.', format: 'currency', width: 100 },
+        ],
+        paging: { enabled: true, pageSize: 10 },
+        pager: {
+            showPageSizeSelector: true,
+            allowedPageSizes: [10, 20],
+            showInfo: true,
+            visible: true
+        },
+        noDataText: 'No Aircraft for Policy'
+    });
+</script>
+
+@Html.Hidden("EditRiskId", Model.Id)
+@Html.Hidden("RiskControlNumber", Model.ControlNumber)
+@Html.Hidden("EditRiskIsCompany", Model.NamedInsured.IsCompany)
+@Html.Hidden("EditRiskName", (Model.NamedInsured.IsCompany ? Model.NamedInsured.CompanyName : Model.NamedInsured.FirstName + " " + Model.NamedInsured.LastName))
+
+<section class="invoice">
+    <div class="row">
+        <div class="pull-right">
+            <button id="EditRisk" type="button" class="btn btn-default"><i class="fa fa-edit"></i> Edit</button>
+            <button id="CloneRisk" type="button" class="btn btn-default"><i class="fa fa-copy"></i> Copy</button>
+            <button id="DeclineRisk" type="button" class="btn btn-danger"><i class="fa fa-ban"></i> Quick Decline</button>
+            @if (SecurityManager.HasAccess("/Risk/Search", SecurityManager.ResourcePrivilege.Delete))
+            {
+                <button id="SearchDeleteRisk" type="button" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button>
+            }
+            <button id="RiskForExisting" type="button" class="btn btn-default"><i class="fa fa-plus"></i> New Risk For Existing(selected) Client</button>
+        </div>
+        
+    </div>
+    <!-- title row -->
+    <div class="row">
+        <div class="col-xs-12">
+            <h2 class="page-header">
+                <small>[@Model.Id]</small> @(Model.IsRenewal || Model.Status == RiskStatus.ISSUED.Value ? Model.Prefix + ' ' + Model.PolicyNumber + " " + Model.PolicySuffix : Model.ImageRightId)
+                - @Model.Status
+                <small class="pull-right">Created On: @Model.CreatedDate.Value.ToShortDateString()</small>
+            </h2>
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- info row -->
+    <div class="row invoice-info">
+        <div class="col-sm-4 invoice-col">
+            Named Insured:
+            <address>
+                <strong>@Model.Name <small><span class="text-muted">@Model.ControlNumber</span></small></strong><br/>
+                @if (!String.IsNullOrEmpty(@Model.DoingBusinessAs)) { <span>DBA:</span> @Model.DoingBusinessAs <br /> }
+                @if (!String.IsNullOrEmpty(@Model.StreetAddress1)) { <span>Address:</span> @Model.StreetAddress1 <br/> }
+                @Model.NamedInsured.City @Model.State, @Model.Zip<br>
+                @*Phone: (804) 123-5432<br>
+                Email: info@almasaeedstudio.com*@
+            </address>
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-4 invoice-col">
+            Broker:
+            <address>
+                <strong>@Model.Broker.AgencyName <small><span class="text-muted">@Model.AgencyID</span></small></strong><br>
+                @if (Model.Broker.PlatinumProducer) { <span><i class="fa fa-star" style="color:gold"></i> Platinum Producer</span> <br/> }
+                Agent: @Model.AgentName <br/>
+                Email: @Model.AgentEmail
+            </address>
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-4 invoice-col">
+            <b>Product Line:</b> @ViewBag.ProductLine.Name<br>
+            <b>Underwriter:</b> @ViewBag.UWName<br>
+            <b>Effective:</b> @Model.EffectiveDate.Value.ToShortDateString() - @Model.ExpirationDate.Value.ToShortDateString()
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+    <!-- Table row -->
+    <div class="row" style="margin:25px 0px">
+        @if (Model.ProductLine != (int)ProductLines.WC)
+        {
+            <div style="padding:0px 50px">
+                <div id="gridContainer" class="noHeaderBorders"></div>
+            </div>
+        }
+        else
+        {
+            <div class="col-xs-12 table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Program Type</th>
+                            <th>Account Desc</th>
+                            <th>Sch Rating</th>
+                            <th>X Mod</th>
+                            <th>Payroll</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>@Model.WorkersCompInfo.ProgramType</td>
+                            <td>@Model.WorkersCompInfo.AccountDescription</td>
+                            <td>@Model.WorkersCompInfo.ScheduledRating</td>
+                            <td>@Model.WorkersCompInfo.ExperienceModifier</td>
+                            <td>@Model.WorkersCompInfo.Payroll.ToString("C0")</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        }
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+
+    <div class="row">
+        <!-- accepted payments column -->
+        <div class="col-xs-6">
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#riskPreviewTab_1" data-toggle="tab">Comments</a></li>
+                    <li><a href="#riskPreviewTab_2" data-toggle="tab">History</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="riskPreviewTab_1">
+                        @if (Model.Notes.Count() == 0)
+                        {
+                            <p class="text-muted">No Comments</p>
+                        }
+                        else
+                        {
+                            foreach (var note in Model.Notes)
+                            {
+                                <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
+                                    @note.CreatedDate.Value.ToShortDateString()
+                                    - @note.Comment
+                                </p>
+                            }
+                        }
+                    </div><!-- /.tab-pane -->
+                    <div class="tab-pane" id="riskPreviewTab_2">
+                        <div class="scroll-y" style="height:250px;">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            @*<th></th>*@
+                                            <th style="width:125px">Date</th>
+                                            <th style="width:125px">User</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var log in ViewBag.Logs)
+                                        {
+                                            var l = log as PolicyTracker.DomainModel.Policy.RiskLog;
+                                            <tr>
+                                                @*<td><i class="fa fa-circle-o"></i></td>*@
+                                                <td>@l.ActionDate.Value.ToShortDateString()</td>
+                                                <td>@l.UserName</td>
+                                                <td>@l.LogAction</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div><!-- /.tab-pane -->
+                </div><!-- /.tab-content -->
+            </div>
+        </div>
+        <!-- /.col -->
+        <div class="col-xs-6">
+            <p class="lead">
+                Premium 
+                @if (Model.InstallmentInfo.IsPaidInInstallments || Model.InstallmentInfo.IsReporter) { <small><span class="text-muted"> - Paid in Installments</span></small> }
+            </p>
+
+            <div class="table-responsive">
+                <table class="table">
+                    <tbody>
+                        @if (Model.IsRenewal)
+                        {
+                            <tr>
+                                <th>Expired Annual Premium:</th>
+                                <td>@Model.PremiumInfo.ExpiredAnnualizedPremium.ToString("C0")</td>
+                            </tr>
+                        }
+                        <tr>
+                            <th style="width:50%">Annual Premium:</th>
+                            <td>@Model.PremiumInfo.AnnualizedPremium.ToString("C0")</td>
+                        </tr>
+                        <tr>
+                            <th>Written Premium</th>
+                            <td>@Model.PremiumInfo.WrittenPremium.ToString("C0")</td>
+                        </tr>
+                        @if (Model.InstallmentInfo.IsPaidInInstallments)
+                        {
+                            <tr>
+                                <th>Deposit:</th>
+                                <td>@Model.PremiumInfo.DepositPremium.ToString("C0")</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+
+@*<div class="row">
+    <div class="col-lg-6">
+        <div class="panel panel-primary borderless">
+            <div class="panel-body no-padding form-horizontal">           
+            </div>
+        </div>
+    </div>
+        
+    <div class="col-lg-6">
+        @{ var relatedRisk = ViewBag.RelatedRisk as PolicyTracker.DomainModel.Policy.Risk; }
+
+        <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#tab_1" data-toggle="tab">Aircraft</a></li>
+                <li><a href="#tab_3" data-toggle="tab">Comments</a></li>
+                @if (Model.InstallmentInfo.IsPaidInInstallments)
+                {
+                    <li><a href="#tab_2" data-toggle="tab">Intallments</a></li>
+                }
+                <li><a href="#tab_4" data-toggle="tab">Log</a></li>
+                @if (relatedRisk != null)
+                {
+                    <li><a href="#tab_5" data-toggle="tab">Related Risk</a></li>
+                }
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab_1">
+                    <div class="col-lg-12 no-padding">
+                        @Html.jqGrid("AircraftGrid", true)
+                    </div>
+                </div><!-- /.tab-pane -->
+                @if (Model.InstallmentInfo.IsPaidInInstallments)
+                {
+                    <div class="tab-pane" id="tab_2">
+                        <div class="col-lg-12 no-padding">
+                            @Html.jqGrid("RiskInstallmentsGrid", true)
+                        </div>
+                    </div><!-- /.tab-pane -->
+                }
+                
+                
+                @if (relatedRisk != null)
+                {
+                    <div class="tab-pane" id="tab_5">
+                        @{ policyNoDisplay = (!String.IsNullOrEmpty(relatedRisk.PolicyNumber)) ? relatedRisk.Prefix + '-' + relatedRisk.PolicyNumber + "-" + relatedRisk.PolicySuffix : "NOT AN ISSUED POLICY"; }
+                        <div class="form-group thin">
+                            <label class="col-sm-2 control-label">Policy #:</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">@policyNoDisplay</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group thin">
+                            <label class="col-sm-2 control-label">Product:</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">@relatedRisk.Prefix</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group thin">
+                            <label class="col-sm-2 control-label">Status:</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">@relatedRisk.Status</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group thin">
+                            <label class="col-sm-2 control-label">IR #:</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">@relatedRisk.ImageRightId</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group thin">
+                            <label class="col-sm-2 control-label">Created On:</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">@relatedRisk.CreatedDate.Value.ToShortDateString()</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group thin">
+                            <label class="col-sm-2 control-label">Underwriter:</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">@ViewBag.RealtedRiskUW</p>
+                            </div>
+                        </div>
+                    </div><!-- /.tab-pane -->
+                }
+            </div><!-- /.tab-content -->
+        </div>
+    </div>
+</div>*@

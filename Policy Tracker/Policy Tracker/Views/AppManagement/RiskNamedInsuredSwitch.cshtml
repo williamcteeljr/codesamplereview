@@ -1,0 +1,56 @@
+﻿@model DomainModel.View_Models.AlterNamedInsuredViewModel
+
+<form id="RiskNamedInsuredSwitch" class="form-horizontal">
+    <div class="row">
+        <div class="col-lg-5 col-md-6 col-sm-12">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Switch Risk Named Insured</h3>
+                </div>
+                <div class="box-body">
+                    <div class="col-lg-offset-3">
+                        @Html.ValidationSummary()
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Risk Id:</label>
+
+                        <div class="col-lg-9">
+                            <input name="RiskId" type="text" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Control Number:</label>
+
+                        <div class="col-lg-9">
+                            <input name="NewNamedInsuredId" type="text" class="form-control" /> <span class="help-block m-b-none">New Control # for risk.</span>
+                        </div>
+                    </div>
+
+                    @if (SecurityManager.HasAccess("/Management/NamedInsuredSwitch", SecurityManager.ResourcePrivilege.Delete))
+                    {
+                        <div class="checkbox col-lg-offset-3">
+                            <label>
+                                @Html.EditorFor(x => x.ShouldDeleteOldNamedInsured, new { @class = "" }) Delete Named Insured
+                            </label>
+                            <span class="help-block m-b-none">Delete named insured currently assigned to this risk</span>
+                        </div>
+                    }
+                </div>
+                <div class="box-footer text-right">
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#RiskNamedInsuredSwitch").submit(function (e) {
+            e.preventDefault();
+            var data = $(this).serializeArray();
+            webAPI.submitForm('form#RiskNamedInsuredSwitch', '/policytracker/api/risk/changeNamedInsured', data);
+        });
+    })
+</script>

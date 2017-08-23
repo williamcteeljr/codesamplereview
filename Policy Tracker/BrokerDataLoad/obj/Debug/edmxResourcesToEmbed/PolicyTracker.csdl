@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UW_Base_AppModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="UW_Base_AppEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="RiskClaims" EntityType="UW_Base_AppModel.RiskClaim" />
+  </EntityContainer>
+  <EntityType Name="RiskClaim">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="DateTime" Name="PolicyEffDate" Nullable="false" Precision="0" />
+    <Property Type="String" Name="Prefix" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PolicyNumber" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Suffix" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Standard" Nullable="false" />
+    <Property Type="Int32" Name="Earned" Nullable="false" />
+    <Property Type="Int32" Name="Written" Nullable="false" />
+    <Property Type="Int32" Name="ClaimCount" Nullable="false" />
+    <Property Type="Int32" Name="Dividend" Nullable="false" />
+    <Property Type="Int32" Name="PaidExpense" Nullable="false" />
+    <Property Type="Int32" Name="PaidLoss" Nullable="false" />
+    <Property Type="Int32" Name="IncurredLoss" Nullable="false" />
+  </EntityType>
+</Schema>

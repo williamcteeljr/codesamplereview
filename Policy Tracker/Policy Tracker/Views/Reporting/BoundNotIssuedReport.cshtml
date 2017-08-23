@@ -1,0 +1,6 @@
+﻿@Html.DevExpress().DocumentViewer(settings =>{
+    settings.Name = "BoundNotIssuedReport";
+    settings.Report = (Policy_Tracker.Reports.BoundNotIssuedReport)ViewData["Report"];
+    settings.CallbackRouteValues = new { Controller = "Reporting", Action = "BoundNotIssuedReport" };
+    settings.ExportRouteValues = new { Controller = "Reporting", Action = "ExportBoundNotIssuedReport" };
+}).GetHtml()

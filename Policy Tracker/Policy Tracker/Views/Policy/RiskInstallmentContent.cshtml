@@ -1,0 +1,26 @@
+﻿@model PolicyTracker.DomainModel.Policy.Risk
+
+@Html.HiddenFor(m => Model.InstallmentInfo.RiskId)
+<div class="col-lg-4">
+    <div class="form-group">
+        <label class="col-lg-3 col-sm-3 control-label">Payment Terms:</label>
+        <div class="col-lg-9 col-sm-9">
+            @*@Html.DropDownListFor(m => Model.InstallmentInfo.PaymentTerms, new SelectList(ViewBag.PaymentTerms, 0), new { @class = "form-control required" })*@
+            <p class="form-control-static">@Model.InstallmentInfo.PaymentTerms</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-lg-3 col-sm-3 control-label">Est Prem /Month:</label>
+        <div class="col-lg-9 col-sm-9">
+            @*@Html.TextBoxFor(m => Model.InstallmentInfo.EstimatedPremPerMonth, new { @class = "form-control currencyInput" })*@
+            <p class="form-control-static">@Model.InstallmentInfo.EstimatedPremPerMonth</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-lg-3 col-sm-3 control-label">Act Prem /Month:</label>
+        <div class="col-lg-9 col-sm-9">
+            <p class="form-control-static">@Model.InstallmentInfo.ActualPremPerMonth</p>
+            @*@Html.TextBoxFor(m => Model.InstallmentInfo.ActualPremPerMonth, new { @class = "form-control currencyInput" })*@
+        </div>
+    </div>
+</div>

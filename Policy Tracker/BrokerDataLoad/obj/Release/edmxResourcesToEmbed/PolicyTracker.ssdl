@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UW_Base_AppModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="UW_Base_AppModelStoreContainer">
+    <EntitySet Name="RiskClaims" EntityType="UW_Base_AppModel.Store.RiskClaims" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="RiskClaims">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PolicyEffDate" Type="date" Nullable="false" />
+    <Property Name="Prefix" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="PolicyNumber" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="Suffix" Type="varchar" Nullable="false" MaxLength="2" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Standard" Type="int" Nullable="false" />
+    <Property Name="Earned" Type="int" Nullable="false" />
+    <Property Name="Written" Type="int" Nullable="false" />
+    <Property Name="ClaimCount" Type="int" Nullable="false" />
+    <Property Name="Dividend" Type="int" Nullable="false" />
+    <Property Name="PaidExpense" Type="int" Nullable="false" />
+    <Property Name="PaidLoss" Type="int" Nullable="false" />
+    <Property Name="IncurredLoss" Type="int" Nullable="false" />
+  </EntityType>
+</Schema>

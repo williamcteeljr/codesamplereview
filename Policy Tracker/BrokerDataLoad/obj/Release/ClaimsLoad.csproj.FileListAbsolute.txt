@@ -1,0 +1,8 @@
+C:\TFSProjects\Policy_Tracker\Policy Tracker\BrokerDataLoad\bin\Release\ClaimsLoad.exe.config
+C:\TFSProjects\Policy_Tracker\Policy Tracker\BrokerDataLoad\bin\Release\ClaimsLoad.exe
+C:\TFSProjects\Policy_Tracker\Policy Tracker\BrokerDataLoad\bin\Release\ClaimsLoad.pdb
+C:\TFSProjects\Policy_Tracker\Policy Tracker\BrokerDataLoad\bin\Release\EntityFramework.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\BrokerDataLoad\bin\Release\EntityFramework.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\BrokerDataLoad\obj\Release\ClaimsLoad.csprojResolveAssemblyReference.cache
+C:\TFSProjects\Policy_Tracker\Policy Tracker\BrokerDataLoad\obj\Release\ClaimsLoad.exe
+C:\TFSProjects\Policy_Tracker\Policy Tracker\BrokerDataLoad\obj\Release\ClaimsLoad.pdb

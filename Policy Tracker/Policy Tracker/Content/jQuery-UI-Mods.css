@@ -1,0 +1,198 @@
+﻿.ui-jqgrid tr.ui-search-toolbar td > input {
+    border:0px;
+}
+select:disabled {
+    background-color: rgb(235, 235, 228);
+}
+
+/*Dialog Styling Changes*/
+.ui-dialog-top {
+    z-index: 9000 !important;
+}
+
+.ui-dialog {
+    border: 1px solid #222d32;
+}
+
+.ui-dialog .ui-dialog-title {
+    font-family: 'Source Sans Pro', sans-serif, Arial;
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+.ui-widget-header {
+    background: none;
+    background-color:#222d32;
+}
+
+.ui-dialog .ui-dialog-buttonpane {
+    margin: 0px;
+    padding: 2px;
+    background-color:#ecf0f5;
+}
+
+.ui-dialog-buttonset .ui-button {
+    min-width:175px;
+}
+
+.ui-dialog-buttonset #Save, .ui-dialog-buttonset #SaveClose, .ui-dialog-buttonset .Save {
+    background: #559f5a;
+    color: white;
+    border: 1px solid gray;
+}
+
+    .ui-dialog-buttonset #Save:hover, .ui-dialog-buttonset #SaveClose:hover, .ui-dialog-buttonset .Save:hover {
+        background-color:rgb(89,89,89);
+    }
+
+.ui-dialog-buttonset #Cancel, .ui-dialog-buttonset .Cancel {
+    background: #C92A2A;
+    color: white;
+    border: 1px solid gray;
+}
+
+    .ui-dialog-buttonset #Cancel:hover, .ui-dialog-buttonset .Cancel:hover {
+        background-color:rgb(89,89,89);
+    }
+
+.ui-dialog .ui-dialog-buttonpane button {
+    font-family: Verdana, Arial, sans-serif !important;
+    font-size: 15px !important;
+    font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    display: inline-block;
+    padding: 9px 12px;
+    margin-bottom: 0;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    /*touch-action: manipulation;*/
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    /*border: 1px solid transparent;*/
+    border-radius: 0px;
+    color: #fff;
+    background-color: #286090;
+    border-color: #204d74;
+    margin:0px;
+}
+
+.ui-dialog .ui-dialog-buttonpane button:hover {
+    background-color:rgb(89,89,89);
+}
+
+.ui-widget-overlay {
+    /*z-index:1000 !important;*/
+}
+
+.ui-dialog-titlebar-close {
+    /*display: none;*/
+}
+
+.ui-dialog {
+    padding: 0px;
+}
+
+.ui-widget-header {
+    border: 0px;
+}
+
+.ui-dialog .ui-dialog-title {
+    font-family: 'Source Sans Pro', sans-serif, Arial;
+    font-weight: 700;
+    line-height: 1.1;
+    font-size:27px;
+}
+
+.ui-widget input, .ui-widget select, .ui-widget textarea {
+    font-family: 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+    font-size: 14px;
+    font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+}
+
+.ui-jqgrid {
+    font-family: 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+}
+
+.ui-jqgrid .ui-jqgrid-pager {
+    border-top: 2px solid !important;
+}
+
+.ui-state-highlight, .ui-widget-content .ui-state-highlight {
+    border: 1px solid gray;
+    background: lightsteelblue;
+    color: #363636;
+}
+
+.ui-widget {
+    font-family: 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+}
+
+.ui-button-text-only .ui-button-text {
+    padding: 1px 1px;
+}
+
+button.ui-button-icon-only {
+    width: 2.1em;
+}
+
+.datepickerButton {
+    height:20px;
+    width:15px;
+    margin-top:2px;
+    float:left;
+}
+
+.actionButton {
+    height:24px;
+    width:15px;
+    margin-top:2px;
+}
+
+.ui-dialog.noOverflow, .ui-dialog.noOverflow  .ui-dialog-content {
+    overflow: auto !important;
+}
+
+.ui-dialog .ui-dialog-content{
+    background-color: #ecf0f5;
+}
+
+/*jqGrid Mods*/
+.ui-jqgrid {
+    border:0px;
+}
+
+    .ui-jqgrid tr.ui-row-ltr td {
+        border:0px !important;
+    }
+
+    .ui-jqgrid tr.jqgrow td {
+        height:30px !important;
+        padding: 5px 2px 5px 5px !important;
+        font-size: 14px !important;
+    }
+
+    .ui-jqgrid .ui-jqgrid-htable {
+        font-size: 13px !important;
+    }
+
+.ui-jqgrid .ui-search-table td.ui-search-clear {
+    display:none;
+}
+
+.ui-jqgrid .ui-jqgrid-view input, .ui-jqgrid .ui-jqgrid-view select, .ui-jqgrid .ui-jqgrid-view textarea, .ui-jqgrid .ui-jqgrid-view button {
+    font-size: 14px !important;
+}

@@ -1,0 +1,21 @@
+﻿@model PolicyTracker.DomainModel.Policy.Aircraft
+
+@Html.DevExpress().ComboBox(settings => {
+    settings.Name = "ModelName";
+    settings.Properties.DropDownStyle = DropDownStyle.DropDown;
+    settings.CallbackRouteValues = new { Controller = "Policy", Action = "AircraftModelComboBox" };
+    settings.Properties.ValueType = typeof(string);
+    settings.Properties.TextField = "MODEL";
+    settings.Properties.ValueField = "MODEL";
+    settings.ControlStyle.CssClass = "form-control";
+    settings.Properties.CallbackPageSize = 10;
+    settings.Properties.ClientSideEvents.BeginCallback = "function(s, e) { e.customArgs['make'] = Make.GetValue(); }";
+
+    //settings.PreRender = (s, e) =>
+    //    {
+    //        MVCxComboBox combo = s as MVCxComboBox;
+    //        combo.Value = "zzz"; 
+    //        //combo.Text = "ASD";
+    //        combo.DataBind();
+    //    };
+}).BindList(PolicyTracker.BusinessServices.ServiceLocator.AircraftSvc.GetModels(Model.Make)).Bind(Model, "ModelName").GetHtml()

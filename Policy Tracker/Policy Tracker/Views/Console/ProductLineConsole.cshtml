@@ -1,0 +1,260 @@
+﻿@{
+    ViewBag.Title = "Product Line Console";
+    Layout = "~/Views/Shared/_DevExtremeLayout.cshtml";
+}
+
+@Scripts.Render("~/angular/controllers")
+@Scripts.Render("~/angular/factories")
+@Scripts.Render("~/plugins/ui-bootstrap")
+
+<style>
+    .list-element {
+        border-bottom:1px solid #e7eaec;
+        margin-bottom:10px
+    }
+    .list-element .element-title {
+        font-weight:700;
+        font-size:18px;
+        font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    .col-group {
+        border: 2px solid #f4f4f4!important;
+    }
+
+    .clickable {
+        cursor:pointer;
+    }
+</style>
+
+<section class="content-header">
+    <h1>
+        Product Line Console
+    </h1>
+    <ol class="breadcrumb">
+        <li>Consoles</li>
+        <li class="active"><strong>Product Line</strong></li>
+    </ol>
+</section>
+
+<section class="content" ng-app="ProductLineConsole" ng-controller="consoleController" ng-cloak>
+    <div class="row">
+        <div class="col-lg-2 col-md-3">
+            <div class="box box-primary">
+                <div class="box-body box-profile">
+                    <h3 class="profile-username text-center">{{productLine.Name}}</h3>
+
+                    <select ng-model="productLine" ng-options="pl as pl.Name for pl in productLines track by pl.ProductLineId" class="form-control"></select>
+
+                    <ul class="list-group list-group-unbordered">
+                        <li class="list-group-item" title="total number of new business submissions">
+                            <b>New Bus. Submissions</b> <a class="pull-right">{{riskStatusCounts.Submissions}}</a>
+                        </li>
+                        <li class="list-group-item" title="Total # of new business submissions declined">
+                            <b>Declined New Bus.</b> <a class="pull-right">{{riskStatusCounts.Declined}}</a>
+                        </li>
+                        <li class="list-group-item" title="Total New Business submissions quoted">
+                            <b>Quoted New Bus</b> <a class="pull-right">{{riskStatusCounts.Quotes}}</a>
+                        </li>
+                        <li class="list-group-item" title="Total new and renewal policies issued">
+                            <b>Issued</b> <a class="pull-right">{{riskStatusCounts.Issued}}</a>
+                        </li>
+                        <li class="list-group-item" title="Total number of renewals lost">
+                            <b>Lost Renewals</b> <a class="pull-right">{{riskStatusCounts.Lost}}</a>
+                        </li>
+                        <li class="list-group-item" title="Total # of new and renewal policies cancelled">
+                            <b>Cancelled</b> <a class="pull-right">{{riskStatusCounts.Cancelled}}</a>
+                        </li>
+                        <li class="list-group-item" title="Total # of policies currently inforce">
+                            <b>Total Inforce</b> <a class="pull-right">{{riskStatusCounts.TotalInforce}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="box box-primary">
+                <div class="box-body box-profile">
+                    <h3><strong>Renewal Retention</strong> <br /> <small>(Rolling 12)</small></h3>
+                    <ul class="list-group list-group-unbordered">
+                        <li class="list-group-item clearfix">
+                            <div class="col-lg-12 col-md-12 col-sm-12 no-padding clearfix">
+                                <span><strong>By Count</strong></span>
+                            </div>
+                            <table class="table table-condensed" style="margin-bottom:0px">
+                                <tbody>
+                                    <tr>
+                                        <td><uib-progressbar class="progress progress-xs progress-striped" value="retention.TotalRetainedAsPercent" type="{{retention.TotalRetainedGrade}}"></uib-progressbar></td>
+                                        <td style="width:40px"><span ng-class="retention.TotalRetainedBadgeGrade" class="badge">{{retention.TotalRetainedAsPercent}}%</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                        <li class="list-group-item clearfix">
+                            <div class="col-lg-12 col-md-12 col-sm-12 no-padding clearfix">
+                                <span><strong>By Premium</strong></span>
+                            </div>
+                            <table class="table table-condensed" style="margin-bottom:0px">
+                                <tbody>
+                                    <tr>
+                                        <td><uib-progressbar class="progress progress-xs progress-striped" value="retention.ValueRetainedAsPercent" type="{{retention.TotalValueRetainedGrade}}"></uib-progressbar></td>
+                                        <td style="width:40px"><span ng-class="retention.TotalValueRetainedBadgeGrade" class="badge">{{retention.ValueRetainedAsPercent}}%</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                    </ul>
+                </div><!-- /.box-body -->
+            </div>
+        </div>
+
+        <div class="col-lg-10 col-md-6">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Workload</h3>
+                    <div class="pull-right">
+                        <div class="pull-right">
+                            <i class="fa fa-th-list fa-2x clickable m-r" title="Details" ng-click="workloadView = workloadViews[0]"></i>
+                            <i class="fa fa-area-chart fa-2x clickable" title="Details" ng-click="workloadView = workloadViews[2]"></i>
+                        </div>
+                    </div>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                    <div ng-show="workloadView == workloadViews[2]">
+                        <div dx-chart="workloadChartConfig"></div>
+                    </div>
+                    <div ng-show="workloadView == workloadViews[3]">
+                        <button type="button" class="btn btn-primary" ng-click="workloadView = workloadViews[2]"><i class="fa fa-arrow-circle-o-left"></i> Month Summary</button>
+                        <div dx-chart="workloadChartForMonthConfig"></div>
+                    </div>
+                    <div ng-show="workloadView == workloadViews[4]">
+                        <button type="button" class="btn btn-primary" ng-click="workloadView = workloadViews[3]"><i class="fa fa-arrow-circle-o-left"></i> Month Summary by Underwriter</button>
+                        <h1>
+                            {{uwDetails.uw}} - {{uwDetails.month}} <br />
+                            <small>Issued Policies</small>
+                        </h1>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Effective</th>
+                                    <th>Name</th>
+                                    <th>Broker</th>
+                                    <th>Status</th>
+                                    <th>Inception</th>
+                                    <th>Written</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="risk in uwDetails.risks | orderBy : '-WrittenPremium'">
+                                    <td>{{risk.EffectiveDate | date:'MM/dd/yyyy'}}</td>
+                                    <td>{{risk.Name}}</td>
+                                    <td>{{risk.AgencyName}}</td>
+                                    <td>{{risk.Status}}</td>
+                                    <td>{{risk.InceptionPremium}}</td>
+                                    <td>{{risk.WrittenPremium | currency:"$ "}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div ng-show="workloadView == workloadViews[0]">
+                        <div ng-repeat="month in workloadStats" class="list-element">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th colspan="5" class="text-center col-group"># Count</th>
+                                        <th colspan="5" class="text-center col-group">$ Premium</th>
+                                    </tr>
+                                    <tr>
+                                        <th><span class="element-title">{{month.MonthText}}</span></th>
+                                        <th>Submissions</th>
+                                        <th>Bound</th>
+                                        <th>Renewal</th>
+                                        <th>Bound</th>
+                                        <th>Total</th>
+                                        <th>$ Submissions</th>
+                                        <th>$ Bound</th>
+                                        <th>$ Renewal</th>
+                                        <th>$ Bound</th>
+                                        <th>$ Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="uw in month.Underwriters | orderBy: 'Name'" ng-click="goToUnderwriterDetail(uw.Name, month.Month)" class="clickable">
+                                        <td>{{uw.Name}}</td>
+                                        <td>{{uw.NewBusiness}}</td>
+                                        <td>{{uw.NewBusinessBound}}</td>
+                                        <td>{{uw.Renewals}}</td>
+                                        <td>{{uw.RenewalsBound}}</td>
+                                        <td>{{uw.Total}}</td>
+                                        <td>{{uw.NewPremium | currency:"$ "}}</td>
+                                        <td>{{uw.NewPremiumBound | currency:"$ "}}</td>
+                                        <td>{{uw.RenewalPremium | currency:"$ "}}</td>
+                                        <td>{{uw.RenewalPremiumBound | currency:"$ "}}</td>
+                                        <td>{{uw.TotalPremium | currency:"$ "}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div ng-show="workloadView == workloadViews[1]">
+                        <button type="button" class="btn btn-primary" ng-click="workloadView = workloadViews[0]"><i class="fa fa-arrow-circle-o-left"></i> Month Summary</button>
+                        <h1>
+                            {{uwDetails.uw}} - {{uwDetails.month}} <br/>
+                            <small>Issued Policies</small>
+                        </h1>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Effective</th>
+                                    <th>Name</th>
+                                    <th>Broker</th>
+                                    <th>Written</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="risk in uwDetails.risks | orderBy : '-WrittenPremium'">
+                                    <td>{{risk.EffectiveDate | date:'MM/dd/yyyy'}}</td>
+                                    <td>{{risk.Name}}</td>
+                                    <td>{{risk.AgencyName}}</td>
+                                    <td>{{risk.WrittenPremium | currency:"$ "}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                </div><!-- /.box-body -->
+            </div>
+
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tab_1-1" data-toggle="tab" aria-expanded="true">Top 20 Outstanding Quotes</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_1-1">
+                        <div dx-data-grid="outStandingQuotesGridConfig"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Rolling 12 Impactful Events Log</h3>
+                </div>
+                <div class="box-body">
+                    <div class="post" ng-repeat="note in impactNotes | orderBy: '-ImpactDate'">
+                        <div class="user-block">
+                            <span class="text-light-blue lead">
+                                <strong><a href="#">{{note.Name}}</a></strong>
+                            </span>
+                            <span class="pull-right description">{{note.ImpactDate | date:"shortDate"}}</span>
+                        </div><!-- /.user-block -->
+                        <p>
+                            {{note.Comment}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

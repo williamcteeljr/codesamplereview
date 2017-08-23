@@ -1,0 +1,547 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A0867E44-A63F-4CA9-9EEF-08A9BDFF03D4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ServiceGateway</RootNamespace>
+    <AssemblyName>ServiceGateway</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ImageRightService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\ImageRightServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Service References\ImageRightServiceReference\irwebservice40.wsdl" />
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.AccountPermissions.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.AddConvertedPageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.AddFileMarkResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.AddNoteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.AddPageMarkResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.AddPageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.ArrayOfString.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.AssociateFilesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.AttributeData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.AttributeDef.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.AttributeRule.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.AuthorizedStepUser.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.AvailableConnectionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.ChangeUserPasswordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.CreateBatchResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.CreateDocumentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.CreateFileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.CreateFolderResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.CreateObjectResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.CreateTaskResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.CurrentUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.DeleteDocumentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.Device.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.Document.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.DocumentType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.Drawer.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.File.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.FileRef.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.FileTemplate.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.FindDocumentsExResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.FindDocumentsLegacyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.FindDocumentsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.FindFilesExResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.FindFilesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.FindUserByNameResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.Folder.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetAllDocTypesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetAssociatedFilesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetAttributeByNameResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetAttributeDefsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetAttributeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetAttributeRuleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetAttributeRulesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetAttributesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetAuthorizedUsersForStepResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetContentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetDevicesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetDiaryFlowResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetDocumentByRefResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetDocumentTypeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetDrawerByRefResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetDrawersByParentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetDrawersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetDrawerTypeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetFileByRefResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetFileMarkDefsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetFileMarksResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetFileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetFileTemplateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetFileTypeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetFirstPageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetFlowByRefResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetFlowsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetFolderByRefResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetFolderTypeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetImageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetLinksResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetLocationByRefResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetLocationsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetMappingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetMultiPageImageFileExResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetMultiPageImageFileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetMultiPageImageFileUsingPagesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetNotesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetObjectPathToFileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetObjectResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetPageByRefResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetPageMarkDefsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetPageMarksByFileRefResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetPageMarksByPageRefResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetPagePathToFileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetPages3xResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetPagesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetPageVersionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetParentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetPermissionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetSecurityAccountResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetSecurityIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetStepAttributesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetStepByRefResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetStepsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetSubTasksResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetTaskByRefResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetTasksExResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetTasksForCurrentUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetTasksForFileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetTypePermissionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetTypeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.GetUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.ImageList.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.InsertPageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.IsLoggedInResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.KillTaskResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.KillTasksResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.Link.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.Location.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.LockPageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.LockTaskResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.Mark.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.MoveTaskResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.Note.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.ObjectTypeData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.Page.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.Page3x.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.PageMark.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.PageVersion.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.ReleaseSplitTaskResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.ReleaseTaskResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.ReleaseTaskToStepResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.RemoveFileAssociationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.RemovePageMarkResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.ResponseData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.RouteTaskResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.SecurityAccount.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.SecurityID.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.SetAttributesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.SetTaskAttributeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.Step.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.StepAttributeRule.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.Task.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.TaskRef.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.TypedObjectData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.UnlockAllTasksResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.UnlockPageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.UnlockTaskResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.UpdateDocumentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.UpdateFileInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.UpdateFileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.UpdateFolderResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.UpdatePageDescriptionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.UpdatePageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.UpdateTaskResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.User.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.UserLoginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.UserLogoffResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.VersionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.Workflow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageRightServiceReference\ServiceGateway.ImageRightServiceReference.WSVersionInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ImageRightServiceReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ImageRightServiceReference\irwebservice40.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ImageRightServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ImageRightServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ImageRightServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{2b846237-9c53-4d0f-80f1-4f47d0c09a5b}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DomainModel\DomainModel.csproj">
+      <Project>{492b5df3-522e-4622-a091-e2de3ad0a701}</Project>
+      <Name>DomainModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Platform\Platform.csproj">
+      <Project>{ef21cae9-3f43-4db8-a316-0f20ba3f503f}</Project>
+      <Name>Platform</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

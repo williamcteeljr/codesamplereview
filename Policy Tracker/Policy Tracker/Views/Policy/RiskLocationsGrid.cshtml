@@ -1,0 +1,15 @@
+﻿@model List<PolicyTracker.DomainModel.Policy.RiskLoction>
+
+@Html.DevExpress().GridView(
+    settings => {
+        settings.Name = "RiskEditLocationsGrid";
+
+        settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+        settings.Columns.Add("AirportID", "Airport");
+        settings.Columns.Add("CategoryID", "Cateogry");
+        settings.Columns.Add("PortionOccupied", "Portion Occ.");
+        settings.Columns.Add("AnyLocation", "Any Loc.");
+        settings.Columns.Add("Modifier");
+        settings.Columns.Add("TotalPremium", "Total Prem.");
+        
+    }).Bind(Model).GetHtml()

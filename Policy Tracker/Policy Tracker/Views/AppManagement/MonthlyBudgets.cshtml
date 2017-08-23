@@ -1,0 +1,45 @@
+﻿<script type="text/javascript">
+    ora.UI.Grid.Grid({
+        id: "MonthlyBudgets",
+        pager: "MonthlyBudgetsPager",
+        height: 500,
+        restUrl: '/policytracker/api/AppManagement/GetBudgets/',
+        rowId: 'Id',
+        caption: '',
+        columnNames: ['BudgetId', 'Product Line', 'Branch', 'Amount', 'Month', 'Year'],
+        columnModel: [
+            { name: 'BudgetId', width: 70, search: false, hidden: true },
+            { name: 'ProductLine', width: 100, search: true },
+            { name: 'Branch', width: 70, align: 'center' },
+            ora.UI.Grid.Column.Currency('Amount', 70),
+            { name: 'DateMonth', width: 70, },
+            { name: 'DateYear', width: 70, align: 'center' },
+        ]
+    });
+
+    ora.UI.Grid.Pager(
+        {
+            id: "MonthlyBudgets", pager: "MonthlyBudgetsPager",
+            deleteURL: "/policytracker/AppManagement/DeleteMonthlyBudget?budgetId={0}",
+            editParams: { BudgetId: "budgetId" },
+            getURL: "/policytracker/AppManagement/EditMonthlyBudget",
+            form: { id: 'MonthlyBudgetEditForm', grid: "MonthlyBudgets", submitURL: "/policytracker/AppManagement/EditMonthlyBudget", container: "MonthlyBudgets_dg", dialog: "MonthlyBudgets_dg" },
+            type: ora.Dialog.ActionFormSizes.Medium, modal: true
+        },
+        {
+            hasWriteAccess: true,
+            hasDeleteAccess: true
+        }
+    );
+
+    jQuery("#MonthlyBudgets").filterToolbar({ searchOnEnter: true, enableClear: true });
+</script>
+
+<div class="box box-solid">
+    <div class="box-header with-border">
+        <h3 class="box-title">Monthly Budgets</h3>
+    </div>
+    <div class="box-body">
+        @Html.jqGrid("MonthlyBudgets", true)
+    </div>
+</div>

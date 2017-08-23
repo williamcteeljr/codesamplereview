@@ -1,0 +1,99 @@
+﻿<style>
+    .BasicReport {
+        cursor: pointer;
+        text-decoration: none;
+    }
+</style>
+
+<div class="row content">
+    <div class="col-lg-2 col-md-4 col-sm-12">
+        <div class="box box-solid">
+            <div class="box-body">
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default" style="margin-top:2px">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">General Reports</a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <p><i class="fa fa-circle-o"></i><a class="BasicReport" data-ora-report="NewBusinessFlow"> New Business Flow</a></p>
+                                <p><i class="fa fa-circle-o"></i><a class="BasicReport" data-ora-report="YTDNewBusinessFlow"> YTD New Business Flow</a></p>
+                                <p><i class="fa fa-circle-o"></i><a class="BasicReport" data-ora-report="PredictivePremium"> Predictive Premium</a></p>
+                                <p><i class="fa fa-circle-o"></i><a class="BasicReport" data-ora-report="InstallmentsReport"> Installments</a></p>
+                                <p><i class="fa fa-circle-o"></i><a class="BasicReport" data-ora-report="UnPaidInstallmentsByMonthReport"> Unpaid Installments</a></p>
+                                <p><i class="fa fa-circle-o"></i><a class="BasicReport" data-ora-report="UnResolvedRenewalsReport"> Un-Resolved Risks</a></p>
+                                <p><i class="fa fa-circle-o"></i><a class="BasicReport" data-ora-report="TargetAccountsReport"> Target Accounts</a></p>
+                                <p><i class="fa fa-circle-o"></i><a class="BasicReport" data-ora-report="BoundNotIssuedReport"> Bound Not Issued</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default" style="margin-top:2px">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">ReInsurance Reports</a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <p hidden><i class="fa fa-circle-o"></i><a class="BasicReport" data-ora-report="ExhibitBGNEPIReport"> Exhibit B GNEPI</a></p>
+                                <p hidden><i class="fa fa-circle-o"></i><a class="BasicReport" data-ora-report="ExhibitBPayrollReport"> Exhibit B Payroll</a></p>
+                                <p hidden><i class="fa fa-circle-o"></i><a class="BasicReport" data-ora-report="ExhibitDExposureInfoReport"> Exhibit D 1-4</a></p>
+                                <p hidden><i class="fa fa-circle-o"></i><a class="BasicReport" data-ora-report="ExhibitE_LLReport"> Exhibit E-LL</a></p>
+                                <p><i class="fa fa-circle-o"></i><a class="BasicReport" data-ora-report="ExhibitFReport"> Exhibit F Employee Concentrations</a></p>
+                                <p hidden><i class="fa fa-circle-o"></i><a class="BasicReport" data-ora-report="PayrollByStAndCCReport"> Payroll By State & Class Code</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-group">
+                    <div class="panel panel-default" style="margin-top:2px">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                Accounting Reports
+                            </h4>
+                        </div>
+                        <div id="accounting">
+                            <div class="panel-body">
+                                <p><i class="fa fa-circle-o"></i><a class="BasicReport" data-ora-report="NewBuisnessCountReport"> New Business Count</a></p>
+                                <p><i class="fa fa-circle-o"></i><a class="BasicReport" data-ora-report="PendingPremiumReport"> Pending Premium Report</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.box-body -->
+        </div><!-- /.box -->
+    </div>
+
+    <div class="col-lg-10 col-md-8 col-sm-12">
+        <div class="box box-solid">
+            <div class="box-header with-border">
+                <h3 id="ReportTitle" class="box-title">Report</h3>
+            </div><!-- /.box-header -->
+            <div id="RunningReport" class="box-body">
+                <h3>Select a report to run.</h3>
+            </div><!-- /.box-body -->
+        </div><!-- /.box -->
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".BasicReport").click(function () {
+            var report = $(this).attr('data-ora-report');
+            $("#ReportTitle").html($(this).text());
+            ora.Ajax.Ajax({
+                url: "/policytracker/Reporting/" + report,
+                dataType: "HTML",
+                type: "GET",
+                successCallback: function (data) {
+                    $("#RunningReport").html(data);
+                }
+            });
+        });
+    });
+</script>

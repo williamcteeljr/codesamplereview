@@ -1,0 +1,195 @@
+﻿<script type="text/javascript">
+    $(document).ready(function () {
+        $("#FilterStatChart").click(function () {
+            ora.Ajax.Ajax({
+                url: "/policytracker/dashboard/FilteredStatsChart",
+                dataType: "HTML",
+                type: "POST",
+                data: $("#StatChartFiltersForm").serializeArray(),
+                successCallback: function (data) { $("#StatChartContent").html(data); }
+            });
+        });
+    });
+</script>
+
+<form id="StatChartFiltersForm">
+    @Html.Label("Product Line:")
+    @Html.DevExpress().DropDownEdit(c => {
+        c.Name = "StatProductLines_List";
+        c.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+
+        c.SetDropDownWindowTemplateContent(set =>
+        {
+            @Html.DevExpress().ListBox(uwLBSettings =>
+            {
+                uwLBSettings.Name = "StatProductLines";
+                uwLBSettings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+                uwLBSettings.Height = 250;
+                uwLBSettings.Properties.SelectionMode = ListEditSelectionMode.CheckColumn;
+                uwLBSettings.Properties.ValueField = "Name";
+                uwLBSettings.Properties.ValueType = typeof(string);
+                uwLBSettings.Properties.TextField = "Name";
+                uwLBSettings.Properties.ClientSideEvents.SelectedIndexChanged = "function(s,e) { ora.DX.DD_Edit.ListBox.IndexChange('StatProductLines') }";
+            }).BindList(ServiceLocator.PolicySvc.GetProductLines()).GetHtml();
+            ViewContext.Writer.Write("<div style=\"padding: 6px; height: 40px; background-color:rgb(179, 176, 176);\">");
+            @Html.DevExpress().Button(buttonSettings =>
+            {
+                buttonSettings.Name = "SCProductLineListClose";
+                buttonSettings.Text = "Close";
+                buttonSettings.Style.Add("float", "right");
+                buttonSettings.ClientSideEvents.Click = "function(s, e){ StatProductLines_List.HideDropDown(); }";
+            }
+            ).Render();
+            @Html.DevExpress().Button(buttonSettings =>
+            {
+                buttonSettings.Name = "SCProductLineListClear";
+                buttonSettings.Text = "Clear";
+                buttonSettings.Style.Add("float", "right");
+                buttonSettings.Style.Add("margin-right", "5px");
+                buttonSettings.ClientSideEvents.Click = "function(s,e) { StatProductLines.UnselectAll(); ora.DX.DD_Edit.ListBox.IndexChange('StatProductLines') }";
+            }                   
+            ).Render();
+            ViewContext.Writer.Write("</div>");
+        });
+    }).GetHtml()
+
+    @Html.Label("Branch:")
+    @Html.DevExpress().DropDownEdit(c => {
+        c.Name = "StatBranches_List";
+        c.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+
+        c.SetDropDownWindowTemplateContent(set =>
+        {
+            @Html.DevExpress().ListBox(uwLBSettings =>
+            {
+                uwLBSettings.Name = "StatBranches";
+                uwLBSettings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+                uwLBSettings.Height = 150;
+                uwLBSettings.Properties.SelectionMode = ListEditSelectionMode.CheckColumn;
+                uwLBSettings.Properties.ValueField = "Value";
+                uwLBSettings.Properties.ValueType = typeof(string);
+                uwLBSettings.Properties.TextField = "DisplayText";
+                uwLBSettings.Properties.ClientSideEvents.SelectedIndexChanged = "function(s,e) { ora.DX.DD_Edit.ListBox.IndexChange('StatBranches') }";
+            }).BindList(PolicyTracker.DomainModel.Framework.StringEnum.GetAll<PolicyTracker.DomainModel.Common.Branch>()).GetHtml();
+            ViewContext.Writer.Write("<div style=\"padding: 6px; height: 40px; background-color:rgb(179, 176, 176);\">");
+            @Html.DevExpress().Button(buttonSettings =>
+            {
+                buttonSettings.Name = "SCBranchListClose";
+                buttonSettings.Text = "Close";
+                buttonSettings.Style.Add("float", "right");
+                buttonSettings.ClientSideEvents.Click = "function(s, e){ StatBranches_List.HideDropDown(); }";
+            }
+            ).Render();
+            @Html.DevExpress().Button(buttonSettings =>
+            {
+                buttonSettings.Name = "SCBranchListClear";
+                buttonSettings.Text = "Clear";
+                buttonSettings.Style.Add("float", "right");
+                buttonSettings.Style.Add("margin-right", "5px");
+                buttonSettings.ClientSideEvents.Click = "function(s,e) { StatBranches.UnselectAll(); ora.DX.DD_Edit.ListBox.IndexChange('StatBranches') }";
+            }
+            ).Render();
+            ViewContext.Writer.Write("</div>");
+        });
+    }).GetHtml()
+
+    @Html.Label("Underwriters:")
+    @Html.DevExpress().DropDownEdit(c =>
+    {
+        c.Name = "StatUnderwriterIds_List";
+        c.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+                    
+        c.SetDropDownWindowTemplateContent(set =>
+        {
+            @Html.DevExpress().ListBox(uwLBSettings =>
+            {
+                uwLBSettings.Name = "StatUnderwriterIds";
+                uwLBSettings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+                uwLBSettings.Height = 210;
+                uwLBSettings.Properties.SelectionMode = ListEditSelectionMode.CheckColumn;
+                uwLBSettings.Properties.ValueField = "Name";
+                uwLBSettings.Properties.ValueType = typeof(string);
+                uwLBSettings.Properties.TextField = "Name";
+                uwLBSettings.Properties.ClientSideEvents.SelectedIndexChanged = "function(s,e) { ora.DX.DD_Edit.ListBox.IndexChange('StatUnderwriterIds') }";
+            }).BindList(ViewBag.Underwriters).GetHtml();
+            ViewContext.Writer.Write("<div style=\"padding: 6px; height: 40px; background-color:rgb(179, 176, 176);\">");
+            @Html.DevExpress().Button(buttonSettings =>
+            {
+                buttonSettings.Name = "SCListClose";
+                buttonSettings.Text = "Close";
+                buttonSettings.Style.Add("float", "right");
+                buttonSettings.ClientSideEvents.Click = "function(s, e){ StatUnderwriterIds_List.HideDropDown(); }";
+            }
+            ).Render();
+            @Html.DevExpress().Button(buttonSettings =>
+            {
+                buttonSettings.Name = "SCListClear";
+                buttonSettings.Text = "Clear";
+                buttonSettings.Style.Add("float", "right");
+                buttonSettings.Style.Add("margin-right", "5px");
+                buttonSettings.ClientSideEvents.Click = "function(s, e){ StatUnderwriterIds.UnselectAll(); ora.DX.DD_Edit.ListBox.IndexChange('StatUnderwriterIds') }";
+            }
+            ).Render();
+            ViewContext.Writer.Write("</div>");
+        });
+    }).GetHtml()
+
+    <div class="form-group">
+        @Html.Label("Brokers:", new { style = "width:100%" })
+        <div class="input-group">
+            <input type="text" id="BrokerFilter_List" name="BrokerFilter_List" class="form-control" />
+            <span class="input-group-btn">
+                <a id="brokerLookup_Btn" role="button" class="btn btn-default" href="#" title="Show Broker Lookup">
+                    <i class="fa fa-search"></i>
+                </a>
+            </span>
+        </div>
+    </div>
+
+    <div id="statChartBrokerLookupContainer" class="hidden" title="Select Brokers For Filter" style="margin-top:10px">
+        <input type="text" id="statChartBrokerLookup" class="form-control" placeholder="... Broker Code/Name ..." />
+        <p class="help-block">Search By Broker Code / Name</p>
+    </div>
+    
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#brokerLookup_Btn").click(function (e) {
+                e.preventDefault();
+                $("#statChartBrokerLookupContainer").toggle();
+            });
+
+            $("#statChartBrokerLookup").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "/policytracker/api/brokers/search",
+                        dataType: "json",
+                        type: 'GET',
+                        data: { pageNumber: 1, pageSize: 25, term: request.term },
+                        success: function (data) {
+                            console.log(data)
+                            response($.map(data.Results, function (broker) {
+                                return {
+                                    label: broker.AgencyID + ' - ' + broker.AgencyName,
+                                    id: broker.AgencyID,
+                                    value: broker.AgencyID
+                                };
+                            }));
+                        }
+                    });
+                },
+                select: function (event, ui) {
+                    event.preventDefault();
+                    var val = $('#BrokerFilter_List').val();
+                    if (val == "") {
+                        $("#BrokerFilter_List").val(ui.item.value);
+                    } else {
+                        $("#BrokerFilter_List").val(val + ", " + ui.item.value);
+                    }
+                    $(this).val("");
+                },
+                minLength: 2
+            });
+        })
+    </script>
+</form>

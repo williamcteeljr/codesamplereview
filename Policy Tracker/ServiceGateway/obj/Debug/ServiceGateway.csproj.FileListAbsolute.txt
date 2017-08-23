@@ -1,0 +1,38 @@
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\ServiceGateway\bin\Debug\ServiceGateway.dll.config
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\ServiceGateway\bin\Debug\ServiceGateway.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\ServiceGateway\bin\Debug\ServiceGateway.pdb
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\ServiceGateway\bin\Debug\DataAccess.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\ServiceGateway\bin\Debug\DomainModel.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\ServiceGateway\bin\Debug\Platform.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\ServiceGateway\bin\Debug\System.Web.Mvc.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\ServiceGateway\bin\Debug\itextsharp.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\ServiceGateway\bin\Debug\log4net.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\ServiceGateway\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\ServiceGateway\bin\Debug\DataAccess.pdb
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\ServiceGateway\bin\Debug\DomainModel.pdb
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\ServiceGateway\bin\Debug\Platform.pdb
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\ServiceGateway\bin\Debug\System.Web.Mvc.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\ServiceGateway\bin\Debug\itextsharp.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\ServiceGateway\bin\Debug\log4net.xml
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\ServiceGateway\obj\Debug\ServiceGateway.csprojResolveAssemblyReference.cache
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\ServiceGateway\obj\Debug\ServiceGateway.dll
+C:\TFSProjects\Policy_Tracker\WCPostingNoticePrinting\ServiceGateway\obj\Debug\ServiceGateway.pdb
+C:\TFSProjects\Policy_Tracker\Policy Tracker\ServiceGateway\bin\Debug\ServiceGateway.dll.config
+C:\TFSProjects\Policy_Tracker\Policy Tracker\ServiceGateway\bin\Debug\ServiceGateway.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\ServiceGateway\bin\Debug\ServiceGateway.pdb
+C:\TFSProjects\Policy_Tracker\Policy Tracker\ServiceGateway\bin\Debug\DataAccess.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\ServiceGateway\bin\Debug\DomainModel.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\ServiceGateway\bin\Debug\Platform.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\ServiceGateway\bin\Debug\System.Web.Mvc.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\ServiceGateway\bin\Debug\itextsharp.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\ServiceGateway\bin\Debug\log4net.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\ServiceGateway\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\ServiceGateway\bin\Debug\DataAccess.pdb
+C:\TFSProjects\Policy_Tracker\Policy Tracker\ServiceGateway\bin\Debug\DomainModel.pdb
+C:\TFSProjects\Policy_Tracker\Policy Tracker\ServiceGateway\bin\Debug\Platform.pdb
+C:\TFSProjects\Policy_Tracker\Policy Tracker\ServiceGateway\bin\Debug\System.Web.Mvc.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\ServiceGateway\bin\Debug\itextsharp.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\ServiceGateway\bin\Debug\log4net.xml
+C:\TFSProjects\Policy_Tracker\Policy Tracker\ServiceGateway\obj\Debug\ServiceGateway.csprojResolveAssemblyReference.cache
+C:\TFSProjects\Policy_Tracker\Policy Tracker\ServiceGateway\obj\Debug\ServiceGateway.dll
+C:\TFSProjects\Policy_Tracker\Policy Tracker\ServiceGateway\obj\Debug\ServiceGateway.pdb

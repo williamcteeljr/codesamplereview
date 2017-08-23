@@ -1,0 +1,30 @@
+﻿@if (!SecurityManager.HasAccess("/Risk/WorkingList", SecurityManager.ResourcePrivilege.Read))
+{
+    Html.RenderAction("ClearanceSearch", "Policy");
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#NewRiskEntryButton").click(function () {
+                ora.Dialog.ActionForm(
+                {
+                    id: 'NewRiskEntry_dg',
+                    title: 'Risk Entry',
+                    form: {
+                        id: "RiskEntryForm",
+                        container: "NewRiskEntry_dg",
+                        dialog: "NewRiskEntry_dg",
+                        submitURL: "policytracker/Policy/RiskEntryForm",
+                        grid: "NamedInsuredSearchGrid"
+                    },
+                    url: "policytracker/Policy/RiskEntryForm",
+                    modal: true, autoFocus: "PolicyType",
+                    WritePermissions: true,
+                    Type: ora.Dialog.ActionFormSizes.Large,
+                });
+            });
+        });
+    </script>
+}
+else
+{
+    Html.RenderAction("WorkingList", "Home");
+}

@@ -1,0 +1,31 @@
+﻿<script type="text/javascript">
+    $("#PPReportSubmit").click(function () { $("#PredictivePremiumForm").submit() });
+    $("#PredictivePremiumForm").submit(function (e) {
+        e.preventDefault();
+        ora.Ajax.Ajax({
+            url: "/policytracker/Reporting/PredictivePremiumReport",
+            dataType: "HTML", type: "GET", data: $("#PredictivePremiumForm").serializeArray(),
+            successCallback: function (data) { $("#ReportDisplayPanel").html(data); }
+        });
+    });
+</script>
+
+<form id="PredictivePremiumForm">
+    @Html.ValidationSummary()
+
+    <div class="box box-solid">
+        <div class="box-body form-horizontal">
+            <div class="form-group">
+                <label class="col-lg-1 col-sm-3 control-label">Month:</label>
+                <div class="col-lg-11 col-sm-9">
+                    @Html.DropDownList("month", new SelectList(ViewBag.Months, "Value", "DisplayText", DateTime.Now.Month), new { @class = "form-control" })
+                </div>
+            </div>
+        </div><!-- /.box-body -->
+        <div class="box-footer">
+            <button id="PPReportSubmit" type="button" class="btn btn-primary btn-block btn-flat"><i class="fa fa-terminal"></i> Run Report</button>
+        </div>
+    </div><!-- /.box -->
+</form>
+
+<div id="ReportDisplayPanel"></div>

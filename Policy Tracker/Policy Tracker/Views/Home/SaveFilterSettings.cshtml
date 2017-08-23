@@ -1,0 +1,57 @@
+﻿@model PolicyTracker.DomainModel.Common.UserFilter
+
+<script type="text/ecmascript">
+    $(document).ready(function () {
+        $("form#UserFilterForm").find("#Name").val($("#WLMyFilter option:selected").text());
+    });
+</script>
+
+<form id="UserFilterForm" class="oraForm">
+    <div class="row">
+        @Html.ValidationSummary()
+    </div>
+
+    @Html.HiddenFor(m => Model.UserId)
+    @Html.HiddenFor(m => Model.Expression)
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-primary borderless">
+                <div class="panel-body gray">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <i class="btn btn-danger reqField RFD hidden" data-dec-field="PolicyType">D</i>
+                        @Html.TextBoxFor(m => Model.Name, new { @class = "form-control" })
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>For Month</label>
+                        <select id="MonthFilter" name="MonthFilter" class="form-control">
+                            <option value="0"></option>
+                            <option value="1">Current</option>
+                            <option value="2">Next</option>
+                            <option value="3">Month After Next</option>
+                        </select>
+                        <p class="help-block">If selected updates the filter to also filter by the risk effective date in the desired month. 
+                            (Ex. Next Month would mean risks with effective date in @System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(DateTime.Now.AddMonths(1).Month))
+
+                        </p>
+                    </div>
+
+                    @*<div class="form-group">
+                        <label>Month Range</label>
+                        <select id="MonthRangeFilter" name="MonthRangeFilter" class="form-control">
+                            <option value="0"></option>
+                            <option value="2">2 Months (60 days)</option>
+                            <option value="3">3 Months (90 days)</option>
+                        </select>
+                        <p class="help-block">If user filter contains effecitve date. This will default the effective date filter up to 3 months out from the current month.</p>
+                    </div>*@
+
+                    @Html.Label("Filter:")
+                    <span style="clear:both;float:left">@Model.Expression</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

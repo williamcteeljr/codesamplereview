@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "UA Index";
+    Layout = "~/Views/Shared/_DevExtremeLayout.cshtml";
+}
+
+@Scripts.Render("~/bundles/angular")
+<style>
+    .dx-tab:hover {
+        background-color:#fff;
+    }
+</style>
+<div class="row" ng-app="ORA.UA">
+    <div ng-controller="moduleController" class="col-lg-12 col-md-12 col-sm-12 fillContainer" style=" height:100%;position: absolute;">
+        <div class="dx-tabs dx-widget dx-visibility-change-handler dx-collection dx-tabs-expanded" >
+            <div class="dx-indent-wrapper">
+                <a href="#/WorkingList" class="dx-item, dx-tab" ng-class="{'dx-tab-selected': route.current.activetab == 'WorkingList'}">
+                    <div class="dx-template-wrapper ng-scope dx-item-content dx-tab-content">
+                        <span class="dx-tab-text">Working List</span>
+                    </div>
+                </a>
+                
+                <a href="#/Payments" class="dx-item, dx-tab" ng-class="{'dx-tab-selected': route.current.activetab == 'Payments'}">
+                    <div class="dx-template-wrapper ng-scope dx-item-content dx-tab-content">
+                        <span class="dx-tab-text">Installments / Reporters</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div ng-view></div>
+    </div>
+    
+</div>

@@ -1,0 +1,6 @@
+﻿@Html.DevExpress().DocumentViewer(settings =>{
+    settings.Name = "NewBuisnessCountReport";
+    settings.Report = (RiskSubmissionCountReport)ViewData["Report"];
+    settings.CallbackRouteValues = new { Controller = "Reporting", Action = "NewBuisnessCountReport" };
+    settings.ExportRouteValues = new { Controller = "Reporting", Action = "NewBuisnessCountReport", exportReport = true };
+}).GetHtml()

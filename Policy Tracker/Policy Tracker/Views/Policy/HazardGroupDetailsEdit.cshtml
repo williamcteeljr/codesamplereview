@@ -1,0 +1,114 @@
+﻿@model PolicyTracker.DomainModel.Policy.Exposure
+
+<form id="HazardGroupEditForm" class="oraForm form-horizontal">
+    @Html.ValidationSummary()
+
+    @Html.HiddenFor(m => Model.ExposureID)
+    @Html.HiddenFor(m => Model.QuoteId)
+    @Html.HiddenFor(m => Model.PolicyNumber)
+    @Html.HiddenFor(m => Model.LocationID)
+
+    <div class="col-lg-8">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <i class="fa fa-plane"></i>
+                <h3 class="box-title">Hazard Group Details</h3>
+            </div><!-- /.box-header -->
+            <!-- form start -->
+            <div class="box-body">
+                <div class="form-group">
+                    <label class="col-lg-3 col-sm-3 control-label">Hazard State</label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.TextBoxFor(m => Model.HazardState, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-3 col-sm-3 control-label">Class Code:</label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.TextBoxFor(m => Model.Class, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-3 col-sm-3 control-label">Hazard Group:</label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.TextBoxFor(m => Model.HazardGroupCode, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-3 col-sm-3 control-label">Employee Type:</label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.TextBoxFor(m => Model.EmployeeTypeName, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-3 col-sm-3 control-label">Payroll Total:</label>
+                    <div class="col-lg-9 col-sm-9">
+                        @*@Html.TextBoxFor(m => Model.EmployeePayroll, new { @class = "form-control" })*@
+                        @*@Html.DevExpress().TextBoxFor(model => Model.EmployeePayroll, settings =>
+                            {
+                                settings.Name = "EmployeePayroll";
+                                settings.ControlStyle.CssClass = "form-control";
+                                settings.Properties.MaskSettings.Mask = "<0..99999999999g>";
+                                settings.Properties.MaskSettings.IncludeLiterals = MaskIncludeLiteralsMode.DecimalSymbol;
+                            }).Bind(Model.EmployeePayroll.ToString("NO")).GetHtml()*@
+                        @Html.TextBoxFor(model => Model.EmployeePayroll, "{0:c}", new { @class = "required numeric", id = "EmployeePayroll" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-3 col-sm-3 control-label">Premium Total:</label>
+                    <div class="col-lg-9 col-sm-9">
+                        @*@Html.TextBoxFor(m => Model.EmployeePremium, new { @class = "form-control" })*@
+                        @*@Html.DevExpress().TextBoxFor(model => Model.EmployeePremium, settings =>
+                            {
+                                settings.Name = "EmployeePremium";
+                                settings.ControlStyle.CssClass = "form-control";
+                                settings.Properties.MaskSettings.Mask = "<0..99999999999g>";
+                                settings.Properties.MaskSettings.IncludeLiterals = MaskIncludeLiteralsMode.DecimalSymbol;
+                            }).Bind(Model.EmployeePremium.ToString("NO")).GetHtml()*@
+                        @Html.TextBoxFor(model => Model.EmployeePremium, "{0:c}", new { @class = "required numeric", id = "EmployeePremium" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-3 col-sm-3 control-label">Employee Count:</label>
+                    <div class="col-lg-9 col-sm-9">
+                        @Html.TextBoxFor(m => Model.EmployeeCount, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <!--<div class="form-group">
+                    <label class="col-lg-3 col-sm-3 control-label">Hazard Location:</label>
+                    <div class="col-lg-9 col-sm-9">
+                        @*@Html.ListBoxFor(x => x.SelectedItemsIds, Model.OptionList, new { SelectionMode = "multiple", style = "width:100%" })*@
+                        Html.DropDownListFor(x => x.ExpSelectedItemsIds, Model.ExpOptionList, new { SelectionMode = "single", style = "width:100%" })
+                    </div>
+                </div> -->
+
+                @*<div class="form-group">
+                        <label class="col-lg-3 col-sm-3 control-label">Hazard Location:</label>
+                        <div class="col-lg-9 col-sm-9">
+                            @Html.TextBoxFor(m => Model.LocationID, new { @class = "form-control" })
+                        </div>
+                    </div>*@
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-lg-4">
+        <div class="box box-danger">
+            <!-- form start -->
+            <div class="box-body" style="text-align:center">
+                <i class="fa fa-ambulance" style="font-size:14em"></i>
+            </div>
+        </div>
+    </div>
+</form>
+
+

@@ -1,0 +1,45 @@
+﻿<script type="text/javascript">
+    ora.UI.Grid.Grid({
+        id: "BrokerAssignments",
+        pager: "BrokerAssignmentsPager",
+        height: 500,
+        restUrl: '/policytracker/api/AppManagement/GetBrokerAssignments/',
+        rowId: 'AssignmentId',
+        caption: '',
+        columnNames: ['AssignmentId', 'BrokerCode', 'UserId', 'UserName', 'ProductLineId', 'Product Line'],
+        columnModel: [
+            { name: 'AssignmentId', width: 70, search: false, hidden: true },
+            { name: 'BrokerCode', width: 100, search: true },
+            { name: 'UserId', width: 70, align: 'center' },
+            { name: 'UserName', width: 70, },
+            { name: 'ProductLineId', width: 70, align: 'center', hidden: true },
+            { name: 'ProductLine', width: 70, search: false },
+        ]
+    });
+
+    ora.UI.Grid.Pager(
+        {
+            id: "BrokerAssignments", pager: "BrokerAssignmentsPager",
+            deleteURL: "/policytracker/AppManagement/DeleteBrokerAssignment?assignmentId={0}",
+            editParams: { AssignmentId: "assignmentId" },
+            getURL: "/policytracker/AppManagement/EditBrokerAssignment",
+            form: { id: 'BrokerAssignmentEditForm', grid: "BrokerAssignments", submitURL: "/policytracker/AppManagement/EditBrokerAssignment", container: "BrokerAssignment_dg", dialog: "BrokerAssignment_dg" },
+            type: ora.Dialog.ActionFormSizes.Medium, modal: true
+        },
+        {
+            hasWriteAccess: true,
+            hasDeleteAccess: true
+        }
+    );
+
+    jQuery("#BrokerAssignments").filterToolbar({ searchOnEnter: true, enableClear: true });
+</script>
+
+<div class="box box-solid">
+    <div class="box-header with-border">
+        <h3 class="box-title">Broker To Underwriter Assignments</h3>
+    </div>
+    <div class="box-body">
+        @Html.jqGrid("BrokerAssignments", true)
+    </div>
+</div>

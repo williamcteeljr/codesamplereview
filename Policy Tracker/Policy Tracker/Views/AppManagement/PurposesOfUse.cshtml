@@ -1,0 +1,43 @@
+﻿<script type="text/javascript">
+    ora.UI.Grid.Grid({
+        id: "PurposesOfUse",
+        pager: "PurposesOfUsePager",
+        height: 500,
+        restUrl: '/policytracker/api/AppManagement/GetPurposesOfUse/',
+        rowId: 'Id',
+        caption: '',
+        columnNames: ['Id', 'Code', 'Name', 'Is Active'],
+        columnModel: [
+            { name: 'Id', width: 70, search: false, hidden: true },
+            { name: 'Code', width: 100, search: true },
+            { name: 'Name', width: 70 },
+            { name: 'IsActive', width: 70, },
+        ]
+    });
+
+    ora.UI.Grid.Pager(
+        {
+            id: "PurposesOfUse", pager: "PurposesOfUsePager",
+            deleteURL: "/policytracker/api/AppManagement/DeletePurposeOfUse/{0}",
+            editParams: { Id: "purposeId" },
+            getURL: "/policytracker/AppManagement/EditPurposeOfUse",
+            form: { id: 'PurposeOfUseEditForm', grid: "PurposesOfUse", submitURL: "/policytracker/AppManagement/EditPurposeOfUse", container: "PurposeOfUse_dg", dialog: "PurposeOfUse_dg" },
+            type: ora.Dialog.ActionFormSizes.Medium, modal: true
+        },
+        {
+            hasWriteAccess: true,
+            hasDeleteAccess: true
+        }
+    );
+
+    jQuery("#PurposesOfUse").filterToolbar({ searchOnEnter: true, enableClear: true });
+</script>
+
+<div class="box box-solid">
+    <div class="box-header with-border">
+        <h3 class="box-title">Risk Purposes of Use</h3>
+    </div>
+    <div class="box-body">
+        @Html.jqGrid("PurposesOfUse", true)
+    </div>
+</div>

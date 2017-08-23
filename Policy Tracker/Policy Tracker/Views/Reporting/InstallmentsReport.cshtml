@@ -1,0 +1,6 @@
+﻿@Html.DevExpress().DocumentViewer(settings =>{
+    settings.Name = "InstallmentsReport";
+    settings.Report = (Policy_Tracker.Reports.InstallmentsReport)ViewData["Report"];
+    settings.CallbackRouteValues = new { Controller = "Reporting", Action = "InstallmentsReport" };
+    settings.ExportRouteValues = new { Controller = "Reporting", Action = "ExportInstallmentsReport" };
+}).GetHtml()

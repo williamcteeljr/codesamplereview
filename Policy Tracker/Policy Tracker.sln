@@ -1,0 +1,118 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolicyTracker", "Policy Tracker\PolicyTracker.csproj", "{DD674D7A-CF42-4EA2-9028-E06B6CB56308}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{2B846237-9C53-4D0F-80F1-4F47D0C09A5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Platform", "Platform\Platform.csproj", "{EF21CAE9-3F43-4DB8-A316-0F20BA3F503F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainModel", "DomainModel\DomainModel.csproj", "{492B5DF3-522E-4622-A091-E2DE3AD0A701}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessServices", "BusinessServices\BusinessServices.csproj", "{EE0C8268-E840-4625-A19E-BF9FA58A407B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClaimsLoad", "BrokerDataLoad\ClaimsLoad.csproj", "{658B4E4D-FDE0-4ACB-A20A-757B1A0CE5FD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{65CA14EC-DD26-400D-A9E5-1DE87855C8EF}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{5279E043-C9AE-4698-9988-53ACE2FDBA47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceGateway", "ServiceGateway\ServiceGateway.csproj", "{A0867E44-A63F-4CA9-9EEF-08A9BDFF03D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTesting", "UnitTesting\UnitTesting.csproj", "{C2A75CE8-D040-4FBD-87B5-FE4C693707BE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "postingnoticeXSD", "postingnoticeXSD", "{40B5B9DA-79C3-49CF-8A5F-4D653873B0D0}"
+	ProjectSection(SolutionItems) = preProject
+		\\ORA-XDUPM\RedirectionStore$\rdunn\Documents\PNDC_ValetFeedSchema.xsd = \\ORA-XDUPM\RedirectionStore$\rdunn\Documents\PNDC_ValetFeedSchema.xsd
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "XMLSample", "XMLSample", "{25D1A48D-9330-41FF-B23D-78B97463C916}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD674D7A-CF42-4EA2-9028-E06B6CB56308}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD674D7A-CF42-4EA2-9028-E06B6CB56308}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD674D7A-CF42-4EA2-9028-E06B6CB56308}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD674D7A-CF42-4EA2-9028-E06B6CB56308}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B846237-9C53-4D0F-80F1-4F47D0C09A5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B846237-9C53-4D0F-80F1-4F47D0C09A5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B846237-9C53-4D0F-80F1-4F47D0C09A5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B846237-9C53-4D0F-80F1-4F47D0C09A5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF21CAE9-3F43-4DB8-A316-0F20BA3F503F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF21CAE9-3F43-4DB8-A316-0F20BA3F503F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF21CAE9-3F43-4DB8-A316-0F20BA3F503F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF21CAE9-3F43-4DB8-A316-0F20BA3F503F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{492B5DF3-522E-4622-A091-E2DE3AD0A701}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{492B5DF3-522E-4622-A091-E2DE3AD0A701}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{492B5DF3-522E-4622-A091-E2DE3AD0A701}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{492B5DF3-522E-4622-A091-E2DE3AD0A701}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE0C8268-E840-4625-A19E-BF9FA58A407B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE0C8268-E840-4625-A19E-BF9FA58A407B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE0C8268-E840-4625-A19E-BF9FA58A407B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE0C8268-E840-4625-A19E-BF9FA58A407B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{658B4E4D-FDE0-4ACB-A20A-757B1A0CE5FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{658B4E4D-FDE0-4ACB-A20A-757B1A0CE5FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{658B4E4D-FDE0-4ACB-A20A-757B1A0CE5FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{658B4E4D-FDE0-4ACB-A20A-757B1A0CE5FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5279E043-C9AE-4698-9988-53ACE2FDBA47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5279E043-C9AE-4698-9988-53ACE2FDBA47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5279E043-C9AE-4698-9988-53ACE2FDBA47}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{5279E043-C9AE-4698-9988-53ACE2FDBA47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5279E043-C9AE-4698-9988-53ACE2FDBA47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0867E44-A63F-4CA9-9EEF-08A9BDFF03D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0867E44-A63F-4CA9-9EEF-08A9BDFF03D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0867E44-A63F-4CA9-9EEF-08A9BDFF03D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0867E44-A63F-4CA9-9EEF-08A9BDFF03D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2A75CE8-D040-4FBD-87B5-FE4C693707BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2A75CE8-D040-4FBD-87B5-FE4C693707BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2A75CE8-D040-4FBD-87B5-FE4C693707BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2A75CE8-D040-4FBD-87B5-FE4C693707BE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 10
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://oratfs:8080/tfs/oracollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = BusinessServices\\BusinessServices.csproj
+		SccProjectName1 = BusinessServices
+		SccLocalPath1 = BusinessServices
+		SccProjectUniqueName2 = DataAccess\\DataAccess.csproj
+		SccProjectName2 = DataAccess
+		SccLocalPath2 = DataAccess
+		SccProjectUniqueName3 = DomainModel\\DomainModel.csproj
+		SccProjectName3 = DomainModel
+		SccLocalPath3 = DomainModel
+		SccProjectUniqueName4 = Platform\\Platform.csproj
+		SccProjectName4 = Platform
+		SccLocalPath4 = Platform
+		SccProjectUniqueName5 = BrokerDataLoad\\ClaimsLoad.csproj
+		SccProjectName5 = BrokerDataLoad
+		SccLocalPath5 = BrokerDataLoad
+		SccProjectUniqueName6 = WebAPI\\WebAPI.csproj
+		SccProjectName6 = WebAPI
+		SccLocalPath6 = WebAPI
+		SccProjectUniqueName7 = ServiceGateway\\ServiceGateway.csproj
+		SccProjectName7 = ServiceGateway
+		SccLocalPath7 = ServiceGateway
+		SccProjectUniqueName8 = Policy\u0020Tracker\\PolicyTracker.csproj
+		SccProjectName8 = Policy\u0020Tracker
+		SccLocalPath8 = Policy\u0020Tracker
+		SccProjectUniqueName9 = UnitTesting\\UnitTesting.csproj
+		SccProjectName9 = UnitTesting
+		SccLocalPath9 = UnitTesting
+	EndGlobalSection
+EndGlobal

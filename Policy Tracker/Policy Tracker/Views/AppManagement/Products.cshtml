@@ -1,0 +1,44 @@
+﻿<script type="text/javascript">
+    ora.UI.Grid.Grid({
+        id: "ProductsGrid",
+        pager: "ProductsGridPager",
+        height: 500,
+        restUrl: '/policytracker/api/AppManagement/GetProducts/',
+        rowId: 'Id',
+        caption: '',
+        columnNames: ['ProductId', 'Prefix', 'Description', 'QuoteType', 'IsActive'],
+        columnModel: [
+            { name: 'ProductId', width: 70, search: false, hidden: true },
+            { name: 'Prefix', width: 50, search: true },
+            { name: 'Description', width: 150, search: true },
+            { name: 'QuoteType', width: 70 },
+            { name: 'IsActive', width: 70, }
+        ]
+    });
+
+    ora.UI.Grid.Pager(
+        {
+            id: "ProductsGrid", pager: "ProductsGridPager",
+            deleteURL: "/policytracker/api/AppManagement/DeleteProduct/{0}",
+            editParams: { ProductId: "productId" },
+            getURL: "/policytracker/AppManagement/EditProduct",
+            form: { id: 'ProductEditForm', grid: "ProductsGrid", submitURL: "/policytracker/AppManagement/EditProduct", container: "Product_dg", dialog: "Product_dg" },
+            type: ora.Dialog.ActionFormSizes.Medium, modal: true
+        },
+        {
+            hasWriteAccess: true,
+            hasDeleteAccess: true
+        }
+    );
+
+    jQuery("#ProductsGrid").filterToolbar({ searchOnEnter: true, enableClear: true });
+</script>
+
+<div class="box box-solid">
+    <div class="box-header with-border">
+        <h3 class="box-title">Products (Policy Prefixes)</h3>
+    </div>
+    <div class="box-body">
+        @Html.jqGrid("ProductsGrid", true)
+    </div>
+</div>

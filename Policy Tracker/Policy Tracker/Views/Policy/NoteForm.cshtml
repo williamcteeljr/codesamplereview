@@ -1,0 +1,37 @@
+﻿@model PolicyTracker.DomainModel.Policy.RiskNote
+
+<form id="RiskNoteForm" class="oraForm">
+    <div class="row">
+        @Html.ValidationSummary()
+    </div>
+
+    @Html.HiddenFor(m => Model.Id)
+    @Html.HiddenFor(m => Model.RiskId)
+    @Html.HiddenFor(m => Model.CreatedById)
+    @Html.HiddenFor(m => Model.CreatedDate)
+    
+    <div class="form-group">
+        <label>Comment</label>
+        @Html.TextAreaFor(m => Model.Comment, new { style = "height:100px;", @class = "form-control" })
+    </div>
+    
+    <div class="form-group">
+        <div class="checkbox">
+            <label>
+                @Html.CheckBoxFor(m => Model.ImpactsPremium, new { data_control_selector = "#note-impact-date" })
+                Impacts Premium
+            </label>
+        </div>
+    </div>
+
+    <div id="note-impact-date" class="form-group">
+        <label>Impact Date</label>
+        @Html.TextBoxFor(m => Model.ImpactDate, new { @class = "form-control datepicker", @Value = WebAppDisplay.GetDateDisplayValue(Model.ImpactDate) })
+    </div>
+</form>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#ImpactsPremium").CheckBoxControl('#note-impact-date')
+    })
+</script>

@@ -1,0 +1,191 @@
+﻿@{
+    ViewBag.Title = "Company Console";
+    Layout = "~/Views/Shared/_DevExtremeLayout.cshtml";
+}
+
+@Scripts.Render("~/angular/controllers")
+@Scripts.Render("~/angular/directives")
+@Scripts.Render("~/plugins/ui-bootstrap")
+
+<section class="content-header">
+    <h1>
+        Company Console
+        <small>Year to Date</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li>Consoles</li>
+        <li class="active"><strong>Company</strong></li>
+    </ol>
+</section>
+
+<section class="content" ng-app="CompanyConsole" ng-controller="companyController">
+    <div class="row">
+        <div class="col-lg-2 col-md-3">
+            <!-- Profile Image -->
+            <div class="box box-primary">
+                <div class="box-body box-profile">
+                    <p class="lead"><strong>Product Line Premiums</strong></p>
+                    <ul class="list-group list-group-unbordered">
+                        <li class="list-group-item clearfix" ng-repeat="model in productLinePremiumData | orderBy: 'TotalPremium' : true">
+                            <div class="col-lg-8 col-md-12 no-padding clearfix">
+                                <span ng-attr-title="{{model.ProductLine}}"><strong>{{model.ProductLine}}</strong></span>
+                            </div>
+                            <div class="col-lg-4 col-md-12 no-padding clearfix text-right">
+                                <a>{{model.TotalPremium | currency:"$":0}}</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div><!-- /.box-body -->
+            </div><!-- /.box -->
+
+            <div class="box box-primary">
+                <div class="box-body">
+                    <p class="lead"><strong>Product Line Counts</strong></p>
+                    <ul class="list-group list-group-unbordered">
+                        <li class="list-group-item clearfix" ng-repeat="model in productLinePolicyCountData | orderBy: 'TotalRisks' : true">
+                            <div class="col-lg-8 col-md-12 no-padding clearfix">
+                                <span ng-attr-title="{{model.ProductLine}}"><strong>{{model.ProductLine}}</strong></span>
+                            </div>
+                            <div class="col-lg-4 col-md-12 no-padding clearfix text-right">
+                                <a>{{model.TotalRisks}}</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div><!-- /.box-body -->
+            </div><!-- /.box -->
+        </div><!-- /.col -->
+
+        <div class="col-lg-8 col-md-6">
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#section2tab_1-1" data-toggle="tab" aria-expanded="true">Top 20 Inforce Policies</a></li>
+                    <li class=""><a href="#section2tab_2-2" data-toggle="tab" aria-expanded="false">Top 10 Quotes</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="section2tab_1-1">
+                        <div dx-data-grid="topTwentyAccountsSettings"></div>
+                    </div><!-- /.tab-pane -->
+                    <div class="tab-pane" id="section2tab_2-2">
+                        <div dx-data-grid="topTenQuotesSettings"></div>
+                    </div><!-- /.tab-pane -->
+                </div><!-- /.tab-content -->
+            </div>
+
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Budget/Goal Projection</h3>
+                    <div class="pull-right">
+                        <select ng-model="budgetTimeframe" ng-change="budgetTimeframeChange()" class="form-control">
+                            <option value="Monthly">Monthly</option>
+                            <option value="Yearly">Yearly</option>
+                        </select>
+                    </div>
+                    <div class="pull-right" style="font-size:25px;margin-right:10px"><i class="fa fa-adjust" title="Show Details" ng-click="showDetails = !showDetails" style="cursor:pointer"></i></div>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                    <loading-indicator ng-show="loadingBudget"></loading-indicator>
+                    <div ng-show="!loadingBudget">
+                        <table class="table" ng-show="showDetails">
+                            <tbody>
+                                <tr>
+                                    <th>Product Line</th>
+                                    <th colspan="5"></th>
+                                    <th>% of Budget</th>
+                                </tr>
+                                <tr ng-repeat="budget in budgetData">
+                                    <td style="width:170px">
+                                        {{budget.ProductLine}}
+                                    </td>
+                                    <td colspan="5">
+                                        <uib-progressbar class="progress" value="budget.budgetPercent" type="primary"></uib-progressbar>
+                                    </td>
+                                    <td style="width:80px">
+                                        <span class="badge bg-light-blue">{{budget.budgetPercent | number : 0}}%</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="table" ng-show="!showDetails">
+                            <tbody>
+                                <tr>
+                                    <th>Product Line</th>
+                                    <th>Prior Year Written</th>
+                                    <th>Current Written</th>
+                                    <th>Quoted</th>
+                                    <th>Total</th>
+                                    <th>Budget</th>
+                                    <th>% of Budget</th>
+                                </tr>
+                                <tr ng-repeat="budget in budgetData">
+                                    <td>{{budget.ProductLine}}</td>
+                                    <td>{{budget.Actual | currency:"$":0}}</td>
+                                    <td>{{budget.Current | currency:"$":0}}</td>
+                                    <td>{{budget.CurrentOutstanding | currency:"$":0}}</td>
+                                    <td>{{budget.Total | currency:"$":0}}</td>
+                                    <td>{{budget.Budget | currency:"$":0}}</td>
+                                    <td>{{budget.budgetPercent | number : 2}}%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div><!-- /.box-body -->
+            </div>
+        </div>
+
+        <div class="col-lg-2 col-md-3">
+            <div class="box box-primary">
+                <div class="box-body box-profile">
+                    <h3><strong>Renewal Retention</strong> <br/> <small>(Rolling 12)</small></h3>
+                    <ul class="list-group list-group-unbordered">
+                        <li class="list-group-item clearfix">
+                            <div class="col-lg-12 col-md-12 col-sm-12 no-padding clearfix">
+                                <span><strong>By Count</strong></span>
+                            </div>
+                            <table class="table table-condensed" style="margin-bottom:0px">
+                                <tbody>
+                                    <tr>
+                                        <td><uib-progressbar class="progress progress-xs progress-striped" value="retention.TotalRetainedAsPercent" type="{{retention.TotalRetainedGrade}}"></uib-progressbar></td>
+                                        <td style="width:40px"><span ng-class="retention.TotalRetainedBadgeGrade" class="badge">{{retention.TotalRetainedAsPercent}}%</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                        <li class="list-group-item clearfix">
+                            <div class="col-lg-12 col-md-12 col-sm-12 no-padding clearfix">
+                                <span><strong>By Premium</strong></span>
+                            </div>
+                            <table class="table table-condensed" style="margin-bottom:0px">
+                                <tbody>
+                                    <tr>
+                                        <td><uib-progressbar class="progress progress-xs progress-striped" value="retention.ValueRetainedAsPercent" type="{{retention.TotalValueRetainedGrade}}"></uib-progressbar></td>
+                                        <td style="width:40px"><span ng-class="retention.TotalValueRetainedBadgeGrade" class="badge">{{retention.ValueRetainedAsPercent}}%</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                    </ul>
+                </div><!-- /.box-body -->
+            </div>
+
+            <div class="box box-primary">
+                <div class="box-body box-profile">
+                    <h3><strong>PL Growth</strong> <br /> <small>(Prior vs. Current)</small></h3>
+                    <ul class="list-group list-group-unbordered">
+                        <li class="list-group-item clearfix" ng-repeat="model in growthData | orderBy: 'TotalPremium' : true">
+                            <div class="col-lg-12 col-md-12 no-padding clearfix">
+                                <span ng-attr-title="{{model.ProductLine}}"><strong>{{model.ProductLine | limitTo : 20 : 0}}</strong></span>
+                            </div>
+                            <div class="col-lg-6 col-md-6 no-padding clearfix">
+                                <a title="Prior">{{model.CurrentAmount | currency:"$":0}}</a>
+                            </div>
+                            <div class="col-lg-6 col-md-6 no-padding clearfix text-right">
+                                <a title="Current">{{model.PriorAmount | currency:"$":0}}</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div><!-- /.box-body -->
+            </div>
+        </div>
+    </div>
+</section>

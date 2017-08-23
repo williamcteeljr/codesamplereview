@@ -1,0 +1,86 @@
+﻿@model PolicyTracker.DomainModel.Policy.WorkingListGridConfig
+<div class="row" style="">
+    <div class="col-lg-12" style="padding:0px">
+        <div class="panel panel-default borderless" style="margin-top:0px" >
+            @*<div class="panel-heading"> <i class="fa fa-th-list fa-fw"></i> Grid Configuration </div>*@
+            <div class="panel-body gray no-padding">
+                <form id="GridConfigForm">
+                    @Html.HiddenFor(m => Model.ConfigId)
+                    @Html.HiddenFor(m => Model.UserId)
+
+                    <div class="pull-left col-lg-12">
+                        <div class="form-group">
+                            <label style="font-size:16px;margin-bottom:5px !important">Configuration Name</label>
+                            @Html.TextBoxFor(m => Model.Name, new { @class = "form-control" })
+                            <p class="help-block">Description of Grid Column Configuration</p>
+                        </div>
+                        
+                    </div>
+                    <div class="pull-left col-lg-12">
+                        <p class="help-block clear">* Move columns from the "Available Columns" list to the "Selected Columns" list to define which columns will appear in your working list. The order of the 
+                            columns in the Working List will also be determined by the order in which you add them to the selected grids list.
+                        </p>
+                    </div>
+
+                    <div class="pull-left col-lg-5">
+                        <label class="pull-left">Available Columns</label>
+                        <p class="clear">
+                            @Html.ListBox("AvailableColumns", new SelectList(ViewBag.AvailableColumns, "Value", "DisplayText", null), new { @class = "selectList", @style = "width:100%; height: 250px" })
+                        </p>
+                    </div>
+
+                    <div class="pull-left col-lg-2 gridMenu">
+                        <button id="GCListAdd" type="button" class="btn btn-warning first" style="width:100%;margin-top:35%" target="GridColumns" origin="AvailableColumns">Add <i class="fa fa-long-arrow-right"></i></button>
+                        <button id="GCListRemove" type="button" class="btn btn-danger first" style="width:100%" list="GridColumns"><i class="fa fa-long-arrow-left"></i> Remove</button>
+                    </div>
+
+                    <div class="pull-right col-lg-5">
+                        <label class="pull-left">Selected Columns</label>
+                        <p class="clear">
+                            @Html.ListBoxFor(m => Model.GridColumns, new SelectList((Model.GridColumns != null) ? Model.GridColumns : Enumerable.Empty<string>()), new { @class = "selectList", @style = "width:100%; height: 250px" })
+                        </p>
+                    </div>
+                        
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" style="overflow-y:hidden;overflow-x:hidden;margin-left:0px; margin-right:0px">
+    <div class="col-lg-12"  style="padding:0px">
+        <div class="panel panel-primary borderless" style="margin-top:0px" >
+            <div class="panel-body gray no-padding gridMenu">
+                <button id="SaveGridConfig" type="button" class="btn btn-success first" style="width:100%"><i class="fa fa-disk"></i> Save Grid Column Configuration</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $("form#GridConfigForm #GCListAdd").each(function () { $(this).SelectListAdd(); })
+    $("form#GridConfigForm #GCListRemove").each(function () { $(this).SelectListRemove(); })
+
+    $("#GridConfigForm").submit(function (event) {
+        event.preventDefault();
+        $("form#GridConfigForm #GridColumns option").attr("selected", "selected");
+        ora.Ajax.FormPost(
+        {
+            url: "/PolicyTracker/Home/GridConfigForm",
+            dialog: "GridConfig_dg", container: "ConfigFormContainer", grid: "",
+            form: "GridConfigForm", data: $("#GridConfigForm").serializeArray(),
+            PreventDefault: true, closeOnSave: false,
+            successCallback: function (html) {
+                $("#ConfigFormContainer").html(html);
+                ora.Ajax.Ajax({
+                    url: '/policytracker/home/GridConfigList', type: 'GET', dataType: 'HTML',
+                    successCallback: function (html) {
+                        $("#GridConfigListContainer").html(html);
+                    }
+                });
+            }
+        })
+    });
+
+    $("#SaveGridConfig").click(function () { $("#GridConfigForm").submit(); });
+</script>

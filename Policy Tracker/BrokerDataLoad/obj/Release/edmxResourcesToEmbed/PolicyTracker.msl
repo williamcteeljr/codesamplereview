@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="UW_Base_AppModelStoreContainer" CdmEntityContainer="UW_Base_AppEntities">
+    <EntitySetMapping Name="RiskClaims">
+      <EntityTypeMapping TypeName="UW_Base_AppModel.RiskClaim">
+        <MappingFragment StoreEntitySet="RiskClaims">
+          <ScalarProperty Name="IncurredLoss" ColumnName="IncurredLoss" />
+          <ScalarProperty Name="PaidLoss" ColumnName="PaidLoss" />
+          <ScalarProperty Name="PaidExpense" ColumnName="PaidExpense" />
+          <ScalarProperty Name="Dividend" ColumnName="Dividend" />
+          <ScalarProperty Name="ClaimCount" ColumnName="ClaimCount" />
+          <ScalarProperty Name="Written" ColumnName="Written" />
+          <ScalarProperty Name="Earned" ColumnName="Earned" />
+          <ScalarProperty Name="Standard" ColumnName="Standard" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+          <ScalarProperty Name="PolicyNumber" ColumnName="PolicyNumber" />
+          <ScalarProperty Name="Prefix" ColumnName="Prefix" />
+          <ScalarProperty Name="PolicyEffDate" ColumnName="PolicyEffDate" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

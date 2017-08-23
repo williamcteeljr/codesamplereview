@@ -1,0 +1,8 @@
+﻿@Html.DevExpress().DocumentViewer(settings =>{
+    settings.Name = "PendingPremiumReport";
+    settings.Report = (Policy_Tracker.Reports.PendingPremiumReport)ViewData["Report"];
+    settings.CallbackRouteValues = new { Controller = "Reporting", Action = "PendingPremiumReport" };
+    settings.ExportRouteValues = new { Controller = "Reporting", Action = "ExportPendingPremiumReport" };
+}).GetHtml()
+
+
